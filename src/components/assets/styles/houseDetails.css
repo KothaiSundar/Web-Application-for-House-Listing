@@ -1,0 +1,150 @@
+.house-detail-page {
+ 
+  padding-top:100px; 
+  background-color:rgb(246,246,246);
+  height: 100vh;
+ 
+ }
+ 
+ .house-layout {
+  margin: 0 auto;
+ max-width: max(800px, 80%); 
+  text-align: left;
+ height: inherit;
+ 
+ 
+ }
+ 
+ .house-detailed-layout{
+  display: flex;
+ 
+ }
+ 
+ .navigation-bar{
+ 
+ width:100%;
+ 
+ 
+ align-items: center;
+ font-weight: bold;
+ display: flex; 
+ height: 80px;
+ 
+ } 
+ 
+ .goBack {
+  background: none;
+  border: none;
+  cursor: pointer;
+ }
+ .back-to-overview {
+  margin-left: 10px; 
+  font-size: 16px; 
+ }
+ 
+ 
+ .goBack img{
+  height: 20px;
+ 
+ } 
+ h2{
+  font-family: 'Montserrat';
+  font-weight:bold;
+  font-size:22px;
+ }
+ .housedetails{
+  
+ flex-basis: 70%;
+ background-color:white;
+ height: inherit;
+ margin-right: 50px;
+ 
+ }
+ 
+ .house-image img {
+ width: 100%;
+ display: block;
+ height: 550px;
+ padding-right: 100px;
+ }
+ .house-info{
+   padding-left: 30px;
+   padding-right: 30px;
+ }
+ .house-titlebar{
+  display: flex;
+  justify-content: space-between;
+ align-items: center;
+ 
+ }
+ 
+ .house-actions img{
+ 
+  padding-right: 20px;
+ }
+ h1{
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 32px;
+ }
+ .house-recommended{
+ 
+ flex-basis: 30%;
+ /* background-color: blue; */
+ 
+ }
+ 
+ .house-location{
+  display: flex;
+ 
+  gap:10px;
+ }
+ .house-location span{
+  font-family: 'Montserrat';
+  font-weight: 600;
+ }
+ /* If .house-area and .house-attributes are not ul, add this */
+ .house-area, .house-attributes {
+  display: flex;
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+  
+ }
+ 
+ /* Reset list styles and add flex display */
+ .house-area li, .house-attributes li {
+  list-style: none; /* Removes bullet points */
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap:  10px; 
+  padding-right:25px;
+  font-family: 'Montserrat';
+  font-weight:600;
+ 
+ 
+ }
+ 
+ /* Style icons with consistent size and margins */
+ .icon {
+  flex-shrink: 0; 
+  width: 20px; /* Adjust the width as needed */
+  height: 20px;
+ /* margin-right: 10px;  */
+ /* Adjust the space to the right of the icon */
+ }
+ 
+ 
+ 
+ 
+ .house-description {
+  text-align: justify;
+  line-height: 2;
+  font-family: 'Open Sans'; 
+  font-size: 18px;
+ 
+ 
+ }
+ 
+ 
+ 

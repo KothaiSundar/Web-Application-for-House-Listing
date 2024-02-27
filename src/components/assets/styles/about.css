@@ -1,0 +1,57 @@
+.about-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px; 
+  padding-left: 2rem; /* Left align the content */
+  padding-right: 2rem; /* Consistent padding on the right for balance */
+  /* Apply Open Sans to all content */
+  
+
+  }
+
+  .about-section {
+    margin-top:25px;
+    max-width: max(800px, 80%);
+  width: 100%;
+  text-align:justify;
+  /* line-height: 2; */
+  }
+  .about-para p{
+   
+
+   line-height: 2;
+   
+   width:1200px;
+  margin-top: 30px;
+ }
+  .about-section h1,
+  .about-section h2 {
+    color: #333;
+  text-align: left;
+
+
+  }
+  
+  .about-info {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .about-logo img {
+    width: 100px;
+    margin-right: 40px;
+    height: 80px;
+    width:220px;
+  }
+  .about-text{
+    line-height: 0.2;
+   
+  }
+
+  
+  .about-text a {
+ 
+    text-decoration: none;
+  }
+  

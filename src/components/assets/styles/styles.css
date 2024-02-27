@@ -1,0 +1,67 @@
+h1{
+    font-family: 'Montserrat';
+font-weight: bold;
+font-size: 32px;
+
+}
+h2{
+    font-family: 'Montserrat';
+font-weight: bold;
+font-size: 22px;
+
+}
+button{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.tabs{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+
+.header-active{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+.back-button{
+    font-family: 'Montserrat';
+    font-weight:600;
+    font-size: 16px;  
+}
+label{
+    font-family: 'Montserrat';
+    font-weight:600;
+    font-size: 14px;
+    
+}
+
+.header-inactive{
+    font-family: 'Montserrat';
+    font-weight:500;
+    font-size: 18px;
+}
+.error-message{
+    font-family: 'Montserrat-Italic';
+    font-weight:500;
+    font-size: 14px;
+}
+
+.input-field{
+    font-family: 'Open Sans';
+    font-size: 14px;  
+}
+.listing-info{
+    font-weight: 600;
+    font-family: 'open sans';
+font-size: 16px;
+}
+.body-text{
+    font-family: 'Open Sans'; 
+    font-size: 18px;
+}

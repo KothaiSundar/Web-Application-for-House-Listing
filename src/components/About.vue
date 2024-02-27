@@ -1,0 +1,48 @@
+<template>
+    <div class="about-container">
+
+       <section class="about-section">
+
+          <h1>About DTT Real Estate</h1>
+            <div class="about-para">
+                    <p class="body-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                        <p class="body-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+             </div><br>
+
+             <h1>Design and Development</h1>
+
+        <div class="about-info">
+          
+
+                <div class="about-logo">
+                    <img src="./assets/img_logo_dtt@3x.png" alt="DTT Logo" /> <!-- Update src with your logo's path -->
+                </div>
+                <div class="about-text body-text">
+                    <p id="dtt">By DTT</p>
+                    <p><a href="http://www.d-tt.nl" target="_blank">www.d-tt.nl</a></p>
+                </div>
+        </div>
+
+      </section>
+
+    </div>
+
+  </template>
+  
+  <script>
+  export default {
+    name: 'About'
+  };
+  </script>
+  
+  <style scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+  @import './assets/styles/about.css'; 
+
+  </style>
+  
