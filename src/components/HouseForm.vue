@@ -5,12 +5,14 @@
 
                       <div class="navigation-bar">
                       
+                        <div class="navigation-content"> 
                         <button @click="goBack" class="back-icon">
-                        <img src="./assets/ic_back_grey@3x.png" alt="back-icon">
-                        
+                        <img src="./assets/ic_back_grey@3x.png" alt="back">
                         </button>
-                        <div class="back-button">
-                        Back to overview
+
+                        <div class=" back-button">
+                          Back to overview
+                        </div>
                         </div>
             
                     </div>
@@ -32,6 +34,7 @@
                                 <label for="house-number">House number*</label>
                                 <input type="number" id="house-number" v-model="listing.location.houseNumber" required
                                 placeholder="Enter house number" class="input-placeholder input-field">
+                                <p class="error-message">(In Number)</p>
                            </div>
 
                            <div class="sub-details-group-right">
@@ -57,27 +60,31 @@
                     placeholder="Amsterdam" class="input-placeholder input-field">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group-image">
                               <label for="image" class="custom-file-upload">
                                 <div class="upload-text">Upload picture (PNG or JPG)*</div>
-                                <div class="upload-box">
+                                <div class="upload-box" v-if="!listing.image">
                                   <div class="upload-icon">
                                     <img src="./assets/ic_plus_grey@3x.png" alt="plus-icon">
                                   </div>
                                 </div>
                               </label>
-                              <input type="file" id="image" @change="handleFileUpload" required>
+
+                              <input type="file" id="image" ref="fileInput"  @change="handleFileUpload" :required="!isImageSelected && !listing.image">
                               
-                              <div v-if="listing.image" class="image-preview">
-                                <img :src="listing.image" alt="Uploaded image">
-                                <button type="button" @click="clearImage">X</button>
+                              <div v-if="isImageSelected || listing.image" class="image-preview">
+                                <img :src="listing.image" alt="Uploaded image" class="image-upload">
+                                <button type="button" @click="clearImage">
+                                    <img src="./assets/ic_clear_white@3x.png" alt="clear-icon" class="clear-icon">
+                                </button>
                               </div>
-  </div>
+                       </div>
 
                     <div class="form-group">
                         <label for="price">Price*</label>
                         <input type="text" id="price" v-model="listing.price" required
                         placeholder="e.g. $550,00" class="input-placeholder input-field">
+                        <p class="error-message">(In Number)</p>
                     </div>
 
                     <div class="form-group">
@@ -88,6 +95,7 @@
                                 <label for="size">Size*</label>
                                 <input type="number" id="size" v-model="listing.size" required
                                         placeholder=" e.g. 60m2" class="input-placeholder input-field">
+                                        <p class="error-message">(In Number)</p>
                             </div>
                             <div class="sub-details-group-right">
                                 <label for="garage">Garage*</label>
@@ -111,31 +119,30 @@
                             <label for="bedroom">Bedrooms*</label>
                             <input type="number" id="bedroom" v-model="listing.rooms.bedrooms" required
                             placeholder="Enter amount" class="input-placeholder input-field">
+                            <p class="error-message">(In Number)</p>
                         </div>
                         <div class="sub-details-group-right">
                             <label for="bathroom">Bathrooms*</label>
                              <input type="number" id="bathroom" v-model="listing.rooms.bathrooms" required
                             placeholder="Enter amount" class="input-placeholder input-field">
+                            <p class="error-message">(In Number)</p>
                         </div>
 
                         </div>
-
-
-                    
-                 
 
                     <div class="form-group">
                         <label for="construction-date">Construction date*</label>
                         <input type="number" id="construction-date" v-model="listing.constructionYear" required
                         placeholder="e.g. 1900" class="input-placeholder input-field">
+                        <p class="error-message">(construction year should be above 1900 year)</p>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Description*</label>
                         <textarea type="text" id="description" v-model="listing.description" required
-                        placeholder="Enter description" class="input-placeholder input-field" name="Address" rows="6" >
+                          placeholder="Enter description" class="input-placeholder input-field" name="Address" rows="6">
+                      </textarea>
 
-                        </textarea>
                    
                     </div>
 
@@ -156,69 +163,101 @@ import { useHouseStore } from '../services/store';
     data() {
       return {
         isEditMode: false,
-        selectedFile: null
-      };
+        selectedFile: null,
+        isImageSelected: false,
+        listing: null,
+      }
+ 
+      
+ 
+
+    },
+    created() {
+      console.log('created');
+      this.initialiseState();
     },
     
-    computed: {
-    
-        listing() {
-            const houseStore = useHouseStore();
-            this.isEditMode = !!houseStore.currentListing;
-            return houseStore.currentListing || {"location" : {}, "rooms" : {}};
-        },
-    },
+
     methods: {
+      initialiseState() {
+        const houseStore = useHouseStore();
+            console.log("listing curret => ", houseStore.currentListing );
+            if (houseStore.currentListing) {
+              this.isEditMode = true;
+              this.listing = houseStore.currentListing ;
+            } 
+            
+            else {
+              this.isEditMode = false;
+              this.listing =  {"location" : {}, "rooms" : {}, "image":null};
+            }
+      },
+
+
+
       goBack() {
         this.clearState();
         this.$router.go(-1); 
       },
+
       async submitForm() {
 
             console.log(JSON.stringify(this.listing));
             try {
-                let response;
-                if(this.isEditMode) {
-                    console.log('edit check =', this.listing.id);
-                     response = await housingApiServices.editHouse(this.listing.id, this.listing);
-                }
-                else{
-                    console.log('edit check =', this.listing);
-                     response = await housingApiServices.createHouse(this.listing);
-                }
-                console.log('new house id', response);
+                  let response;
+                  if(this.isEditMode) {
+                      console.log('edit check =', this.listing.id);
+                      response = await housingApiServices.editHouse(this.listing.id, this.listing);
+                  }
+                  else{
+                      console.log('edit check =', this.listing);
+                      response = await housingApiServices.createHouse(this.listing);
+                  }
+                  console.log('new house id', response);
 
-                //201 for creat and 204 for edit
-                if ((response.status === 201 || response.status === 204) && this.selectedFile) {
-                    let houseId = response.data.id;
-                    if(response &&  response.data.id ) {
-                        houseId = response.data.id;
-                    } 
-                    else if(this.isEditMode) {
-                        houseId = this.listing.id;
-                    }
-                    console.log('new house id==', houseId);
-                    response = await housingApiServices.uploadHouseImage(houseId, this.selectedFile);
+                  //201 for creat and 204 for edit
+                  if ((response.status === 201 || response.status === 204)) {
 
-                    if (response.status === 204) {
-                        console.log('Image uploaded successfully');
-                    }
-                    
-                    
-                }
-                this.clearState();
-                console.log('Image completed1 ');
-                this.$router.push({ name: 'Houses' }); 
+                      if(this.selectedFile) {
+                          let houseId = response.data.id;
+                          if(response &&  response.data.id ) {
+                              houseId = response.data.id;
+                          } 
+                          else if(this.isEditMode) {
+                              houseId = this.listing.id;
+                          }
+                          console.log('new house id==', houseId);
+                          response = await housingApiServices.uploadHouseImage(houseId, this.selectedFile);
 
-                console.log('Image completed2 ');
+                          if (response.status === 200 || response.status === 204) {
+                              console.log('Image uploaded successfully');
+                              // Reset the error message if the upload is successful
+                              this.errorMessage = '';
+                          } else {
+                              this.errorMessage = 'Image upload failed. Please try again.';
+                              window.alert('Image upload failed with status:', response.status);
+                          }
+                      }
+                      
+                      this.clearState();
+                      this.$router.push({ name: 'Houses' }); 
+
+                  }
+                  else {
+                    console.log("error is   "+response);
+                    window.alert("Error uploading edit content");
+                  }
+                
 
             } catch (error) {
                 // throw error;
-            console.error('An error occurred:', error);
-            window.alert('something went wrong. Please try again after sometime!!');
+              console.error('An error occurred:', error);
+              window.alert('something went wrong. Please try again after sometime!!');
             }
     },
-      handleFileUpload(event) {
+      handleFileUpload(event) 
+      {
+        console.log("inside handleFileUpload");
         const file = event.target.files[0];
         if (file) {
         // Create a FileReader to read the file
@@ -228,17 +267,24 @@ import { useHouseStore } from '../services/store';
             reader.onload = (e) => {
                 // Update listing.image with the base64 encoded string of the file
                 this.listing.image = e.target.result;
+                this.isImageSelected = true;
+                console.log("pic preview create:" + this.listing.image);
+
             };
 
             // Read the file as a Data URL (base64)
             reader.readAsDataURL(file);
             this.selectedFile = event.target.files[0];
+            console.log("after pic upload");
 
         }
       },
       clearImage() {
-        this.listing.image = '';
+        console.log("clear image");
+        this.listing.image = null;
+        this.isImageSelected = false;
         this.selectedFile = null;
+        this.$refs.fileInput.value = '';
       },
       clearState() {
         const houseStore = useHouseStore();

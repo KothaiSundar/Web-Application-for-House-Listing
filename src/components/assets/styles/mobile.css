@@ -1,0 +1,36 @@
+@media screen and (max-width: 768px)
+ {
+    .layout{
+        width: 100%; 
+        padding: 2%; 
+    }
+    h1{
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 18px;
+    }
+    h2{
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 14px;
+    }
+    button{
+        font-family: 'Montserrat';
+        font-size: 12px;
+    }
+    .tabs{
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 12px;
+        
+    }
+    .body-text{
+        font-family: 'Open Sans'; 
+        font-size: 12px;
+    }
+    .input-field{
+        font-family: 'Open Sans'; 
+        font-size: 12px;
+    }
+    
+}

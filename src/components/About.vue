@@ -1,5 +1,5 @@
 <template>
-    <div class="about-container">
+    <div class="layout">
 
        <section class="about-section">
 
@@ -15,7 +15,7 @@
 
              <h1>Design and Development</h1>
 
-        <div class="about-info">
+              <div class="about-info">
           
 
                 <div class="about-logo">
@@ -43,6 +43,9 @@
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
   @import './assets/styles/about.css'; 
+ @import './assets/styles/styles.css';
+ @import './assets/styles/mobile.css';
+
 
   </style>
   

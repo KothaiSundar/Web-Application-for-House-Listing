@@ -17,20 +17,7 @@ const apiClient = axios.create({
 export default {
   async createHouse(listing) {
     try {
-      // const response = await apiClient.post("", {
-      //   price: listing.price,
-      //   bedrooms: listing.rooms.bedrooms,
-      //   bathrooms: listing.rooms.bathrooms,
-      //   size: listing.size,
-      //   streetName: listing.location.street,
-      //   houseNumber: listing.location.houseNumber,
-      //   numberAddition: listing.location.houseNumberAddition,
-      //   zip: listing.location.zip,
-      //   city: listing.location.city,
-      //   constructionYear: listing.constructionYear,
-      //   hasGarage: listing.hasGarage,
-      //   description: listing.description,
-      // });
+     
 
       const formData = new FormData();
       formData.append("price", listing.price);
@@ -73,16 +60,18 @@ export default {
   },
 
   async deleteHouse(houseId) {
-    console.log("inside delte");
-    const response = await axios.delete(
-      `https://api.intern.d-tt.nl/api/houses/${houseId}`,
-      {
-        headers: {
-          "X-Api-Key": "ji1kyAep4Ubh2EZ5HOn7auSPIR_rLKD-", // Replace with your actual API key
-        },
-      }
-    );
-    console.log("inside delte1");
+    console.log("inside delete in api service");
+    // const response = await axios.delete(
+    //   `https://api.intern.d-tt.nl/api/houses/${houseId}`,
+    //   {
+    //     headers: {
+    //       "X-Api-Key": "ji1kyAep4Ubh2EZ5HOn7auSPIR_rLKD-", // Replace with your actual API key
+    //     },
+    //   }
+    // );
+    // console.log("inside delte1");
+
+    const response = await apiClient.delete(`/${houseId}`);
 
     return response;
   },

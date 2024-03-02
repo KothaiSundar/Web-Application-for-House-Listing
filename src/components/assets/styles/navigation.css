@@ -1,56 +1,85 @@
+/* Media query for mobile screens */
+@media screen and (max-width: 768px)
+ {
+
+  .navigation {
+   
+    height:6rem ;
+    width: 100%;
+    
+  }
+
+  .navigation-content {
+    position: static;
+ height: 5rem;
+ width: 100%;
+
+   
+  }
+
+  .logo img {
+    height: 1rem; 
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    display: none; /* Hide links initially on mobile */
+  }
+
+  .nav-links.mobile-active {
+    display: flex; /* Show links when menu icon is clicked */
+  }
+
+  .nav-item {
+    margin: 0.5rem 0; /* Adjust margin for mobile */
+  }
+}
 
 .navigation {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
-  z-index: 100;
-  height: 80px;
+  background-color: rgb(255,255,255);
+   z-index: 100;
+  height: 6rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+
+
 }
 
 .navigation-content {
   width: 100%;
-  max-width: max(800px, 80%); /* Adjust this value as necessary */
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  height: 60px; /* Adjust the height as needed */
-  padding: 0 2rem; /* Adjust the padding as needed */
+  max-width: max(800px, 80%); 
+   display: flex;
+   align-items: center;
+  
 }
 
+
 .logo img {
-  height: 2.5rem;
+  height: 3rem;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  height: 100%;
- color:rgb(246,246,246);
- margin-left: 30px;
- letter-spacing: 1px;
+  color:rgb(246,246,246);
 }
 
-.header-inactive, .nav-item {
-  margin-left: 1rem; /* Reduced space between nav items */
-  padding: 0.5rem 1rem; /* Reduced padding around nav items */
+.nav-links, .nav-item {
+  margin-left: 1rem; 
+  padding: 0.5rem 1rem; 
   text-decoration: none;
-
-  
   display: flex;
   align-items: center;
-  height: 100%;
   color:rgb(232,232,232);
 }
 
 
 
 .nav-links .active-link {
- 
-  color:black;
-
+   color:black;
 }

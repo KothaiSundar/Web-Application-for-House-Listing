@@ -1,22 +1,22 @@
 <template>
-    <header class="navigation">
+    <nav class="navigation">
         <div class="navigation-content">
 
             <div class="logo">
                 <img src="./assets/img_logo_dtt@3x.png" alt="DTT Logo" /> <!-- Update with your logo's path -->
             </div>
 
-            <nav class="nav-links header-inactive">
+            <div class="nav-links header-inactive">
                 <router-link to="/houses" class="nav-item header-active" exact-active-class="active-link">
                 Houses
                 </router-link>
                 <router-link to="/about" class="nav-item header-active" exact-active-class="active-link">
                 About
                 </router-link>
-            </nav>
+            </div>
       
         </div>
-    </header>
+    </nav>
   </template>
   
   <script>

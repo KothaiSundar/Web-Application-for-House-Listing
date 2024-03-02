@@ -1,3 +1,10 @@
+     
+.no-scroll{
+    position: fixed; 
+    overflow-y: scroll;
+    width: 100%;
+  }
+ 
 h1{
     font-family: 'Montserrat';
 font-weight: bold;
@@ -47,11 +54,16 @@ label{
     font-size: 18px;
 }
 .error-message{
-    font-family: 'Montserrat-Italic';
+    font-family: 'Montserrat';
     font-weight:500;
     font-size: 14px;
+    font-style: italic; 
 }
-
+.empty-message{
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight:500;
+}
 .input-field{
     font-family: 'Open Sans';
     font-size: 14px;  

@@ -114,7 +114,6 @@
   .houses-container {
     display: flex;
     flex-direction: column;
-  
   }
   
   .house-card {
@@ -126,6 +125,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     background: #fff; /* White background for each card */
     /* height: 150px; */
+
   }
   
   .house-image {
