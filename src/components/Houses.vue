@@ -5,16 +5,14 @@
 
            <div class="top-bar">
 
-              <div class="top-bar1">
-                  <h1>Houses</h1>
-                 <button class="create-new-btn" @click.stop="createHouse()">+ CREATE NEW</button>
-              </div>
+                  <div class="heading">
+                      <h1>Houses</h1>
+                    <button class="create-new-btn" @click.stop="createHouse()">+ CREATE NEW</button>
+                  </div>
               
 
-                  <div class="top-bar2">
-
-                   
-
+                  <div class="sorting">
+        
                      <div class="search-barInput">
                               <img src="./assets/ic_search@3x.png" alt="search-icon" class="search-icon">
                               <input
@@ -30,11 +28,10 @@
                                   class="clear-class"
                                   @click="clearSearch"
                               />
+                            
                       </div>
-                     
-
-
-                          <div class="sort-buttons">
+                          
+                      <div class="sort-buttons">
                                   <button
                                       class="sort-btn-price"
                                       :class="{ active: sortBy === 'price' }"
@@ -51,6 +48,10 @@
                                   </button>
                           </div>
                  </div>
+
+                 <div class="search-result">
+                      <p class="listing-info">{{ searchMessage }}</p>
+                 </div>
             
          </div>
   
@@ -59,7 +60,7 @@
 
                   <div class="house-card" v-for="house in filteredAndSortedHouses" :key="house.id" @click="goToHouseDetails(house.id)">
                       <img :src="house.image" alt="House image" class="house-image"/>
-                          <div class="house-info">
+                          <div class="houses-info">
                                   <div class="house-details">
                                           <h2>{{ `${house.location.street} ${house.location.houseNumber}` }}</h2>
                                           <p class="listing-info">€ {{ house.price.toLocaleString() }}</p>
@@ -75,7 +76,7 @@
                                   </div>
                                   <div class="house-actions" v-if="house.madeByMe">
                                           <img src="./assets/ic_edit@3x.png" alt="Edit" class="icon edit-icon"  @click.stop="editHouse(house.id)"/>
-                                          <img src="./assets/ic_delete@3x.png" alt="Delete" class="icon delete-icon" @click.stop="deleteHouse(house.id)"/>
+                                          <img src="./assets/ic_delete@3x.png" alt="Delete" class="icon delete-icon" @click.stop="showDeletePopup(house.id)"/>
                                   </div>
                           </div>
                           
@@ -94,6 +95,7 @@
   
   </div>
 </div>
+<delete-page v-if="showModal" :houseId="selectedHouseId" @close="showModal = false"></delete-page>
 
 </template>
 
@@ -102,7 +104,7 @@
 
 import { useHouseStore } from '../services/store';
 import housingApiService from '../services/HousingApiServices'
-
+import DeletePage from '../components/Delete.vue'; 
 export default {
   name: 'Houses',
   data() {
@@ -114,10 +116,27 @@ export default {
       houses: [] // initial empty array for houses
     };
   },
+  watch: {
+       showModal(value) {
+        console.log("watch "+value);
+      if (value) {
+        // When showModal is true, add the no-scroll class to prevent the background from scrolling
+       
+        document.body.classList.add('no-scroll');
+      } else {
+        // When showModal is false, remove the no-scroll class to allow scrolling again
+        document.body.classList.remove('no-scroll');
+      }
+    }
+  },
+    
   created() {
     // Fetch the house data when the component mounts
     this.fetchHouses();
   },
+  components: {
+      'delete-page': DeletePage
+    },
   computed: {
     
     filteredAndSortedHouses() {
@@ -141,6 +160,7 @@ export default {
         console.error('Error fetching houses:', error);
       }
     },
+      
     createHouse() {
       const houseStore = useHouseStore();
       houseStore.clearListing();
@@ -157,6 +177,22 @@ export default {
       houseStore.setListing(listing);
       this.$router.push({ name: 'HouseForm' });
     },
+
+    showDeletePopup(houseId) 
+      {
+        console.log('in delete in house page' + houseId);
+        if (houseId)
+         { // Check if houseId is not null or undefined
+          this.selectedHouseId = houseId;
+          this.showModal = true;
+        }
+         else 
+         {
+          console.error('houseId is null');
+          // Handle the error case where houseId is null
+        }
+      },
+      
     deleteHouse(houseId) {
       console.log('Deleting house', houseId);
       this.$router.push({ name: 'Delete', params: { id: houseId } });
@@ -187,9 +223,7 @@ export default {
         this.searchMessage = '';
         } else if (filtered.length > 0) {
         this.searchMessage = `${filtered.length} result(s) found`;
-        } else {
-        this.searchMessage = 'No results found';
-        }
+        } 
         return filtered;
     },
     sortHouses(toSortList) {
@@ -222,9 +256,8 @@ export default {
 
 
 <style scoped>
-
-
-.houses-page {
+ @import './assets/styles/houses.css';
+ .houses-page {
 
 padding-top: 100px; 
 background-color:rgb(246,246,246);
@@ -243,10 +276,10 @@ width:100%;
 display: flex;
 flex-direction: column;
 margin-bottom: 20px;
-align-items: center; 
+
 }
 
-.top-bar1, .top-bar2 {
+.heading, .sorting {
 display: flex;
 justify-content: space-between;
 width: 100%;
@@ -299,6 +332,17 @@ background-color: transparent;
 border: none;
 outline: none; /* Remove outline to match design */
 }
+.search-result{
+   text-align: left;
+   width: 300px;
+   height: 60px;
+  
+  
+}
+.listing-info{
+  margin-left: 1rem;
+  margin-top: 2rem;
+}
 
 .sort-buttons {
 display: flex;
@@ -345,13 +389,14 @@ flex-direction: column;
 
 .house-card {
 display: flex;
-align-items: flex-start; /* Align items to the top */
+align-items: flex-start; 
 padding: 20px; 
-/* Padding inside each house card */
-margin-bottom: 20px; /* Space between listings */
+
+margin-bottom: 20px; 
 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-background: #fff; /* White background for each card */
-/* height: 150px; */
+background: rgb(255,255,255);
+
+border-radius: 10px;
 }
 
 .house-image {
@@ -362,7 +407,7 @@ margin-right: 20px;
 border-radius: 8px;
 }
 
-.house-info {
+.houses-info {
 display: flex;
 justify-content: space-between;
 align-items: start;
@@ -445,13 +490,14 @@ margin: auto;
    justify-content: center;
 }
 .noResultsContent{
-  margin-top: 7.5rem;
+  margin-top: 2.5rem;
   width: 500px;
    height: 500px;
    display: flex;
    align-items: center;
    justify-content: center;
    flex-direction: column;
+ 
   
 }
 .noResults img{
@@ -459,6 +505,7 @@ width: 400px;
 height: 200px;
 }
 .noResultsContent p{
-  margin-top: 50px;
+  margin-top: 40px;
 }
+
 </style>

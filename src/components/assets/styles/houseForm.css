@@ -31,7 +31,7 @@
 
   .form {
     max-width: 100%; 
- background-color: rgb(19, 187, 75);
+
     padding-bottom: 1rem; 
    
   }
@@ -49,10 +49,7 @@
     /* Reset any margin if necessary */
   }
 
-.form-group-image input{
-  width: 180px;
-  height: 180px;
-}
+
   .sub-details {
     flex-direction: column; 
     /* Stack the child elements vertically */
@@ -288,4 +285,11 @@ input[type="file"] {
  height: 50px;
 
    
+  }
+  .empty{
+    color:rgb(235,84,64);
+
+  }
+  .border-red {
+    border: 1px solid rgb(235,84,64);
   }

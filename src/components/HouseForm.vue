@@ -22,8 +22,9 @@
 
                     <div class="form-group">
                     <label for="street-name">Street name*</label>
-                    <input type="text" id="street-name" v-model="listing.location.street" required 
+                    <input type="text" id="street-name" v-model="listing.location.street" required
                     placeholder="Enter the street name" class="input-placeholder input-field">
+                    
                     </div>
 
                     <div class="form-group">
@@ -35,12 +36,14 @@
                                 <input type="number" id="house-number" v-model="listing.location.houseNumber" required
                                 placeholder="Enter house number" class="input-placeholder input-field">
                                 <p class="error-message">(In Number)</p>
+                               
                            </div>
 
                            <div class="sub-details-group-right">
                             <label for="additional">Addtion (optional)</label>
                             <input type="text" id="addtional" v-model="listing.location.houseNumberAddition" 
                             placeholder="e.g. A" class="input-placeholder input-field">
+                      >
                           </div>
                        </div>
 
@@ -52,12 +55,14 @@
                     <label for="postal-code">Postal code*</label>
                     <input type="text" id="postal-code" v-model="listing.location.zip" required
                     placeholder="e.g. 1000 AA" class="input-placeholder input-field">
+                   
                     </div>
 
                     <div class="form-group">
                     <label for="city">City*</label>
                     <input type="text" id="city" v-model="listing.location.city" required
                     placeholder="Amsterdam" class="input-placeholder input-field">
+                   
                     </div>
 
                     <div class="form-group-image">
@@ -85,6 +90,7 @@
                         <input type="text" id="price" v-model="listing.price" required
                         placeholder="e.g. $550,00" class="input-placeholder input-field">
                         <p class="error-message">(In Number)</p>
+                       
                     </div>
 
                     <div class="form-group">
@@ -96,6 +102,7 @@
                                 <input type="number" id="size" v-model="listing.size" required
                                         placeholder=" e.g. 60m2" class="input-placeholder input-field">
                                         <p class="error-message">(In Number)</p>
+                                        
                             </div>
                             <div class="sub-details-group-right">
                                 <label for="garage">Garage*</label>
@@ -106,6 +113,7 @@
                                 <option value="true">Yes</option>
                                 <option value="false">No</option>
                                 </select>
+                                
                            </div>
                       </div>
 
@@ -120,30 +128,37 @@
                             <input type="number" id="bedroom" v-model="listing.rooms.bedrooms" required
                             placeholder="Enter amount" class="input-placeholder input-field">
                             <p class="error-message">(In Number)</p>
+                          
                         </div>
                         <div class="sub-details-group-right">
                             <label for="bathroom">Bathrooms*</label>
                              <input type="number" id="bathroom" v-model="listing.rooms.bathrooms" required
                             placeholder="Enter amount" class="input-placeholder input-field">
                             <p class="error-message">(In Number)</p>
+                           
                         </div>
 
                         </div>
 
                     <div class="form-group">
                         <label for="construction-date">Construction date*</label>
-                        <input type="number" id="construction-date" v-model="listing.constructionYear" required
+                        <input type="number" id="construction-date" v-model="listing.constructionYear" 
+                       required
                         placeholder="e.g. 1900" class="input-placeholder input-field">
                         <p class="error-message">(construction year should be above 1900 year)</p>
+                      
                     </div>
 
                     <div class="form-group">
                         <label for="description">Description*</label>
-                        <textarea type="text" id="description" v-model="listing.description" required
-                          placeholder="Enter description" class="input-placeholder input-field" name="Address" rows="6">
+                        <textarea type="text" id="description" 
+                        v-model="listing.description" 
+                        @blur="validateDescription" @input="validateDescription" 
+                          placeholder="Enter description" class="input-placeholder input-field" 
+                          name="Address" rows="6">
                       </textarea>
 
-                   
+                      <div v-if="descriptionError" class="empty error-message">{{ descriptionError }}</div>
                     </div>
 
             </div>
@@ -166,6 +181,7 @@ import { useHouseStore } from '../services/store';
         selectedFile: null,
         isImageSelected: false,
         listing: null,
+        descriptionError: '',
       }
  
       
@@ -192,7 +208,13 @@ import { useHouseStore } from '../services/store';
               this.listing =  {"location" : {}, "rooms" : {}, "image":null};
             }
       },
-
+      validateDescription() {
+    if (!this.listing.description) {
+      this.descriptionError = 'Required field missing.';
+    } else {
+      this.descriptionError = '';
+    }
+  },
 
 
       goBack() {
@@ -201,7 +223,14 @@ import { useHouseStore } from '../services/store';
       },
 
       async submitForm() {
-
+        // this.validateDescription();
+         this.descriptionError = ''; 
+        // Reset the error message
+                if (!this.listing.description) {
+                  // If the description is empty, set the error message and return
+                  this.descriptionError = 'Required field missing.';
+                  return;
+                }
             console.log(JSON.stringify(this.listing));
             try {
                   let response;

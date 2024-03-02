@@ -2,7 +2,7 @@
    <div class="house-detail-page" :class="{'no-scroll': showModal}">
 
 
-      <div class="house-layout">
+      <div class="house-details-layout">
 
             <div class="navigation-bar">
 
@@ -202,16 +202,15 @@ import DeletePage from '../components/Delete.vue';
   <style scoped>
   /* Add your CSS styles here to match the design */
   /* @import './assets/styles/styles.css';*/ 
-   
+  /* @import './assets/styles/houseDetails.css' */
 
-  
   .house-detail-page {
    
    margin-top:5rem; 
    background-color:rgb(246,246,246);
   }
   
-  .house-layout {
+  .house-details-layout {
    margin: 0 auto;
   max-width: max(800px, 80%); 
    text-align: left;
@@ -355,6 +354,7 @@ import DeletePage from '../components/Delete.vue';
   
   
   }
+  
   
   
   
