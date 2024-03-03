@@ -75,8 +75,7 @@
               </div>
             </label>
 
-            <input type="file" id="image" ref="fileInput" @change="handleFileUpload"
-              :required="!isImageSelected && !houseDetail.image">
+            <input type="file" id="image" ref="fileInput" @change="handleFileUpload">
 
             <div v-if="isImageSelected || houseDetail.image" class="image-preview">
               <img :src="houseDetail.image" alt="Uploaded image" class="image-upload">
@@ -84,6 +83,8 @@
                 <img src="./assets/ic_clear_white@3x.png" alt="clear-icon" class="clear-icon">
               </button>
             </div>
+
+            <div v-if="imageUploadError" class="empty error-message">{{ imageUploadError }}</div>
           </div>
 
           <div class="form-group">
@@ -151,9 +152,8 @@
 
             <div class="form-group">
               <label for="description">Description*</label>
-              <textarea type="text" id="description" v-model="houseDetail.description" @blur="validateDescription"
-                @input="validateDescription" placeholder="Enter description" class="input-placeholder input-field"
-                name="Address" rows="6">
+              <textarea type="text" id="description" v-model="houseDetail.description" placeholder="Enter description"
+                class="input-placeholder input-field" name="Address" rows="6">
                       </textarea>
 
               <div v-if="descriptionError" class="empty error-message">{{ descriptionError }}</div>
@@ -180,6 +180,7 @@ export default {
       isImageSelected: false,      // used to preview image 
       houseDetail: null,             // used to store houseattributes      
       descriptionError: '',           // handle description error
+      imageUploadError: ''
     }
   },
 
@@ -205,13 +206,7 @@ export default {
       }
     },
 
-    validateDescription() {
-      if (!this.houseDetail.description) {
-        this.descriptionError = 'Required field missing.';
-      } else {
-        this.descriptionError = '';
-      }
-    },
+
 
     // if we click back icon directed to one page 
     goBack() {
@@ -223,6 +218,12 @@ export default {
     async submitForm() {
 
       this.descriptionError = '';
+      this.imageUploadError = '';
+
+      if (!this.houseDetail.image) {
+        this.imageUploadError = 'Image required.';
+        return;
+      }
       if (!this.houseDetail.description) {
 
         this.descriptionError = 'Required field missing.';
