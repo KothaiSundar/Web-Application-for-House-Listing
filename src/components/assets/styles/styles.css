@@ -1,88 +1,82 @@
-.layout{
-    max-width: max(800px, 80%);
-    margin: 0 auto;
-}     
-.no-scroll{
-    position: fixed; 
-    overflow-y: scroll;
-    width: 100%;
-  }
- 
-h1{
-    font-family: 'Montserrat';
-font-weight: bold;
-font-size: 32px;
-
+.layout {
+  max-width: max(800px, 80%);
+  margin: 0 auto;
 }
-h2{
-    font-family: 'Montserrat';
-font-weight: bold;
-font-size: 22px;
-
-}
-button{
-    font-family: 'Montserrat';
-    font-weight: bold;
-    font-size: 18px;
+.no-scroll {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
 }
 
-.tabs{
-    font-family: 'Montserrat';
-    font-weight: bold;
-    font-size: 18px;
-    
+h1 {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 32px;
+}
+h2 {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 22px;
+}
+button {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.header-active{
-    font-family: 'Montserrat';
-    font-weight: bold;
-    font-size: 18px;
-    
-}
-.back-button{
-    font-family: 'Montserrat';
-    font-weight:600;
-    font-size: 16px;  
-}
-label{
-    font-family: 'Montserrat';
-    font-weight:600;
-    font-size: 14px;
-    
+.tabs {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.header-inactive{
-    font-family: 'Montserrat';
-    font-weight:500;
-    font-size: 18px;
+.header-active {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 18px;
 }
-.error-message{
-    font-family: 'Montserrat';
-    font-weight:500;
-    font-size: 14px;
-    font-style: italic; 
-   
+.back-button {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 16px;
 }
-.empty-message{
-    font-family: 'Montserrat';
-    font-size: 18px;
-    font-weight:500;
+label {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 14px;
 }
-.input-field{
-    font-family: 'Open Sans';
-    font-size: 14px;  
+
+.header-inactive {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 18px;
 }
-.listing-info{
-    font-weight: 600;
-    font-family: 'open sans';
-    font-size: 16px;
+.error-message {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 14px;
+  font-style: italic;
 }
-.body-text{
-    font-family: 'Open Sans'; 
-    font-size: 18px;
+.empty-message {
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-weight: 500;
 }
-.icon{
-    width: 20px; 
-    height: 20px; 
-    cursor: pointer; 
+.input-field {
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+.listing-info {
+  font-weight: 600;
+  font-family: "open sans";
+  font-size: 16px;
+}
+.body-text {
+  font-family: "Open Sans";
+  font-size: 18px;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
