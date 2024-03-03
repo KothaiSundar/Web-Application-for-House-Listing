@@ -21,7 +21,11 @@
 
 <script>
 export default {
-    name: 'NavigationBar'
+    name: 'NavigationBar',
+    mounted() {
+        // window.alert('NavigationBar');
+    }
+
 };
 </script>
 
