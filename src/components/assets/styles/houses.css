@@ -1,0 +1,213 @@
+.houses-page {
+    margin-top:5rem; 
+  background-color:rgb(246,246,246);
+  height: 100%;
+  }
+  
+  .top-bar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width:100%;
+  
+  }
+  .heading, .sorting {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding:15px 0px 15px 0px;
+  
+  }
+  
+  .create-new-btn {
+  height: 50px;
+  width:200px;
+  border: 5px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color:rgb(235,84,64);
+  color: rgb(255,255,255);
+  border: none;
+  cursor: pointer;
+  margin-top: 0;
+  
+  }
+  
+  
+  .search-barInput{
+  height: 50px;
+  background-color: rgba(232,232,232);
+  width: 500px;
+  border-radius: 10px;
+  
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  
+  
+  } 
+  
+  .search-icon{
+  height: 20px;
+  
+  }
+  .search-bar::placeholder{
+  color:rgb(195,195,195);
+  }
+  .search-bar {
+  flex-grow: 1;
+  margin-left: 10px; 
+  background-color: transparent; 
+  border: none;
+  outline: none; 
+  }
+  .search-result{
+     text-align: left;
+     width: 300px;
+     height: 60px;
+    
+    
+  }
+  
+  
+  .sort-buttons {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  
+  
+  }
+  .sort-btn-price{
+  flex-basis: 50%;
+  height: inherit;
+  border-radius: 10px 0px 0px 10px;
+  background-color: rgb(195,195,195);
+  border: none;
+  
+  }
+  button{
+    color: rgb(255,255,255);
+  
+  }
+  .sort-btn-size{
+  flex-basis: 50%;
+  height: inherit;
+  border-radius: 0px 10px 10px 0px;
+  border: none;
+  background-color: rgb(195,195,195);
+  
+  }
+  .sort-btn-price.active, .sort-btn-size.active {
+  
+  background-color: rgb(235,84,64); 
+  
+  }
+  .houses-container {
+  display: flex;
+  flex-direction: column;
+  
+  }
+  .house-card {
+  display: flex;
+  align-items: flex-start; 
+  padding: 20px; 
+  
+  margin-bottom: 20px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: rgb(255,255,255);
+  
+  border-radius: 10px;
+  }
+  
+  .houses-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+  border-radius: 8px;
+  }
+  .houses-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  
+  }
+  .houses-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 5px;
+  
+  }
+  
+  .houses-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  }
+  
+  .houses-address{
+  font-size: 18px;
+  font-family: 'Open sans';
+  color:rgb(195,195,195)
+  }
+  
+  .houses-icons{
+  display: flex;
+  align-items: center;
+  
+  font-family: 'Open sans';
+  gap:15px;
+  }
+  .houses-actions {
+  flex-direction: row; 
+  justify-content: flex-end;
+  align-items: center; 
+  }
+  
+  .edit-icon, .delete-icon {
+  border: none;
+  background: none;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  }
+  
+  .clear-class {
+  cursor: pointer;
+   margin-right: 20px;
+  width: 25px;
+  height: 25px;
+  }
+  
+  .clear-class[style*="display: none;"] {
+  display: none;
+  } 
+  .noResults{
+  
+      display: flex;
+     height: inherit;
+     margin: auto;
+      align-items: center;
+      justify-content: center;
+  }
+  .noResultsContent{
+    margin-top: 2.5rem;
+    width: 500px;
+     height: 500px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     
+  }
+  .noResults img{
+  width: 400px;
+  height: 200px;
+  }
+  .noResultsContent p{
+    margin-top: 40px;
+  }

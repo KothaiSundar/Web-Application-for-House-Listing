@@ -33,13 +33,26 @@ export default {
     }
   },
   methods: {
-    deleteListing() {
-        let deleteResposne =  housingApiService.deleteHouse(this.houseId);
-    //   window.alert("deleting house id" + deleteResposne.status);
-    this.$router.replace('/houses');
+    async deleteListing() {
 
-      this.$emit('close');
+      try {
+        let deleteResposne = await housingApiService.deleteHouse(this.houseId);
+        if (deleteResposne.status !== 200 && deleteResposne.status != 204) {
+          throw new Error('Failed to delete ');
+        }
+       
+        this.$router.replace('/houses');
+        
+      }
+      catch(error) {
+        window.alert('Error deleting house: ' + error.message + ", try after some time!!");
+      }
+      finally {
+        this.$emit('close');
+        
+        this.$emit('houseDeleted');
 
+      }
     }
   }
 };
@@ -54,12 +67,12 @@ export default {
         align-items:center;
         justify-content:center; 
  
-        position: fixed; /* Overlay should be fixed */
+        position: fixed; 
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        background-color: rgba(0, 0, 0, 0.5); 
         display: flex;
         align-items: center;
         justify-content: center;
@@ -73,24 +86,19 @@ export default {
         display:flex;
         align-items:center;
         justify-content:center; 
-        /* background-color:rgb(11, 173, 54); */
-
-
-        max-width: 90%; /* Responsive max-width */
-        width: 700px; /* Fixed width for larger screens */
-        max-height: 90%; /* Responsive max-height */
-        height: 400px; /* Fixed height for larger screens */
-        background-color: #fff; /* Background for the modal */
-        border-radius: 10px; /* Rounded corners */
-        padding: 20px; /* Padding inside the modal */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for modal */
+          max-width: 90%; 
+        width: 700px; 
+        max-height: 90%; 
+        height: 400px; 
+        background-color: rgb(255,255,255);
+        border-radius: 1;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
         display: flex;
         flex-direction: column;
  
     }
     .delete-content {
-  /* Styles for the modal box */
-  /* background-color: #fff; */
+
 width:400px;
 height:300px;
 
@@ -103,9 +111,7 @@ height:300px;
     align-items:center;
         justify-content:center;
     flex-direction:column;
-    /* margin-top:40px; */
-
-    margin-top: auto;
+       margin-top: auto;
    
 }
 .choose-to-delete{
@@ -114,7 +120,7 @@ height:300px;
     margin-top:20px;
     border-radius:10px;
     border:none;
-    color:white;
+    color:rgb(255,255,255);
     background-color: rgb(74,75,76);
 }
 .choose-to-delete:hover{
@@ -122,29 +128,6 @@ height:300px;
 background-color: rgb(235,84,64); 
 
 }
-
-/* .choose-to-delete.active, .choose-to-delete.active {
-
-background-color: rgb(235,84,64); 
-
-} */
-
-
-
-/* .modal {
-
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 500;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 
 
 

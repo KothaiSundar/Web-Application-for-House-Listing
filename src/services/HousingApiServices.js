@@ -17,8 +17,6 @@ const apiClient = axios.create({
 export default {
   async createHouse(listing) {
     try {
-     
-
       const formData = new FormData();
       formData.append("price", listing.price);
       formData.append("bedrooms", listing.rooms.bedrooms);
@@ -60,17 +58,6 @@ export default {
   },
 
   async deleteHouse(houseId) {
-    console.log("inside delete in api service");
-    // const response = await axios.delete(
-    //   `https://api.intern.d-tt.nl/api/houses/${houseId}`,
-    //   {
-    //     headers: {
-    //       "X-Api-Key": "ji1kyAep4Ubh2EZ5HOn7auSPIR_rLKD-", // Replace with your actual API key
-    //     },
-    //   }
-    // );
-    // console.log("inside delte1");
-
     const response = await apiClient.delete(`/${houseId}`);
 
     return response;
@@ -95,11 +82,6 @@ export default {
   async getHouseById(houseId) {
     try {
       const response = await apiClient.get(`/${houseId}`);
-      // const response = await axios.get(`https://api.intern.d-tt.nl/api/houses/${houseId}`, {
-      //     headers: {
-      //       'X-Api-Key': 'ji1kyAep4Ubh2EZ5HOn7auSPIR_rLKD-',
-      //     },
-      //   });
       return response;
     } catch (error) {
       throw error;

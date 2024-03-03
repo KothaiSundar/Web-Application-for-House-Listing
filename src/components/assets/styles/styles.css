@@ -1,4 +1,7 @@
-     
+.layout{
+    max-width: max(800px, 80%);
+    margin: 0 auto;
+}     
 .no-scroll{
     position: fixed; 
     overflow-y: scroll;
@@ -72,9 +75,14 @@ label{
 .listing-info{
     font-weight: 600;
     font-family: 'open sans';
-font-size: 16px;
+    font-size: 16px;
 }
 .body-text{
     font-family: 'Open Sans'; 
     font-size: 18px;
+}
+.icon{
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer; 
 }

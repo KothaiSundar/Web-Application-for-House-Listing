@@ -1,19 +1,13 @@
-import Home from "./components/Home.vue";
-import Houses from "./components/Houses.vue"; // Your houses component
-// import Houses from "./components/Houses_github.vue"; // Your houses component
 
-import About from "./components/About.vue"; // Your about component
-import HouseDetails from "./components/HouseDetails.vue"; // Your about component
-import HouseFrom from "./components/HouseForm.vue"; // Your houses component
+import Houses from "./components/Houses.vue";
+import About from "./components/About.vue"; 
+import HouseDetails from "./components/HouseDetails.vue";
+import HouseFrom from "./components/HouseForm.vue"; 
 import Delete from "./components/Delete.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-  {
-    name: "Home",
-    component: Home,
-    path: "/home",
-  },
+  { path: "/", redirect: "/houses" },
   {
     name: "Houses",
     component: Houses,

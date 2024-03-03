@@ -1,5 +1,5 @@
 /* Media query for mobile screens */
-@media screen and (max-width: 768px)
+@media screen and (max-width: 760px)
  {
 
   .navigation {
@@ -22,19 +22,20 @@
   }
 
   .nav-links {
-    flex-direction: column; /* Stack links vertically */
-    display: none; /* Hide links initially on mobile */
+    flex-direction: column;
+    display: none; 
   }
 
   .nav-links.mobile-active {
-    display: flex; /* Show links when menu icon is clicked */
+    display: flex; 
   }
 
   .nav-item {
-    margin: 0.5rem 0; /* Adjust margin for mobile */
+    margin: 0.5rem 0; 
   }
 }
 
+/* desktop view */
 .navigation {
   position: fixed;
   top: 0;
@@ -46,19 +47,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-
 }
-
 .navigation-content {
   width: 100%;
   max-width: max(800px, 80%); 
    display: flex;
    align-items: center;
-  
 }
-
-
 .logo img {
   height: 3rem;
 }
@@ -68,7 +63,6 @@
   align-items: center;
   color:rgb(246,246,246);
 }
-
 .nav-links, .nav-item {
   margin-left: 1rem; 
   padding: 0.5rem 1rem; 
@@ -78,8 +72,6 @@
   color:rgb(232,232,232);
 }
 
-
-
 .nav-links .active-link {
-   color:black;
+   color:rgb(0,0,0);
 }

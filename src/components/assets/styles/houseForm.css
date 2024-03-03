@@ -26,12 +26,11 @@
 
   .back-icon img {
     height: 16px;
-     /* Adjust image size if necessary */
+     
   }
 
   .form {
     max-width: 100%; 
-
     padding-bottom: 1rem; 
    
   }
@@ -42,91 +41,68 @@
   .form-group select,
   .form-group #description {
     width: calc(100% - 40px);
-     /* Adjust width to account for padding */
     padding: 10px; 
-    /* Adjust padding to be smaller on mobile */
-    margin: 0; 
-    /* Reset any margin if necessary */
+     margin: 0; 
+   
   }
-
-
   .sub-details {
     flex-direction: column; 
-    /* Stack the child elements vertically */
-  }
 
+  }
   .sub-details-group-left,
   .sub-details-group-right {
     flex-basis: 100%; 
-    /* Allow these elements to take the full width */
+    
     margin: 0; 
-    /* Reset margin to align with other elements */
   }
-
   .submit-button {
     width: 100%; 
-    /* Full width button for mobile */
     position: relative;
-     /* Adjust position to be relative */
-    margin-top: 1rem; 
-    /* Add margin top to separate it from the form */
-    height: 3rem; 
-    /* Adjust the height of the button */
+     margin-top: 1rem; 
+      height: 3rem; 
+  
   }
 }
 
 
 .house-form-page{
-  
-   margin-top:5%; 
+  margin-top:5%; 
   background-image: url(../img_background@3x.png);
-
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
   width:100vw;
-  height: 100;
+ 
   }
 
   .house-form-layout {
-  margin: 0 auto;
- max-width: max(800px, 80%); 
- 
-  text-align: left;
 
+  text-align: left;
 
 }
   .edit-listing-container {
-  
-    
-       width:500px;
+   width:500px;
 
   }
   .navigation-bar{
-
     width:100%;
     height: 5rem;
     padding-top: 1rem;
-    
-    
+        
     } 
     .navigation-content{
-    
-     
+        
     padding:0;
     margin: 0;
       height: 6rem;
-   
-    
+     
     }
     .back-icon {
      background: none;
      border: none;
      cursor: pointer;
     }
-    
-    
-    
+       
     .back-icon img{
      height: 1.5rem;
     
@@ -136,7 +112,7 @@
 
     }
 .form{
-  /* background-color: #00ff8c; */
+
   max-width: 90%;
   padding-bottom: 70px;
   position: relative;
@@ -144,8 +120,6 @@
   .form-group {
     padding-bottom: 10px;
    
-    /* background-color:violet; */
- 
     padding-top: 10px;
   }
   
@@ -156,7 +130,7 @@
  
   
   .input-placeholder::placeholder {
-  color: #c0c0c0;
+  color: rgb(195,195,195);
   opacity: 1; 
   
   }
@@ -235,16 +209,14 @@
   align-items: center;
   width: 150px;
   height: 150px;
-  
-  
+   
 }
-
 .upload-icon img{
   height:40px;
 }
 
 input[type="file"] {
-  display: none; /* Hide the default input */
+  display: none; 
 }
 .image-preview{
   width: 170px;
@@ -276,7 +248,7 @@ input[type="file"] {
   .submit-button {
   position: absolute;
       background: rgb(235,84,64);
-    color: white;
+    color: rgb(255,255,255);
     border: none;
       right: 0px;
     border-radius: 10px;
@@ -292,4 +264,7 @@ input[type="file"] {
   }
   .border-red {
     border: 1px solid rgb(235,84,64);
+  }
+  .error-message{
+    color: rgb(74,75,76);
   }

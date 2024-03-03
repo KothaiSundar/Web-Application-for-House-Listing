@@ -1,7 +1,7 @@
 <template>
   <div class="houses-page">
       
-    <div class="houses-layout">
+    <section class="layout">
 
            <div class="top-bar">
 
@@ -49,7 +49,7 @@
                           </div>
                  </div>
 
-                 <div class="search-result">
+                 <div class="search-result"  v-if="searchMessage">
                       <p class="listing-info">{{ searchMessage }}</p>
                  </div>
             
@@ -59,13 +59,13 @@
               <div v-if="filteredAndSortedHouses.length > 0">
 
                   <div class="house-card" v-for="house in filteredAndSortedHouses" :key="house.id" @click="goToHouseDetails(house.id)">
-                      <img :src="house.image" alt="House image" class="house-image"/>
+                      <img :src="house.image" alt="House image" class="houses-image"/>
                           <div class="houses-info">
-                                  <div class="house-details">
+                                  <div class="houses-details">
                                           <h2>{{ `${house.location.street} ${house.location.houseNumber}` }}</h2>
                                           <p class="listing-info">€ {{ house.price.toLocaleString() }}</p>
-                                          <p class="house-address"> {{ `${house.location.zip} ${house.location.city}` }} </p>
-                                          <p class="house-icons">
+                                          <p class="houses-address"> {{ `${house.location.zip} ${house.location.city}` }} </p>
+                                          <p class="houses-icons">
                                               <img class="icon" src="./assets/ic_bed@3x.png" alt="bed_icon">
                                               <span>{{ house.rooms.bedrooms }}  </span>
                                                <img class="icon" src="./assets/ic_bath@3x.png" alt="bath_icon">
@@ -74,7 +74,7 @@
                                                <span>{{ house.size }} m²</span>
                                           </p>
                                   </div>
-                                  <div class="house-actions" v-if="house.madeByMe">
+                                  <div class="houses-actions" v-if="house.madeByMe">
                                           <img src="./assets/ic_edit@3x.png" alt="Edit" class="icon edit-icon"  @click.stop="editHouse(house.id)"/>
                                           <img src="./assets/ic_delete@3x.png" alt="Delete" class="icon delete-icon" @click.stop="showDeletePopup(house.id)"/>
                                   </div>
@@ -93,9 +93,11 @@
               </div>
           </div>
   
-  </div>
+        </section>
+          
+       
 </div>
-<delete-page v-if="showModal" :houseId="selectedHouseId" @close="showModal = false"></delete-page>
+<delete-page v-if="showModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId" @close="showModal = false"></delete-page>
 
 </template>
 
@@ -113,7 +115,7 @@ export default {
       searchQuery: '',
       searchMessage: '',
       sortBy: 'price',
-      houses: [] // initial empty array for houses
+      houses: [] 
     };
   },
   watch: {
@@ -121,17 +123,22 @@ export default {
         console.log("watch "+value);
       if (value) {
         // When showModal is true, add the no-scroll class to prevent the background from scrolling
-       
         document.body.classList.add('no-scroll');
       } else {
         // When showModal is false, remove the no-scroll class to allow scrolling again
         document.body.classList.remove('no-scroll');
       }
-    }
+    },
+    searchQuery(newQuery) {
+      if (!newQuery) {
+    
+        this.searchMessage = '';
+      } 
+    },
   },
     
-  created() {
-    // Fetch the house data when the component mounts
+  mounted() {
+    // Fetch the house data when the component created
     this.fetchHouses();
   },
   components: {
@@ -154,13 +161,15 @@ export default {
       try {
         const response = await housingApiService.getAllHouses();
         console.log('data 1=> ', response);
-        if (response.status != 200) throw new Error('Failed to fetch');
+        if (response.status !== 200) {
+          throw new Error('Failed to delete ');
+        }
         this.houses = response.data;
       } catch (error) {
-        console.error('Error fetching houses:', error);
+        
+        window.alert('Error fetching houses: ' + error.message + ", try after some time!!");
       }
     },
-      
     createHouse() {
       const houseStore = useHouseStore();
       houseStore.clearListing();
@@ -220,10 +229,12 @@ export default {
         );
         // Update search message based on results
         if (!this.searchQuery) {
-        this.searchMessage = '';
+          this.searchMessage = '';
         } else if (filtered.length > 0) {
-        this.searchMessage = `${filtered.length} result(s) found`;
-        } 
+          this.searchMessage = `${filtered.length} result(s) found`;
+        } else {
+          this.searchMessage = null;
+        }
         return filtered;
     },
     sortHouses(toSortList) {
@@ -257,255 +268,4 @@ export default {
 
 <style scoped>
  @import './assets/styles/houses.css';
- .houses-page {
-
-padding-top: 100px; 
-background-color:rgb(246,246,246);
-height: 100%;
-}
-
-.houses-layout {
-margin: 0 auto;
-max-width: max(800px, 80%); 
-width:100%;
-
-}
-
-
-.top-bar {
-display: flex;
-flex-direction: column;
-margin-bottom: 20px;
-
-}
-
-.heading, .sorting {
-display: flex;
-justify-content: space-between;
-width: 100%;
-align-items: center;
-padding: 15px;
-}
-
-
-.create-new-btn {
-height: 50px;
-width:200px;
-border: 5px;
-border-radius: 10px;
-padding: 10px 20px;
-background-color: #ff3b30;
-color: white;
-border: none;
-cursor: pointer;
-margin-top: 0;
-
-}
-
-
-.search-barInput{
-height: 50px;
-background-color: rgba(232,232,232);
-width: 500px;
-border-radius: 10px;
-
-display: flex;
-align-items: center;
-padding-left: 20px;
-
-
-} 
-
-.search-icon{
-height: 20px;
-
-}
-.search-bar::placeholder{
-color:rgb(195,195,195);
-}
-.search-bar {
-flex-grow: 1;
-margin-left: 10px; /* Spacing between icon and input field */
-background-color: transparent; 
-
-
-border: none;
-outline: none; /* Remove outline to match design */
-}
-.search-result{
-   text-align: left;
-   width: 300px;
-   height: 60px;
-  
-  
-}
-.listing-info{
-  margin-left: 1rem;
-  margin-top: 2rem;
-}
-
-.sort-buttons {
-display: flex;
-align-items: center;
-width: 300px;
-height: 50px;
-
-
-}
-.sort-btn-price{
-flex-basis: 50%;
-height: inherit;
-border-radius: 10px 0px 0px 10px;
-background-color: rgb(195,195,195);
-border: none;
-
-}
-button{
-
-color: white;
-
-}
-.sort-btn-size{
-flex-basis: 50%;
-height: inherit;
-border-radius: 0px 10px 10px 0px;
-border: none;
-background-color: rgb(195,195,195);
-
-}
-
-.sort-btn-price.active, .sort-btn-size.active {
-
-background-color: rgb(235,84,64); 
-
-}
-
-
-.houses-container {
-display: flex;
-flex-direction: column;
-
-}
-
-.house-card {
-display: flex;
-align-items: flex-start; 
-padding: 20px; 
-
-margin-bottom: 20px; 
-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-background: rgb(255,255,255);
-
-border-radius: 10px;
-}
-
-.house-image {
-width: 150px;
-height: 150px;
-object-fit: cover;
-margin-right: 20px;
-border-radius: 8px;
-}
-
-.houses-info {
-display: flex;
-justify-content: space-between;
-align-items: start;
-width: 100%;
-
-}
-
-.house-details {
-display: flex;
-flex-direction: column;
-text-align: left;
-line-height: 1px;
-
-
-
-}
-
-
-
-.house-actions {
-display: flex;
-flex-direction: column;
-align-items: flex-end;
-}
-
-.house-address{
-font-size: 18px;
-font-family: 'Open sans';
-color:rgb(195,195,195)
-}
-.icon {
-width: 20px; 
-height: 20px; 
-cursor: pointer;
-
-}
-.house-icons{
-display: flex;
-align-items: center;
-
-font-family: 'Open sans';
-gap:15px;
-}
-
-
-/* Reduce the size of the edit and delete buttons/containers *//* Adjust the layout of the actions */
-.house-actions {
-flex-direction: row; /* Set direction to row for side-by-side icons */
-justify-content: flex-end; /* Align icons to the right */
-align-items: center; /* Vertically align icons */
-}
-
-/* Adjust the button style if they are actual buttons */
-.edit-icon, .delete-icon {
-border: none;
-background: none;
-padding: 5px;
-width: 20px;
-height: 20px;
-}
-
-.clear-class {
-cursor: pointer;
- margin-right: 20px;
-width: 25px;
-height: 25px;
-}
-
-.clear-class[style*="display: none;"] {
-display: none;
-} 
-
-.noResults{
-    /* background-color: #ff3b30; */
-   display: flex;
-height: inherit;
-margin: auto;
-
-   align-items: center;
-   justify-content: center;
-}
-.noResultsContent{
-  margin-top: 2.5rem;
-  width: 500px;
-   height: 500px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
- 
-  
-}
-.noResults img{
-width: 400px;
-height: 200px;
-}
-.noResultsContent p{
-  margin-top: 40px;
-}
-
 </style>

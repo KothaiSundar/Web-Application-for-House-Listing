@@ -1,8 +1,7 @@
 <template >
-   <div class="house-detail-page" :class="{'no-scroll': showModal}">
+   <div class="house-detail-page" :class="{'no-scroll': showDeleteModal}">
 
-
-      <div class="house-details-layout">
+      <section class="house-details-layout layout">
 
             <div class="navigation-bar">
 
@@ -22,7 +21,7 @@
              <div class="house-detailed-layout">
             
                                     
-                                <div class="housedetails">
+                                <div class="house-details">
 
                                             <div v-if="house" class="details-layout">
 
@@ -40,12 +39,11 @@
                                                         </div>
                                                         <p class="house-location">
                                                          <img class="icon" src="./assets/ic_location@3x.png" alt="location">
-                                                         <span>{{ `${house.location.zip} ${house.location.city}` }}</span> 
+                                                         <span class="listing-info">{{ `${house.location.zip} ${house.location.city}` }}</span> 
                                                         </p>
+                                                                                                             
                                                         
-                                                      
-                                                        <!-- <p class="house-description">{{ house.description }}</p> -->
-                                                        <ul class="house-area">
+                                                        <ul class="house-area listing-info">
                                                               <li>
                                                                 <img class="icon" src="./assets/ic_price@3x.png" alt="price_icon">
                                                                 <span>{{ house.price.toLocaleString() }}</span>
@@ -75,12 +73,12 @@
                                                               </li>
                                                         </ul>
 
-                                                        <p class="house-description">{{house.description}}</p>
+                                                        <p class="house-description body-text">{{house.description}}</p>
 
 
-                                                  </div><!-- end house info -->
+                                                  </div>
 
-                                            </div> <!-- end house detail -->
+                                            </div> 
 
                                           <div v-else class="loading">
                                             Loading details...
@@ -91,21 +89,18 @@
                                                   <h2>Recommended for you</h2>
                                         </div>
 
-                  </div>  <!-- end house detailed layout -->
+                  </div> 
                    
               
-      </div>  <!-- end house layout -->
+                </section> 
 
   </div>
-  <!-- end house detail page -->
-  <delete-page v-if="showModal" :houseId="selectedHouseId" @close="showModal = false"></delete-page>
+
+
+  <delete-page v-if="showDeleteModal" :houseId="selectedHouseId" @close="showDeleteModal = false"></delete-page>
 
   </template>
 
-  
-
-
-  
   <script>
 
 import housingApiService from '../services/HousingApiServices'
@@ -124,7 +119,7 @@ import DeletePage from '../components/Delete.vue';
     
     data() {
       return {
-        showModal: false,
+        showDeleteModal: false,
         selectedHouseId: "",
         house: null,
         loading: true,
@@ -132,14 +127,13 @@ import DeletePage from '../components/Delete.vue';
       };
     },
     watch: {
-       showModal(value) {
+      showDeleteModal(value) {
         console.log("watch "+value);
       if (value) {
-        // When showModal is true, add the no-scroll class to prevent the background from scrolling
-       
+        // When showDeleteModal is true, add the no-scroll class to prevent the background from scrolling
         document.body.classList.add('no-scroll');
       } else {
-        // When showModal is false, remove the no-scroll class to allow scrolling again
+        // When showDeleteModal is false, remove the no-scroll class to allow scrolling again
         document.body.classList.remove('no-scroll');
       }
     }
@@ -149,214 +143,61 @@ import DeletePage from '../components/Delete.vue';
         this.$router.go(-1); 
       },
       async fetchHouseDetails() {
-        // Placeholder for API call to fetch house details
-        // Simulating a fetch with a timeout
-        let houseResponse = await housingApiService.getHouseById(this.houseId);
-           console.log("jouses list",houseResponse);
-         this.house=houseResponse.data[0];
-         console.log("this house",this.house);
-       
+        
+        try {
+            let houseResponse = await housingApiService.getHouseById(this.houseId);
+
+            if(houseResponse.status !== 200) {
+                window.alert(`Unable to fetch House details for HouseId: ${this.houseId} `);
+                return;
+            }
+            if (Array.isArray(houseResponse.data) && houseResponse.data.length > 0) {
+                  this.house = houseResponse.data[0];
+              } else {
+                window.alert(`Unable to fetch House details for HouseId: ${this.houseId} `);
+              }
+            console.log("this house",this.house);
+        }
+        catch(error) {
+          window.alert(`Error fetching houses details with : ${error.message}, try after some time!!`);
+        }
       },
       showDeletePopup(houseId) 
       {
         console.log('in delete in house page' + houseId);
         if (houseId)
-         { // Check if houseId is not null or undefined
+         { 
           this.selectedHouseId = houseId;
-          this.showModal = true;
+          this.showDeleteModal = true;
         }
          else 
          {
           console.error('houseId is null');
-          // Handle the error case where houseId is null
+   
         }
       },
       
    
       editHouse(houseId) {
       
-        // alert(`Edit house with ID ${houseId}`);
        
            console.log('Editing house', this.house);
-        // const listing = this.house.find(house => house.id === houseId);
+     
         const houseStore = useHouseStore();
         houseStore.setListing(this.house);
         this.$router.push({ name: 'HouseForm' });
       
       },
-      deleteHouse(id) {
-        // Placeholder for delete logic
-        alert(`Delete house with ID ${id}`);
-      },
     },
     created() {
-      // Access the id parameter from the route
+     
       this.houseId = this.$route.params.id;
-      this.fetchHouseDetails(); // Call the method to fetch details
-    },
-    mounted() {
-      // this.fetchHouseDetails();
+      this.fetchHouseDetails();
     },
   };
   </script>
-  <style scoped>
-  /* Add your CSS styles here to match the design */
-  /* @import './assets/styles/styles.css';*/ 
-  /* @import './assets/styles/houseDetails.css' */
 
-  .house-detail-page {
-   
-   margin-top:5rem; 
-   background-color:rgb(246,246,246);
-  }
-  
-  .house-details-layout {
-   margin: 0 auto;
-  max-width: max(800px, 80%); 
-   text-align: left;
-  height: inherit;
-  
-  
-  }
-  
-  .house-detailed-layout{
-   display: flex;
-    margin-top: 20px;
-    
-  }
-  
-  .navigation-bar{
-  
-  width:100%;
-  height: 6rem;
-  padding-top: 1rem;
-  
-  
-  } 
-  .navigation-content{
-  
-   
-  padding:0;
-  margin: 0;
-    height: 6rem;
-  
-  }
-  .back-icon {
-   background: none;
-   border: none;
-   cursor: pointer;
-  }
-  
-  
-  
-  .back-icon img{
-    height: 1.5rem;
-  
-  } 
-  .back-button{
-    margin-left: 1rem;
-  }
-  h2{
-   font-family: 'Montserrat';
-   font-weight:bold;
-   font-size:22px;
-  }
-  .housedetails{
-   
-  flex-basis: 70%;
-  background-color:white;
-  height: inherit;
-  margin-right: 50px;
-  margin-bottom: 50px;
-  }
-  
-  .house-image img {
-  width: 100%;
-  display: block;
-  height: 550px;
-  padding-right: 100px;
-  }
-  .house-info{
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  .house-titlebar{
-   display: flex;
-   justify-content: space-between;
-  align-items: center;
-  
-  }
-  
-  .house-actions img{
-  
-   padding-right: 20px;
-  }
-  h1{
-   font-family: 'Montserrat';
-   font-weight: bold;
-   font-size: 32px;
-  }
-  .house-recommended{
-  
-  flex-basis: 30%;
-  /* background-color: blue; */
-  
-  }
-  
-  .house-location{
-   display: flex;
-  
-   gap:10px;
-  }
-  .house-location span{
-   font-family: 'Montserrat';
-   font-weight: 600;
-  }
-  /* If .house-area and .house-attributes are not ul, add this */
-  .house-area, .house-attributes {
-   display: flex;
-   padding: 0; /* Removes default padding */
-   margin: 0; /* Removes default margin */
-   
-  }
-  
-  /* Reset list styles and add flex display */
-  .house-area li, .house-attributes li {
-   list-style: none; /* Removes bullet points */
-   padding-bottom: 20px;
-   display: flex;
-   align-items: center;
-   gap:  10px; 
-   padding-right:25px;
-   font-family: 'Montserrat';
-   font-weight:600;
-  
-  
-  }
-  
-  /* Style icons with consistent size and margins */
-  .icon {
-   flex-shrink: 0; 
-   width: 20px; /* Adjust the width as needed */
-   height: 20px;
-  /* margin-right: 10px;  */
-  /* Adjust the space to the right of the icon */
-  }
-  
-  
-  
-  
-  .house-description {
-   text-align: justify;
-   line-height: 2;
-   font-family: 'Open Sans'; 
-   font-size: 18px;
-  
-  
-  }
-  
-  
-  
-  
+  <style scoped>
+  @import './assets/styles/houseDetails.css';
   </style>
   

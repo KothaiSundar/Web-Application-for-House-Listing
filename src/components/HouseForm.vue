@@ -1,6 +1,6 @@
 <template>
     <div class="house-form-page">
-      <div class="house-form-layout">
+      <section class="house-form-layout layout">
          <div class="edit-listing-container">
 
                       <div class="navigation-bar">
@@ -43,7 +43,7 @@
                             <label for="additional">Addtion (optional)</label>
                             <input type="text" id="addtional" v-model="listing.location.houseNumberAddition" 
                             placeholder="e.g. A" class="input-placeholder input-field">
-                      >
+                      
                           </div>
                        </div>
 
@@ -165,7 +165,7 @@
                 <button type="submit" class="submit-button">POST</button>
       </form>
     </div>
-</div>
+  </section>
 </div>
   </template>
   
@@ -183,20 +183,13 @@ import { useHouseStore } from '../services/store';
         listing: null,
         descriptionError: '',
       }
- 
-      
- 
-
     },
     created() {
-      console.log('created');
       this.initialiseState();
     },
-    
-
     methods: {
       initialiseState() {
-        const houseStore = useHouseStore();
+            const houseStore = useHouseStore();
             console.log("listing curret => ", houseStore.currentListing );
             if (houseStore.currentListing) {
               this.isEditMode = true;
@@ -205,16 +198,17 @@ import { useHouseStore } from '../services/store';
             
             else {
               this.isEditMode = false;
+              //set empty default value.
               this.listing =  {"location" : {}, "rooms" : {}, "image":null};
             }
       },
       validateDescription() {
-    if (!this.listing.description) {
-      this.descriptionError = 'Required field missing.';
-    } else {
-      this.descriptionError = '';
-    }
-  },
+          if (!this.listing.description) {
+            this.descriptionError = 'Required field missing.';
+          } else {
+            this.descriptionError = '';
+          }
+      },
 
 
       goBack() {
@@ -223,65 +217,63 @@ import { useHouseStore } from '../services/store';
       },
 
       async submitForm() {
-        // this.validateDescription();
-         this.descriptionError = ''; 
-        // Reset the error message
-                if (!this.listing.description) {
-                  // If the description is empty, set the error message and return
-                  this.descriptionError = 'Required field missing.';
-                  return;
-                }
+
+          this.descriptionError = ''; 
+            if (!this.listing.description) {
+           
+              this.descriptionError = 'Required field missing.';
+              return;
+            }
             console.log(JSON.stringify(this.listing));
             try {
                   let response;
                   if(this.isEditMode) {
-                      console.log('edit check =', this.listing.id);
                       response = await housingApiServices.editHouse(this.listing.id, this.listing);
                   }
                   else{
-                      console.log('edit check =', this.listing);
                       response = await housingApiServices.createHouse(this.listing);
                   }
                   console.log('new house id', response);
 
-                  //201 for creat and 204 for edit
+                 
                   if ((response.status === 201 || response.status === 204)) {
-
+                      let houseId ;
+                      if(response &&  response.data.id ) {
+                          houseId = response.data.id;
+                      } 
+                      else if(this.isEditMode) {
+                          houseId = this.listing.id;
+                      }
                       if(this.selectedFile) {
-                          let houseId = response.data.id;
-                          if(response &&  response.data.id ) {
-                              houseId = response.data.id;
-                          } 
-                          else if(this.isEditMode) {
-                              houseId = this.listing.id;
-                          }
+                          
                           console.log('new house id==', houseId);
                           response = await housingApiServices.uploadHouseImage(houseId, this.selectedFile);
 
-                          if (response.status === 200 || response.status === 204) {
-                              console.log('Image uploaded successfully');
-                              // Reset the error message if the upload is successful
-                              this.errorMessage = '';
-                          } else {
-                              this.errorMessage = 'Image upload failed. Please try again.';
+                          if (response.status !== 200 && response.status !== 204) {
                               window.alert('Image upload failed with status:', response.status);
+                              return;
                           }
                       }
                       
                       this.clearState();
-                      this.$router.push({ name: 'Houses' }); 
+                      //reload houses page
+                      console.log("house id: " + houseId);
+                      if(houseId) {
+                        this.$router.push({ name: 'HouseDetails', params: { id: houseId } });
+                      } else {
+                        this.$router.push({ name: 'Houses' }); 
+                      }
 
                   }
                   else {
-                    console.log("error is   "+response);
-                    window.alert("Error uploading edit content");
+                    window.alert("Error uploading housing detail!!");
                   }
                 
 
             } catch (error) {
-                // throw error;
+          
               console.error('An error occurred:', error);
-              window.alert('something went wrong. Please try again after sometime!!');
+              window.alert(`Saving Hosing details failed : ${error.message}, Please try again!!`);
             }
     },
       handleFileUpload(event) 
@@ -289,19 +281,19 @@ import { useHouseStore } from '../services/store';
         console.log("inside handleFileUpload");
         const file = event.target.files[0];
         if (file) {
-        // Create a FileReader to read the file
+       
             const reader = new FileReader();
             this.selectedFile = file;
-            // Define what happens on file load
+     
             reader.onload = (e) => {
-                // Update listing.image with the base64 encoded string of the file
+           
                 this.listing.image = e.target.result;
                 this.isImageSelected = true;
                 console.log("pic preview create:" + this.listing.image);
 
             };
 
-            // Read the file as a Data URL (base64)
+        
             reader.readAsDataURL(file);
             this.selectedFile = event.target.files[0];
             console.log("after pic upload");
@@ -313,6 +305,8 @@ import { useHouseStore } from '../services/store';
         this.listing.image = null;
         this.isImageSelected = false;
         this.selectedFile = null;
+
+        
         this.$refs.fileInput.value = '';
       },
       clearState() {
@@ -325,7 +319,6 @@ import { useHouseStore } from '../services/store';
   
   <style scoped>
 
-@import './assets/styles/styles.css';
 @import './assets/styles/houseForm.css';
   
 

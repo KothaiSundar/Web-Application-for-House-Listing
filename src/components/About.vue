@@ -1,7 +1,8 @@
 <template>
-    <div class="layout">
 
-       <section class="about-section">
+    <div class="about-page">
+
+       <section class="about-section layout">
 
           <h1>About DTT Real Estate</h1>
             <div class="about-para">
@@ -17,9 +18,8 @@
 
               <div class="about-info">
           
-
                 <div class="about-logo">
-                    <img src="./assets/img_logo_dtt@3x.png" alt="DTT Logo" /> <!-- Update src with your logo's path -->
+                    <img src="./assets/img_logo_dtt@3x.png" alt="DTT Logo" />
                 </div>
                 <div class="about-text body-text">
                     <p id="dtt">By DTT</p>
@@ -43,9 +43,6 @@
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
   @import './assets/styles/about.css'; 
- @import './assets/styles/styles.css';
- @import './assets/styles/mobile.css';
-
 
   </style>
   
