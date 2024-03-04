@@ -35,7 +35,7 @@
           <p class="listing-info">{{ searchMessage }}</p>
         </div>
 
-       </div>   <!-- top-bar ends -->
+      </div> <!-- top-bar ends -->
 
       <div class="houses-container">
         <div v-if="filteredAndSortedHouses.length > 0">
@@ -70,17 +70,17 @@
 
           </div><!--  house-card ends -->
         </div>
-            <div v-else class="no-results">
-              <div class="no-results-content">
-                <img src="./assets/img_empty_houses@3x.png" alt="No results" class="no-results-image" />
-                <p class="empty-message">No results found.<br>Please try another keyword.</p>
-              </div>
-            </div>
+        <div v-else class="no-results">
+          <div class="no-results-content">
+            <img src="./assets/img_empty_houses@3x.png" alt="No results" class="no-results-image" />
+            <p class="empty-message-mobile">No results found.<br>Please try another keyword.</p>
+          </div>
+        </div>
       </div><!--  house-container ends -->
 
     </section><!--  layout ends -->
 
- </div> <!--  houses-page ends -->
+  </div> <!--  houses-page ends -->
   <delete-popup v-if="showDeleteModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId"
     @close="showDeleteModal = false"></delete-popup>
 
@@ -88,8 +88,7 @@
 
 
 <script>
-
-import commonHouses from '@/javaScriptLogics/commonHouses';
+import commonHouses from './utils/commonHouses';
 
 import DeletePage from '../components/Delete.vue';
 export default {

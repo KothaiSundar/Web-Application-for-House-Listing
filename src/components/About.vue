@@ -1,9 +1,6 @@
 <template>
-
   <div class="about-page">
-
     <section class="about-section layout">
-
       <h1>About DTT Real Estate</h1>
       <div class="about-para">
         <p class="body-text">
@@ -22,7 +19,6 @@
       <h1>Design and Development</h1>
 
       <div class="about-info">
-
         <div class="about-logo">
           <img src="./assets/img_logo_dtt@3x.png" alt="DTT Logo" />
         </div>
@@ -32,9 +28,9 @@
         </div>
       </div>
 
-    </section>
+    </section><!-- about-section layout ends -->
 
-  </div>
+  </div><!-- about-page ends -->
 
 </template>
 

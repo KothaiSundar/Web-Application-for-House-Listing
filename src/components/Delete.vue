@@ -60,6 +60,4 @@ export default {
 <style scoped>
 @import './assets/styles/styles.css';
 @import './assets/styles/deletePopup.css';
-
-
 </style>

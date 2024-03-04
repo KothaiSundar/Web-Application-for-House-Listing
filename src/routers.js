@@ -1,7 +1,3 @@
-import Houses from "./components/Houses.vue";
-
-import HousesMobile from "./components/About.vue";
-
 import About from "./components/About.vue";
 import HouseDetails from "./components/HouseDetails.vue";
 import HouseFrom from "./components/HouseForm.vue";
@@ -9,16 +5,8 @@ import Delete from "./components/Delete.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import ResponsiveHouses from "./components/ResponsiveHouses.vue";
 
-
 const routes = [
   { path: "/", redirect: "/houses" },
-  
-// {
-//     name: "Houses",
-//     component: Houses,
-//     path: "/houses",
-//   },
-
 
   {
     name: "Houses",
@@ -26,8 +14,6 @@ const routes = [
     path: "/houses",
   },
 
-
-  
   {
     name: "About",
     component: About,
