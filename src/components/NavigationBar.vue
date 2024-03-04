@@ -8,24 +8,27 @@
 
             <div class="nav-links header-inactive">
                 <router-link to="/houses" class="nav-item header-active" exact-active-class="active-link">
-                Houses
+                    Houses
                 </router-link>
                 <router-link to="/about" class="nav-item header-active" exact-active-class="active-link">
-                About
+                    About
                 </router-link>
             </div>
-      
+
         </div>
     </nav>
-  </template>
-  
-  <script>
-  export default {
-    name: 'NavigationBar'
-  };
-  </script>
-  
-  <style scoped>
-  @import './assets/styles/navigation.css'; 
+</template>
 
+<script>
+export default {
+    name: 'NavigationBar',
+    mounted() {
+        // window.alert('NavigationBar');
+    }
+
+};
+</script>
+
+<style scoped>
+@import './assets/styles/navigation.css';
 </style>
