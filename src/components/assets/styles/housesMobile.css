@@ -10,13 +10,168 @@
   margin: 0 auto;
   background-color: blueviolet;
   height: 100vh;
+  width: 100%;
   }
   .top-bar-mobile{
     display: flex;
   flex-direction: column;
   margin-bottom: 20px;
   width: 100%;
+  background-color: blue;
   }
   .heading-mobile{
+    display: flex;
+   
+   background-color: darkcyan;
+  }
+  .heading-mobile h1{
+    margin:auto;
+   
+  }
+  .create-new-btn-mobile{
+    margin-left: 5rem;
+  }
+  .create-new-btn-mobile img{
+    height: 20px;
+    width: 20px;
+  }
+  .sorting-mobile{
+    width: 100%;
+    background-color: green;
+  }
+  .search-barInput-mobile{
+    margin-top: 20px;
+    background-color: rgba(232, 232, 232);
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 20px;
+   
+    display: flex;
+    align-items: center;
+  }
+  .search-icon-mobile {
+    height: 20px;
+    width: 20px;
 
   }
+  .search-bar-mobile::placeholder {
+    color: rgb(195, 195, 195);
+  }
+  .search-bar-mobile {
+    flex-grow: 1;
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    
+  }
+  .search-result-mobile {
+    text-align: left;
+    width: 300px;
+    height: 60px;
+  }
+  .clear-class-mobile{
+    cursor: pointer;
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .clear-class-mobile[style*="display: none;"] {
+    display: none;
+  }
+  .sort-buttons-mobile {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    /* width: 300px; */
+    background-color: orange;
+    height: 50px;
+  }
+  .sort-btn-price-mobile,.sort-btn-size-mobile{
+    flex-basis: 50%;
+    height: inherit;
+    border-radius: 10px 0px 0px 10px;
+    background-color: rgb(195, 195, 195);
+    border: none;
+  }
+
+  .sort-btn-size-mobile {
+    flex-basis: 50%;
+    height: inherit;
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    background-color: rgb(195, 195, 195);
+  }
+  .sort-btn-price-mobile.active,
+  .sort-btn-size-mobile.active {
+    background-color: rgb(235, 84, 64);
+  }
+
+
+  .houses-container-mobile {
+    display: flex;
+    
+  }
+  .house-card-mobile{
+    display: flex;
+    align-items: flex-start;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgb(134, 7, 7);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 100px;
+    /* width: 100%; */
+  }
+  .houses-image-mobile {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  .houses-info-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+  }
+  .houses-details-mobile {
+    /* display: flex;
+    flex-direction: column; */
+    text-align: left;
+    /* line-height: 5px; */
+    height: inherit;
+    background-color: yellow;
+  }
+  .houses-address-mobile {
+    font-size: 18px;
+    font-family: "Open sans";
+    color: rgb(195, 195, 195);
+  }
+  .houses-icons-mobile {
+    display: flex;
+    align-items: center;
+  
+    font-family: "Open sans";
+    gap: 1px;
+  }
+  .houses-actions-mobile{
+    flex-direction: row;
+    
+  }
+  .edit-icon-mobile,
+.delete-icon-mobile {
+  border: none;
+  background: none;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+}
+.icon-mobile{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}

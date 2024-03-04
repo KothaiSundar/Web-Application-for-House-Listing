@@ -35,7 +35,7 @@
           <p class="listing-info">{{ searchMessage }}</p>
         </div>
 
-      </div>
+       </div>   <!-- top-bar ends -->
 
       <div class="houses-container">
         <div v-if="filteredAndSortedHouses.length > 0">
@@ -43,7 +43,9 @@
           <div class="house-card" v-for="house in filteredAndSortedHouses" :key="house.id"
             @click="goToHouseDetails(house.id)">
             <img :src="house.image" alt="House image" class="houses-image" />
+
             <div class="houses-info">
+
               <div class="houses-details">
                 <h2>{{ `${house.location.street} ${house.location.houseNumber}` }}</h2>
                 <p class="listing-info">€ {{ house.price.toLocaleString() }}</p>
@@ -56,32 +58,29 @@
                   <img class="icon" src="./assets/ic_size@3x.png" alt="size_icon">
                   <span>{{ house.size }} m²</span>
                 </p>
-              </div>
+              </div><!--  house-details ends -->
+
               <div class="houses-actions" v-if="house.madeByMe">
                 <img src="./assets/ic_edit@3x.png" alt="Edit" class="icon edit-icon"
                   @click.stop="editHouse(house.id)" />
                 <img src="./assets/ic_delete@3x.png" alt="Delete" class="icon delete-icon"
                   @click.stop="showDeletePopup(house.id)" />
+              </div><!--  house-actions ends -->
+            </div><!--  house-info ends -->
+
+          </div><!--  house-card ends -->
+        </div>
+            <div v-else class="no-results">
+              <div class="no-results-content">
+                <img src="./assets/img_empty_houses@3x.png" alt="No results" class="no-results-image" />
+                <p class="empty-message">No results found.<br>Please try another keyword.</p>
               </div>
             </div>
+      </div><!--  house-container ends -->
 
+    </section><!--  layout ends -->
 
-
-
-          </div>
-        </div>
-        <div v-else class="noResults">
-          <div class="noResultsContent">
-            <img src="./assets/img_empty_houses@3x.png" alt="No results" class="no-results-image" />
-            <p class="empty-message">No results found.<br>Please try another keyword.</p>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-
-  </div>
+ </div> <!--  houses-page ends -->
   <delete-popup v-if="showDeleteModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId"
     @close="showDeleteModal = false"></delete-popup>
 

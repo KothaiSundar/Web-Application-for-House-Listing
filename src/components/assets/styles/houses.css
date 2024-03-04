@@ -68,7 +68,7 @@
   width: 300px;
   height: 50px;
 }
-.sort-btn-price {
+.sort-btn-price,.sort-btn-size{
   flex-basis: 50%;
   height: inherit;
   border-radius: 10px 0px 0px 10px;
@@ -123,13 +123,10 @@ button {
   flex-direction: column;
   text-align: left;
   line-height: 5px;
+ 
 }
 
-.houses-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
+
 
 .houses-address {
   font-size: 18px;
@@ -145,9 +142,9 @@ button {
   gap: 15px;
 }
 .houses-actions {
+  display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  
 }
 
 .edit-icon,
@@ -169,14 +166,14 @@ button {
 .clear-class[style*="display: none;"] {
   display: none;
 }
-.noResults {
+.no-results {
   display: flex;
   height: inherit;
   margin: auto;
   align-items: center;
   justify-content: center;
 }
-.noResultsContent {
+.no-results-content {
   margin-top: 2.5rem;
   width: 500px;
   height: 500px;

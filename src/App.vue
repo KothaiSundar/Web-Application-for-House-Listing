@@ -24,12 +24,12 @@ export default {
   },
   computed: {
     mobileView() {
-      return window.innerWidth < 768;
+      return window.innerWidth <=768;
     }
   },
   methods: {
     handleView() {
-      this.mobileView = window.innerWidth <= 990;
+      this.mobileView = window.innerWidth <= 768;
     }
   },
   mounted() {

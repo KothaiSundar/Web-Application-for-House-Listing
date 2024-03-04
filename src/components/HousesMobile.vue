@@ -109,4 +109,5 @@
   
   <style scoped>
   @import './assets/styles/housesMobile.css';
+  
   </style>

@@ -17,17 +17,22 @@
     font-family: "Montserrat";
     font-size: 12px;
   }
-  .tabs {
+  .tabs-mobile {
     font-family: "Montserrat";
     font-weight: bold;
     font-size: 12px;
   }
-  .body-text {
+  .body-text-mobile {
     font-family: "Open Sans";
     font-size: 12px;
   }
-  .input-field {
+  .input-field-mobile {
     font-family: "Open Sans";
     font-size: 12px;
+  }
+  .icon-mobile{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
   }
 }
