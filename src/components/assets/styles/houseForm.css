@@ -1,7 +1,7 @@
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .house-form-page {
-    /* background-image: url(../img_background@3x.png); 
-    background-size: cover;  */
+    background-image: url(../img_background@3x.png); 
+    background-size: cover; 
     background-image: none;
     width: 100vw;
   }
@@ -52,7 +52,7 @@
     margin-top: 1rem;
     height: 3rem;
   }
-}
+} */
 
 .house-form-page {
   margin-top: 5%;

@@ -3,9 +3,10 @@
 </template>
 
 <script>
-import Houses from "./Houses.vue";//desktop component
+import HouseForm from "./HouseForm.vue"
+//desktop component
 
-import HousesMobile from './HousesMobile.vue'; //  mobile component
+import HouseFormMobile from './HouseFormMobile.vue'; //  mobile component
 
 export default {
   computed: {
@@ -13,9 +14,9 @@ export default {
       // Use a simple check for screen width to determine device type
 
       const isMobile = window.innerWidth < 768;
-      return isMobile ? HousesMobile : Houses;
+      return isMobile ? HouseFormMobile : HouseForm;
 
-      
+
     }
   }
 }

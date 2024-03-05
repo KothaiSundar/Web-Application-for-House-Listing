@@ -46,3 +46,9 @@
   font-size: 12px;
   font-weight: 500;
 }
+.error-message-mobile {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 12px;
+  font-style: italic;
+}
