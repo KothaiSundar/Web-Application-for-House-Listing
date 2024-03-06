@@ -4,7 +4,6 @@
 
 <script>
 import Houses from "./Houses.vue";//desktop component
-
 import HousesMobile from './HousesMobile.vue'; //  mobile component
 
 export default {
@@ -15,7 +14,7 @@ export default {
       const isMobile = window.innerWidth < 768;
       return isMobile ? HousesMobile : Houses;
 
-      
+
     }
   }
 }

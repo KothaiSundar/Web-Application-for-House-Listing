@@ -11,7 +11,7 @@ export const useHouseStore = defineStore("house", {
       sessionStorage.setItem("currentListing", JSON.stringify(listing));
     },
     clearListing() {
-    this.currentListing = null;
+      this.currentListing = null;
       sessionStorage.removeItem("currentListing");
     },
   },

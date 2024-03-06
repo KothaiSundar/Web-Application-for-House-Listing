@@ -2,25 +2,19 @@
   <div class="houses-page">
 
     <section class="layout">
-
       <div class="top-bar">
-
         <div class="heading">
           <h1>Houses</h1>
           <button class="create-new-btn" @click.stop="createHouse()">+ CREATE NEW</button>
         </div>
 
-
         <div class="sorting">
-
           <div class="search-barInput">
             <img src="./assets/ic_search@3x.png" alt="search-icon" class="search-icon">
             <input type="text" placeholder="Search by City" class="search-bar input-field" v-model="searchQuery" />
             <img v-if="searchQuery" src="./assets/ic_clear@3x.png" alt="clear-icon" class="clear-class"
               @click="clearSearch" />
-
           </div>
-
           <div class="sort-buttons">
             <button class="sort-btn-price" :class="{ active: sortBy === 'price' }" @click="setSortCriteria('price')">
               Price
@@ -30,7 +24,6 @@
             </button>
           </div>
         </div>
-
         <div class="search-result" v-if="searchMessage">
           <p class="listing-info">{{ searchMessage }}</p>
         </div>
@@ -43,9 +36,7 @@
           <div class="house-card" v-for="house in filteredAndSortedHouses" :key="house.id"
             @click="goToHouseDetails(house.id)">
             <img :src="house.image" alt="House image" class="houses-image" />
-
             <div class="houses-info">
-
               <div class="houses-details">
                 <h2>{{ `${house.location.street} ${house.location.houseNumber}` }}</h2>
                 <p class="listing-info">€ {{ house.price.toLocaleString() }}</p>
@@ -67,7 +58,6 @@
                   @click.stop="showDeletePopup(house.id)" />
               </div><!--  house-actions ends -->
             </div><!--  house-info ends -->
-
           </div><!--  house-card ends -->
         </div>
         <div v-else class="no-results">
@@ -77,32 +67,25 @@
           </div>
         </div>
       </div><!--  house-container ends -->
-
     </section><!--  layout ends -->
-
   </div> <!--  houses-page ends -->
   <delete-popup v-if="showDeleteModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId"
     @close="showDeleteModal = false"></delete-popup>
-
 </template>
-
 
 <script>
 import commonHouses from './utils/commonHouses';
-
 import DeletePage from '../components/Delete.vue';
 export default {
   name: 'Houses',
   ...commonHouses,
-
   components: {
     'delete-popup': DeletePage
   },
-
 }
 </script>
 
 
-<style scoped>
+<style>
 @import './assets/styles/houses.css';
 </style>

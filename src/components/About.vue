@@ -1,6 +1,11 @@
 <template>
   <div class="about-page">
     <section class="about-section layout">
+      <h1 >
+        <div class="mobile-only">
+          About
+        </div>
+      </h1>
       <h1>About DTT Real Estate</h1>
       <div class="about-para">
         <p class="body-text">
@@ -19,13 +24,13 @@
       <h1>Design and Development</h1>
 
       <div class="about-info">
-        <div class="about-logo">
+        <aside class="about-logo">
           <img src="./assets/img_logo_dtt@3x.png" alt="DTT Logo" />
-        </div>
-        <div class="about-text body-text">
+        </aside>
+        <aside class="about-text body-text">
           <p id="dtt">By DTT</p>
           <p><a href="http://www.d-tt.nl" target="_blank">www.d-tt.nl</a></p>
-        </div>
+        </aside>
       </div>
 
     </section><!-- about-section layout ends -->
@@ -40,8 +45,7 @@ export default {
 };
 </script>
 
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
+<style>
 @import './assets/styles/about.css';
 </style>

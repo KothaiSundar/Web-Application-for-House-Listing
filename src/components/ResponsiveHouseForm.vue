@@ -3,9 +3,7 @@
 </template>
 
 <script>
-import HouseForm from "./HouseForm.vue"
-//desktop component
-
+import HouseForm from "./HouseForm.vue"//desktop component
 import HouseFormMobile from './HouseFormMobile.vue'; //  mobile component
 
 export default {
