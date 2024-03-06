@@ -63,7 +63,7 @@
         <div v-else class="no-results">
           <div class="no-results-content">
             <img src="./assets/img_empty_houses@3x.png" alt="No results" class="no-results-image" />
-            <p class="empty-message-mobile">No results found.<br>Please try another keyword.</p>
+            <p class="empty-message">No results found.<br>Please try another keyword.</p>
           </div>
         </div>
       </div><!--  house-container ends -->

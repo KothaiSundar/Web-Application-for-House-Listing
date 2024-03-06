@@ -164,16 +164,17 @@ button {
   display: none;
 }
 .no-results {
+  position: relative;
   display: flex;
-  height: 500px;
-
+  height: 100vh;
   align-items: center;
   justify-content: center;
 }
 .no-results-content {
+  position: absolute;
   width: 500px;
-  height: 300px;
-
+  height: 50%;
+  top:50px;
   display: flex;
   align-items: center;
   justify-content: center;
