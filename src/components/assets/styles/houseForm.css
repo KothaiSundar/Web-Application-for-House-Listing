@@ -1,59 +1,3 @@
-@media screen and (max-width: 768px) {
-  .house-form-page {
-    /* background-image: url(../img_background@3x.png); 
-    background-size: cover;  */
-    background-image: none;
-    width: 100vw;
-  }
-
-  .house-form-layout {
-    max-width: max(800px, 80%);
-    padding: 0 1rem;
-  }
-  .edit-listing-container {
-    width: auto;
-  }
-
-  .navigation-bar {
-    height: auto;
-    padding: 1rem 0;
-  }
-
-  .back-icon img {
-    height: 16px;
-  }
-
-  .form {
-    max-width: 100%;
-    padding-bottom: 1rem;
-  }
-
-  .form-group input[type="text"],
-  .form-group input[type="number"],
-  .form-group input[type="file"],
-  .form-group select,
-  .form-group #description {
-    width: calc(100% - 40px);
-    padding: 10px;
-    margin: 0;
-  }
-  .sub-details {
-    flex-direction: column;
-  }
-  .sub-details-group-left,
-  .sub-details-group-right {
-    flex-basis: 100%;
-
-    margin: 0;
-  }
-  .submit-button {
-    width: 100%;
-    position: relative;
-    margin-top: 1rem;
-    height: 3rem;
-  }
-}
-
 .house-form-page {
   margin-top: 5%;
   background-image: url(../img_background@3x.png);
@@ -229,4 +173,3 @@ button {
 .border-red {
   border: 1px solid rgb(235, 84, 64);
 }
-

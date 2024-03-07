@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     mobileView() {
-      return window.innerWidth <=768;
+      return window.innerWidth <= 768;
     }
   },
   methods: {
@@ -42,3 +42,8 @@ export default {
 
 };
 </script>
+
+<style scoped>
+@import './components/assets/styles/styles.css';
+@import './components/assets/styles/mobile.css';
+</style>

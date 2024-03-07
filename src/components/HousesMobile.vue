@@ -1,10 +1,7 @@
 <template>
   <div class="houses-page-mobile">
-
     <section class="layout-mobile">
-
       <div class="top-bar-mobile">
-
         <div class="heading-mobile">
           <h1 class="heading-tag">Houses</h1>
           <button class="create-new-btn-mobile" @click.stop="createHouse()">
@@ -12,18 +9,14 @@
           </button>
         </div>
 
-
         <div class="sorting-mobile">
-
           <div class="search-barInput-mobile">
             <img src="./assets/ic_search@3x.png" alt="search-icon" class="search-icon-mobile">
             <input type="text" placeholder="Search by City" class="search-bar-mobile input-field-mobile"
               v-model="searchQuery" />
             <img v-if="searchQuery" src="./assets/ic_clear@3x.png" alt="clear-icon" class="clear-class-mobile"
               @click="clearSearch" />
-
           </div>
-
           <div class="sort-buttons-mobile">
             <button class="sort-btn-price-mobile" :class="{ active: sortBy === 'price' }"
               @click="setSortCriteria('price')">
@@ -35,7 +28,6 @@
             </button>
           </div>
         </div>
-
         <div class="search-result-mobile" v-if="searchMessage">
           <p class="listing-info-mobile">{{ searchMessage }}</p>
         </div>
@@ -69,9 +61,6 @@
                   @click.stop="showDeletePopup(house.id)" />
               </div><!--  house-actions ends -->
             </div><!--  house-info ends -->
-
-
-
           </div><!--  house-card ends -->
         </div>
         <div v-else class="no-results-mobile">
@@ -81,14 +70,10 @@
           </div>
         </div>
       </div><!--  house-container ends -->
-
     </section><!--  layout ends -->
-
-
   </div><!--  houses-page ends -->
   <delete-popup v-if="showDeleteModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId"
     @close="showDeleteModal = false"></delete-popup>
-
 </template>
 
 
@@ -98,17 +83,13 @@ import DeletePage from '../components/Delete.vue';
 export default {
   name: 'Houses',
   ...commonHouses,
-
   components: {
     'delete-popup': DeletePage
   },
-
 }
 
 </script>
 
-
-<style scoped>
+<style>
 @import './assets/styles/housesMobile.css';
-@import './assets/styles/mobile.css';
 </style>

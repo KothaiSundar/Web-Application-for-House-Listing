@@ -1,35 +1,3 @@
-/* Media query for mobile screens */
-/* @media screen and (max-width: 760px) {
-  .navigation {
-    height: 6rem;
-    width: 100%;
-  }
-
-  .navigation-content {
-    position: static;
-    height: 5rem;
-    width: 100%;
-  }
-
-  .logo img {
-    height: 1rem;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    display: none;
-  }
-
-  .nav-links.mobile-active {
-    display: flex;
-  }
-
-  .nav-item {
-    margin: 0.5rem 0;
-  }
-} */
-
-/* desktop view */
 .navigation {
   position: fixed;
   top: 0;

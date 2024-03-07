@@ -9,6 +9,11 @@ module.exports = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
     "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
+    "^@vue/test-utils":
+      "<rootDir>/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js",
   },
   testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    customExportConditions: ["node", "node-addons"],
+  },
 };

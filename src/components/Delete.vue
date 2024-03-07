@@ -1,5 +1,5 @@
 <template>
-  <div class="delete-page">
+  <section class="delete-page">
     <div class="delete-page-layout">
       <div class="delete-content">
         <h2>Delete listing</h2>
@@ -12,18 +12,12 @@
             GO BACK
           </button>
         </div>
-
-
       </div>
     </div>
-  </div>
-
+  </section>
 </template>
-
 <script>
 import housingApiService from '../services/HousingApiServices'
-
-
 export default {
   props: {
     houseId: {
@@ -33,31 +27,25 @@ export default {
   },
   methods: {
     async deleteListing() {
-
       try {
         let deleteResposne = await housingApiService.deleteHouse(this.houseId);
         if (deleteResposne.status !== 200 && deleteResposne.status != 204) {
           throw new Error('Failed to delete ');
         }
-
         this.$router.replace('/houses');
-
       }
       catch (error) {
         window.alert('Error deleting house: ' + error.message + ", try after some time!!");
       }
       finally {
         this.$emit('close');
-
         this.$emit('houseDeleted');
-
       }
     }
   }
 };
 </script>
 
-<style scoped>
-@import './assets/styles/styles.css';
+<style>
 @import './assets/styles/deletePopup.css';
 </style>

@@ -1,0 +1,185 @@
+.house-form-page-mobile {
+  background-image: url(../img_background@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  margin-bottom: 5rem;
+}
+.house-form-layout-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.edit-listing-container-mobile {
+  width: 80%;
+}
+.navigation-bar-mobile {
+  width: 100%;
+  height: 3rem;
+}
+.navigation-content-mobile {
+  position: relative;
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
+}
+.icon-mobile-houseform {
+  text-align: left;
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  left: 0;
+  top: 15px;
+}
+
+.form-title-mobile {
+  position: absolute;
+  width: 300px;
+  left: 120px;
+}
+
+.form-mobile {
+  max-width: 100%;
+  padding-bottom: 5rem;
+  margin-top: 10px;
+  /* background-color: coral; */
+}
+.form-group-mobile {
+  padding-bottom: 10px;
+  /* background-color: #7cff50; */
+  padding-top: 10px;
+}
+
+.form-group-mobile label {
+  display: block;
+  padding-bottom: 10px;
+}
+
+.input-placeholder-mobile::placeholder {
+  color: rgb(195, 195, 195);
+  opacity: 1;
+}
+.form-group-mobile input[type="text"],
+.form-group-mobile input[type="number"],
+.form-group-mobile input[type="file"] {
+  width: 90%;
+  padding: 15px 15px;
+  border-radius: 5px;
+  padding-right: 5%;
+  padding-left: 5%;
+  border: none;
+}
+.sub-details-mobile {
+  display: flex;
+  width: 100%;
+}
+
+.sub-details-group-left-mobile {
+  flex-basis: 48%;
+}
+.sub-details-group-right-mobile {
+  flex-basis: 48%;
+  margin-left: 5%;
+}
+
+.sub-details-group-right-mobile select {
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+
+  border: none;
+  border-radius: 5px;
+}
+.form-group-mobile #description {
+  border: none;
+  border-radius: 10px;
+  width: 90%;
+  padding: 20px 20px;
+  border-radius: 10px;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.custom-file-upload-mobile {
+  display: block;
+  cursor: pointer;
+}
+.form-group-image-mobile {
+  width: 180px;
+  padding-bottom: 20px;
+}
+.upload-text-mobile {
+  display: block;
+  padding-bottom: 20px;
+  width: 300px;
+}
+
+.upload-box-mobile {
+  border: 2px dashed #ccc;
+
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+.upload-icon-mobile img {
+  height: 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+.image-preview-mobile {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+.image-upload-mobile {
+  margin-right: 20px;
+  height: 110px;
+  width: 110px;
+  display: block;
+  border-radius: 10px;
+}
+
+.clear-icon-mobile {
+  position: absolute;
+  top: 0;
+  height: 25px;
+  width: 25px;
+  right: 2px;
+  background-color: transparent;
+  border: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+.submit-button-mobile {
+  position: absolute;
+  background: rgb(235, 84, 64);
+  color: rgb(255, 255, 255);
+  border: none;
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.error-message-mobile {
+  color: rgb(74, 75, 76);
+}
+.empty-mobile {
+  color: rgb(235, 84, 64);
+}
+.border-red-mobile {
+  border: 1px solid rgb(235, 84, 64);
+}

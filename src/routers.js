@@ -1,33 +1,31 @@
-import About from "./components/About.vue";
-import HouseDetails from "./components/HouseDetails.vue";
-import HouseFrom from "./components/HouseForm.vue";
 import Delete from "./components/Delete.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import ResponsiveHouses from "./components/ResponsiveHouses.vue";
-
+import ResponsiveHouseForm from "./components/ResponsiveHouseForm.vue";
+import ResponsiveHouseDetails from "./components/ResponsiveHouseDetails.vue";
+import About from "./components/About.vue";
 const routes = [
   { path: "/", redirect: "/houses" },
-
   {
     name: "Houses",
     component: ResponsiveHouses,
     path: "/houses",
   },
+  {
+    name: "HouseForm",
+    component: ResponsiveHouseForm,
+    path: "/houseForm",
+  },
+  {
+    name: "HouseDetails",
+    component: ResponsiveHouseDetails,
+    path: "/houses/:id",
+  },
 
   {
     name: "About",
     component: About,
-    path: "/about",
-  },
-  {
-    path: "/houses/:id",
-    name: "HouseDetails",
-    component: HouseDetails,
-  },
-  {
-    path: "/houseform",
-    name: "HouseForm",
-    component: HouseFrom,
+    path: "/About",
   },
   {
     path: "/delete",

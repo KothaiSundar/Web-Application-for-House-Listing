@@ -52,7 +52,6 @@ export default {
           throw new Error("Failed to get houses ");
         }
         this.houses = response.data;
-        
       } catch (error) {
         window.alert(
           "Error fetching houses: " + error.message + ", try after some time!!"
@@ -71,7 +70,6 @@ export default {
     editHouse(houseId) {
       // checking if the houseid if same, to fetch the details of the house
       const listing = this.houses.find((house) => house.id === houseId);
-
       const houseStore = useHouseStore();
       houseStore.setListing(listing);
       this.$router.push({ name: "HouseForm" });
@@ -131,6 +129,4 @@ export default {
       return toSortList; // Return unsorted houses by default
     },
   },
-  
-  
 };

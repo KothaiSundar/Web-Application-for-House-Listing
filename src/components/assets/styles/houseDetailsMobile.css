@@ -1,0 +1,101 @@
+.house-detail-page-mobile {
+  margin-bottom: 5rem;
+  background-color: rgb(246, 246, 246);
+}
+.house-details-layout-mobile {
+  text-align: left;
+}
+
+.house-detailed-layout-mobile {
+  display: flex;
+  flex-direction: column;
+}
+.details-layout-mobile {
+  flex-basis: 70%;
+}
+
+.house-details-mobile {
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 30px;
+}
+.house-image-mobile {
+  width: 100%;
+  position: relative;
+  height: 250px;
+}
+
+.image-of-house {
+  width: 100%;
+  display: block;
+  height: 250px;
+}
+.edit-icons-mobile {
+  position: absolute;
+  height: 50px;
+  top: 20px;
+  width: 100%;
+  display: flex;
+}
+.back-icon-mobile {
+  flex-basis: 50%;
+}
+.back-icon-image {
+  position: absolute;
+  height: 20px;
+  top: 3px;
+  left: 30px;
+  width: 20px;
+}
+.house-actions-mobile {
+  height: inherit;
+  /* background-color: #322aa5; */
+  margin-left: 50%;
+  flex-basis: 50%;
+}
+.edit-icon-mobile,
+.delete-icon-mobile {
+  margin-right: 20px;
+}
+
+.house-info-mobile {
+  padding-left: 2rem;
+  border-radius: 20px 20px 0px 0px;
+}
+.house-titlebar-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.house-recommended-mobile {
+  height: 300px;
+  padding-left: 30px;
+}
+
+.house-location-mobile {
+  display: flex;
+
+  gap: 10px;
+  margin-top: 0px;
+}
+
+.house-area-mobile,
+.house-attributes-mobile {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.house-area-mobile li,
+.house-attributes-mobile li {
+  list-style: none;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 25px;
+}
+
+.house-description-mobile {
+  text-align: justify;
+}
