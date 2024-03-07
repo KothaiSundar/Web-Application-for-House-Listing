@@ -38,8 +38,6 @@
 }
 .back-icon-mobile {
   flex-basis: 50%;
- 
-
 }
 .back-icon-image {
   position: absolute;
@@ -61,7 +59,6 @@
 
 .house-info-mobile {
   padding-left: 2rem;
-  /* background-color: blue; */
   border-radius: 20px 20px 0px 0px;
 }
 .house-titlebar-mobile {

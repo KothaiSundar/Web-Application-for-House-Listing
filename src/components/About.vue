@@ -45,7 +45,6 @@ export default {
 };
 </script>
 
-
 <style>
 @import './assets/styles/about.css';
 </style>

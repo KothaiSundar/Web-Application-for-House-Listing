@@ -1,6 +1,5 @@
 <template>
   <div class="houses-page">
-
     <section class="layout">
       <div class="top-bar">
         <div class="heading">

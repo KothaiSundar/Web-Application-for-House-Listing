@@ -7,7 +7,6 @@
 .layout-mobile {
   max-width: max(800px, 80%);
   margin: 0 auto;
-  /* background-color: blueviolet; */
   height: 100%;
   width: 100%;
   margin-bottom: 5rem;
@@ -26,7 +25,6 @@
   margin: auto;
   padding-left: 3rem;
 }
-
 .create-new-btn-mobile img {
   height: 20px;
   width: 20px;
@@ -42,7 +40,6 @@
   height: 40px;
   border-radius: 5px;
   padding-left: 20px;
-
   display: flex;
   align-items: center;
 }
@@ -79,8 +76,6 @@
   margin-top: 20px;
   display: flex;
   align-items: center;
-  /* width: 300px; */
-  /* background-color: orange; */
   height: 50px;
 }
 .sort-btn-price-mobile,
@@ -107,20 +102,15 @@
 .houses-container-mobile {
   display: flex;
   flex-direction: column;
-  /* width: 300px; */
-  /* height: 200px; */
-  /* background-color: #2b31e2; */
 }
 .house-card-mobile {
   display: flex;
   align-items: flex-start;
   background: rgb(255, 255, 255);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* background: rgb(134, 7, 7); */
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
-  /* height: 100px; */
 }
 .houses-image-mobile {
   width: 120px;
@@ -136,13 +126,9 @@
   width: 100%;
 }
 .houses-details-mobile {
-  /* display: flex;
-    flex-direction: column; */
   text-align: left;
   line-height: 12px;
-
   height: inherit;
-  /* background-color: yellow; */
 }
 .houses-address-mobile {
   font-size: 12px;
@@ -152,7 +138,6 @@
 .houses-icons-mobile {
   display: flex;
   align-items: center;
-
   font-family: "Open sans";
   gap: 7px;
 }
@@ -178,16 +163,15 @@
   align-items: center;
   height: 100vh;
   width: 100%;
-position: relative;
+  position: relative;
   align-items: center;
   justify-content: center;
 }
 .no-results-content-mobile {
   position: absolute;
-
   width: 250px;
   height: 50%;
-top:100px;
+  top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;

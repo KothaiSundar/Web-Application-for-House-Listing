@@ -1,10 +1,7 @@
 <template>
   <div class="houses-page-mobile">
-
     <section class="layout-mobile">
-
       <div class="top-bar-mobile">
-
         <div class="heading-mobile">
           <h1 class="heading-tag">Houses</h1>
           <button class="create-new-btn-mobile" @click.stop="createHouse()">
@@ -13,7 +10,6 @@
         </div>
 
         <div class="sorting-mobile">
-
           <div class="search-barInput-mobile">
             <img src="./assets/ic_search@3x.png" alt="search-icon" class="search-icon-mobile">
             <input type="text" placeholder="Search by City" class="search-bar-mobile input-field-mobile"
@@ -65,7 +61,7 @@
                   @click.stop="showDeletePopup(house.id)" />
               </div><!--  house-actions ends -->
             </div><!--  house-info ends -->
-         </div><!--  house-card ends -->
+          </div><!--  house-card ends -->
         </div>
         <div v-else class="no-results-mobile">
           <div class="no-results-content-mobile">

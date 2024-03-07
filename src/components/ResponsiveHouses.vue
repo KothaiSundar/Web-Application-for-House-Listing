@@ -10,11 +10,8 @@ export default {
   computed: {
     componentToRender() {
       // Use a simple check for screen width to determine device type
-
       const isMobile = window.innerWidth < 768;
       return isMobile ? HousesMobile : Houses;
-
-
     }
   }
 }

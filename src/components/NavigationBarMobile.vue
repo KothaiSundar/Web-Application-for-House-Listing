@@ -1,7 +1,6 @@
 <template>
     <nav class="navigation-mobile">
         <div class="navigation-content-mobile">
-
             <div class="nav-links-mobile header-inactive">
                 <div class="house-mobile">
                     <router-link to="/houses" class="nav-item-mobile header-active" exact-active-class="active-link">

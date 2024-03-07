@@ -15,39 +15,33 @@
 
 .edit-listing-container-mobile {
   width: 80%;
- 
 }
 .navigation-bar-mobile {
   width: 100%;
   height: 3rem;
-
-
 }
 .navigation-content-mobile {
-position: relative;
-   height: 2rem;
-   width: 100%;
- display: flex;
- padding-top: 10px;
+  position: relative;
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
 }
- .icon-mobile-houseform{
+.icon-mobile-houseform {
   text-align: left;
-position: absolute;
+  position: absolute;
   background: none;
   border: none;
   cursor: pointer;
 
-left: 0;
-top:15px;
-
+  left: 0;
+  top: 15px;
 }
 
 .form-title-mobile {
- position: absolute;
+  position: absolute;
   width: 300px;
   left: 120px;
-
- 
 }
 
 .form-mobile {
