@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL = "https://api.intern.d-tt.nl/api/houses";
+// this has to be read from secret via properties file
 const API_KEY = "ji1kyAep4Ubh2EZ5HOn7auSPIR_rLKD-";
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
