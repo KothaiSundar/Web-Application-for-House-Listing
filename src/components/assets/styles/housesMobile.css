@@ -144,14 +144,17 @@
 .houses-actions-mobile {
   display: flex;
   flex-direction: row;
+  margin-top: 5px;
+ 
 }
 .edit-icon-mobile,
 .delete-icon-mobile {
   border: none;
   background: none;
-  padding: 5px;
+  /* padding: 5px; */
   width: 15px;
   height: 15px;
+
 }
 .icon-mobile {
   width: 20px;
@@ -183,4 +186,169 @@
 }
 .no-results-content-mobile p {
   margin-top: 40px;
+}
+@media screen and (max-width: 540px) {
+  .layout-mobile {
+    max-width: max(490px, 80%);
+    background-color:none;
+    margin: 0 auto;
+    height: 100%;
+    margin-bottom: 5rem;
+  }
+  /* .houses-actions-mobile {
+    display: flex;
+ background-color: blue;
+ width: 25%;
+  
+   } */
+}
+
+@media screen and (max-width: 430px) {
+  .layout-mobile {
+    max-width: max(380px, 80%);
+    background-color:none;
+    margin: 0 auto;
+    height: 100%;
+    margin-bottom: 5rem;
+  }
+
+  /* .houses-actions-mobile {
+    display: flex;
+ background-color: blue;
+ width: 25%;
+  
+   } */
+}
+
+@media screen and (max-width: 414px) {
+  .layout-mobile {
+    max-width: max(364px, 80%);
+    margin: 0 auto;
+    height: 100%;
+    margin-bottom: 5rem;
+  }
+  .icon-mobile {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+  .edit-icon-mobile,.delete-icon-mobile{
+    width: 10px;
+    height: 10px;
+  }
+
+}
+@media screen and (max-width: 390px) {
+  .layout-mobile {
+    max-width: max(340px, 80%);
+    margin: 0 auto;
+    height: 100%;
+    margin-bottom: 5rem;
+  }
+  /* .houses-actions-mobile {
+    display: flex;
+ background-color: blue;
+ width: 25%;
+  
+   } */
+   .icon-info-mobile {
+
+    font-family: "open sans";
+    font-size: 10px;
+  }
+  .headertag-second {
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+}
+
+@media screen and (max-width: 375px) {
+  .layout-mobile {
+    max-width: max(325px, 80%);
+       margin: 0 auto;
+    height: 100%;
+    margin-bottom: 5rem;
+  }
+
+}
+@media screen and (max-width: 360px) {
+  .layout-mobile {
+    max-width: max(330px, 80%);
+     margin: 0 auto;
+    height: 100%;
+    margin-bottom: 5rem;
+  }
+ 
+ 
+}
+@media screen and (max-width: 280px) {
+  .layout-mobile {
+    max-width: max(230px, 80%);
+     margin: 0 auto;
+    height: 100%;
+    margin-bottom: 5rem;
+  }
+  .houses-image-mobile {
+
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 10px;
+  }
+  .edit-icon-mobile,
+  .delete-icon-mobile {
+    border: none;
+    background: none;
+    margin-top: 5px;
+    width: 10px;
+    height: 10px;
+   
+  }
+  .houses-actions-mobile {
+  
+      right: 5px;
+      width: 40px;
+
+  }
+  .houses-details-mobile {
+    text-align: left;
+    line-height: 5px;
+    height: inherit;
+    padding-top: 10px;
+  
+    }
+    .icon-info-mobile {
+      
+      font-family: "open sans";
+      font-size: 10px;
+    }
+    .listing-info-mobile {
+      font-weight: 600;
+      font-family: "open sans";
+      font-size: 10px;
+    }
+    .headertag-second {
+      font-family: "Montserrat";
+      font-weight: bold;
+      font-size: 10px;
+    }
+    .headertag-second {
+      font-family: "Montserrat";
+      font-weight: bold;
+      font-size: 10px;
+    }
+ 
+.icon-mobile {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+.houses-address-mobile {
+  font-size: 10px;
+  font-family: "Open sans";
+  color: rgb(195, 195, 195);
+}
 }

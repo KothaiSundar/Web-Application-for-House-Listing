@@ -47,8 +47,7 @@
   width: 20px;
 }
 .house-actions-mobile {
-  height: inherit;
-  /* background-color: #322aa5; */
+ height: inherit;
   margin-left: 50%;
   flex-basis: 50%;
 }

@@ -42,7 +42,10 @@
             <img :src="house.image" alt="House image" class="houses-image-mobile" />
             <div class="houses-info-mobile">
               <div class="houses-details-mobile">
-                <h2 class="headertag-second ">{{ `${house.location.street} ${house.location.houseNumber}` }}</h2>
+                <h2 class="headertag-second ">{{ `${house.location.street}
+                  ${house.location.houseNumber}${house.location.houseNumberAddition &&
+              house.location.houseNumberAddition !== 'undefined' ? ' ' + house.location.houseNumberAddition : ''}`
+                  }}</h2>
                 <p class="listing-info-mobile">€ {{ house.price.toLocaleString() }}</p>
                 <p class="houses-address-mobile"> {{ `${house.location.zip} ${house.location.city}` }} </p>
                 <p class="houses-icons-mobile">
@@ -55,9 +58,9 @@
                 </p>
               </div><!--  house-details ends -->
               <div class="houses-actions-mobile" v-if="house.madeByMe">
-                <img src="./assets/ic_edit@3x.png" alt="Edit" class="icon edit-icon-mobile"
+                <img src="./assets/ic_edit@3x.png" alt="Edit" class="edit-icon-mobile"
                   @click.stop="editHouse(house.id)" />
-                <img src="./assets/ic_delete@3x.png" alt="Delete" class="icon delete-icon-mobile"
+                <img src="./assets/ic_delete@3x.png" alt="Delete" class=" delete-icon-mobile"
                   @click.stop="showDeletePopup(house.id)" />
               </div><!--  house-actions ends -->
             </div><!--  house-info ends -->
@@ -71,9 +74,10 @@
         </div>
       </div><!--  house-container ends -->
     </section><!--  layout ends -->
+    <delete-popup v-if="showDeleteModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId"
+      @close="showDeleteModal = false"></delete-popup>
   </div><!--  houses-page ends -->
-  <delete-popup v-if="showDeleteModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId"
-    @close="showDeleteModal = false"></delete-popup>
+
 </template>
 
 
