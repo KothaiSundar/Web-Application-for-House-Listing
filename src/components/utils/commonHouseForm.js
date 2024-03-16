@@ -31,9 +31,9 @@ export default {
     initialiseState() {
       const houseStore = useHouseStore();
 
-      if (houseStore.currentListing) {
+      if (houseStore.getCurrentListing) {
         this.isEditMode = true;
-        this.houseDetail = houseStore.currentListing;
+        this.houseDetail = houseStore.getCurrentListing;
       } else {
         this.isEditMode = false;
         //set empty default value.
@@ -64,6 +64,7 @@ export default {
         alert("Construction year must be above 1900.");
         return;
       }
+
       try {
         let response;
         // if edit mode, setting house details
