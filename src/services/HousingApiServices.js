@@ -17,7 +17,7 @@ function createHouseFormData(listing) {
   formData.append("bedrooms", listing.rooms.bedrooms);
   formData.append("bathrooms", listing.rooms.bathrooms);
   formData.append("size", listing.size);
-  formData.append("streetName", listing.location.street);
+   formData.append("streetName", listing.location.street);
   formData.append("houseNumber", listing.location.houseNumber);
   formData.append("numberAddition", listing.location.houseNumberAddition);
   formData.append("zip", listing.location.zip);

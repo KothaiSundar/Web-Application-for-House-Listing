@@ -1,6 +1,7 @@
 .house-detail-page {
   margin-top: 5rem;
   background-color: rgb(246, 246, 246);
+  height: 100%;
 }
 .house-details-layout {
   text-align: left;

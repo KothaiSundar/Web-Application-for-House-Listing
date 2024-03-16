@@ -63,7 +63,7 @@ export default {
     createHouse() {
       const houseStore = useHouseStore();
       houseStore.clearListing();
-      this.$router.push({ name: "HouseForm" });
+      this.$router.push({ name: "Create" });
     },
 
     //if edit icon clicked, directed to houseform page
@@ -72,7 +72,7 @@ export default {
       const listing = this.houses.find((house) => house.id === houseId);
       const houseStore = useHouseStore();
       houseStore.setListing(listing);
-      this.$router.push({ name: "HouseForm" });
+      this.$router.push({ name: "Edit" });
     },
 
     showDeletePopup(houseId) {
@@ -95,7 +95,10 @@ export default {
 
     //directed to house details page if we click any houselayout
     goToHouseDetails(houseId) {
-      this.$router.push({ name: "HouseDetails", params: { id: houseId } });
+      this.$router.push({
+        name: "HouseDetails",
+        params: { id: houseId },
+      });
     },
 
     filterHouses(toFilterList) {

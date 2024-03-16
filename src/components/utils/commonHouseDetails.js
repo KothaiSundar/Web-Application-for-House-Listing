@@ -7,7 +7,6 @@ export default {
       required: true,
     },
   },
-
   data() {
     return {
       showDeleteModal: false, // associated with delete icon, if true delete popup page will be displayed
@@ -19,7 +18,7 @@ export default {
   },
 
   created() {
-    this.houseId = this.$route.params.id;
+    this.houseId = this.id;
     this.fetchHouseDetails();
   },
 
@@ -79,7 +78,7 @@ export default {
     editHouse(houseId) {
       const houseStore = useHouseStore();
       houseStore.setListing(this.house);
-      this.$router.push({ name: "HouseForm" });
+      this.$router.push({ name: "Edit" });
     },
   },
 };
