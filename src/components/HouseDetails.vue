@@ -275,4 +275,4 @@ export default {
   }
 
 }
-</style>./InfoItem.vue
+</style>

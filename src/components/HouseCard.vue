@@ -89,5 +89,4 @@ export default {
     font-family: "Open sans";
     color: rgb(195, 195, 195);
 }
-
 </style>

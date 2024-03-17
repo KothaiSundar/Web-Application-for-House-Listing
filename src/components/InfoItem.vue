@@ -15,15 +15,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.info-item {
-    display: flex;
-    align-items: center;
-    /* Add more styling as needed */
-}
-
-.icon {
-    /* Add styling for the icon */
-}
-</style>
