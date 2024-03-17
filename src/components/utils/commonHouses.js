@@ -7,6 +7,7 @@ export default {
       searchQuery: "", // to store search bar user query
       searchMessage: "", // result of number of houses
       sortBy: "price", // by default to view sorted houses by price
+      sortByAsc: true,
       houses: [], // initially setting house details as empty array, loaded on mounted action
     };
   },
@@ -83,7 +84,13 @@ export default {
     },
 
     setSortCriteria(criteria) {
-      this.sortBy = this.sortBy === criteria ? "" : criteria;
+      if (this.sortBy === criteria) {
+        // same sort caiteria , just change sort order
+        this.sortByAsc = !this.sortByAsc;
+      } else {
+        this.sortBy = criteria;
+        this.sortByAsc = true; //set default to true as criteria is change. i.e from price to size
+      }
     },
 
     // if clear icon clicked this method is called and clearing query and message
@@ -125,9 +132,9 @@ export default {
     sortHouses(toSortList) {
       // Use a computed property to return the houses sorted by the selected criteria
       if (this.sortBy === "price") {
-        return toSortList.slice().sort((a, b) => a.price - b.price);
+        return toSortList.slice().sort((a, b) => {return this.sortByAsc ? a.price - b.price : b.price - a.price;});
       } else if (this.sortBy === "size") {
-        return toSortList.slice().sort((a, b) => a.size - b.size);
+        return toSortList.slice().sort((a, b) => {return this.sortByAsc ? a.size - b.size : b.size - a.size;});
       }
       return toSortList; // Return unsorted houses by default
     },
