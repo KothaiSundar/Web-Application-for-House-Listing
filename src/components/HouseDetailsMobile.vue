@@ -13,9 +13,9 @@
                                 </button>
                                 <span class="house-actions-mobile" v-if="house.madeByMe">
                                     <img src="./assets/ic_edit_white@3x.png" alt="Edit"
-                                        class="icon-mobile edit-icon-mobile" @click.stop="editHouse(house.id)" />
+                                        class="icon-mobile house-details-edit-icon-mobile" @click.stop="editHouse(house.id)" />
                                     <img src="./assets/ic_delete_white@3x.png" alt="Delete"
-                                        class="icon-mobile delete-icon-mobile"
+                                        class="icon-mobile house-details-delete-icon-mobile"
                                         @click.stop="showDeletePopup(house.id)" />
                                 </span>
                             </div>

@@ -1,15 +1,14 @@
 <template>
-
   <div class="house-form-page-mobile">
     <section class="house-form-layout-mobile">
       <div class="edit-listing-container-mobile">
-
         <nav class="navigation-bar-mobile">
-          <div class="navigation-content-mobile">
+          <div class="navigation-form-content-mobile">
             <button @click="goBack" class="back-icon-mobile">
               <img src="./assets/ic_back_grey@3x.png" class="icon-mobile-houseform icon-mobile" alt="back">
             </button>
-            <h1 class="form-title-mobile heading-tag">{{ isEditMode ? 'Edit listing' : 'Create new listing' }}</h1>
+              <h1 class="form-title-mobile heading-tag">{{ isEditMode ? 'Edit listing' : 'Create new listing' }}</h1>
+                 
           </div>
         </nav>
 
@@ -59,6 +58,7 @@
               </div>
             </label>
             <input type="file" id="image" ref="fileInput" @change="handleFileUpload">
+          
             <div v-if="isImageSelected || houseDetail.image" class="image-preview-mobile">
               <img :src="houseDetail.image" alt="Uploaded image" class="image-upload-mobile">
               <button type="button" @click="clearImage">
@@ -67,6 +67,7 @@
             </div>
             <div v-if="imageUploadError" class="empty-mobile error-message-mobile">{{ imageUploadError }}</div>
           </div>
+       
 
           <div class="form-group-mobile">
             <label for="price">Price*</label>

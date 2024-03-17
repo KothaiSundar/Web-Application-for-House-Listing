@@ -1,15 +1,21 @@
 .house-detail-page {
-  margin-top: 5rem;
+ margin-top: 5rem;
   background-color: rgb(246, 246, 246);
   height: 100%;
+   min-height: 100vh; 
+
 }
 .house-details-layout {
   text-align: left;
+
 }
 
 .house-detailed-layout {
   display: flex;
   margin-top: 20px;
+ 
+
+ 
 }
 
 .navigation-bar {
@@ -33,21 +39,22 @@
 }
 .back-button {
   margin-left: 1rem;
+
 }
 
 .house-details {
   flex-basis: 70%;
   background-color: rgb(255, 255, 255);
-  height: inherit;
-  margin-right: 50px;
-  margin-bottom: 50px;
+  min-height: 90vh; 
+   margin-bottom: 50px;
+  display: flex;
 }
 
 .house-image img {
   width: 100%;
   display: block;
   height: 550px;
-  padding-right: 100px;
+  padding-right: 300px;
 }
 .house-info {
   padding-left: 2rem;
@@ -64,8 +71,12 @@
 }
 
 .house-recommended {
-  flex-basis: 30%;
-}
+  flex-basis: 40%;
+  margin-left: 50px;
+  height: 550px;
+ 
+ 
+ }
 
 .house-location {
   display: flex;
@@ -92,4 +103,26 @@
 
 .house-description {
   text-align: justify;
+}
+@media screen and (min-height: 1000px) {
+  .house-image img {
+    width: 100%;
+    display: block;
+    height: 750px;
+    padding-right: 100px;
+  }
+  .house-details {
+    flex-basis: 70%;
+    background-color: rgb(255, 255, 255);
+    min-height: 70vh; 
+    margin-right: 50px;
+    margin-bottom: 50px;
+    display: flex;
+  }
+  .house-info {
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+ 
 }

@@ -14,45 +14,42 @@
 }
 
 .edit-listing-container-mobile {
-  width: 80%;
+  width: 90%;
 }
 .navigation-bar-mobile {
   width: 100%;
   height: 3rem;
 }
-.navigation-content-mobile {
-  position: relative;
+.navigation-form-content-mobile {
+  display: flex;
   height: 2rem;
   width: 100%;
-  display: flex;
-  padding-top: 10px;
+  align-items: center; 
+  justify-content:center;
+
 }
-.icon-mobile-houseform {
+.back-icon-mobile {
   text-align: left;
-  position: absolute;
   background: none;
   border: none;
   cursor: pointer;
-
-  left: 0;
-  top: 15px;
 }
+
 
 .form-title-mobile {
-  position: absolute;
-  width: 300px;
-  left: 120px;
+  text-align: left; 
+  width: 400px;
 }
+
 
 .form-mobile {
   max-width: 100%;
   padding-bottom: 5rem;
   margin-top: 10px;
-  /* background-color: coral; */
+
 }
 .form-group-mobile {
   padding-bottom: 10px;
-  /* background-color: #7cff50; */
   padding-top: 10px;
 }
 
@@ -122,7 +119,6 @@
 
 .upload-box-mobile {
   border: 2px dashed #ccc;
-
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -138,41 +134,48 @@ input[type="file"] {
   display: none;
 }
 .image-preview-mobile {
+  display: flex; /* Align children with flexbox */
+  justify-content: center; /* Center the image in the preview */
+  align-items: flex-start; /* Align the clear icon at the bottom of the image */
   width: 120px;
   height: 120px;
-  position: relative;
-}
-.image-upload-mobile {
-  margin-right: 20px;
-  height: 110px;
-  width: 110px;
-  display: block;
-  border-radius: 10px;
+  margin-bottom: 20px; /* Space from the bottom navigation bar */
 }
 
+.image-upload-mobile {
+  height: 110px; /* Image fills most of the preview area */
+  width: 110px;
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Use margin to overlap the clear button over the image.
+   This requires knowing the exact dimensions of your elements. */
 .clear-icon-mobile {
-  position: absolute;
-  top: 0;
+ 
+  margin-left: -25px;
   height: 25px;
   width: 25px;
-  right: 2px;
-  background-color: transparent;
-  border: none;
+  cursor: pointer; /* Indicates this is clickable */
+  z-index: 1; /* Make sure it's above the image */
 }
+
 
 button {
   background-color: transparent;
   border: none;
 }
 .submit-button-mobile {
-  position: absolute;
   background: rgb(235, 84, 64);
   color: rgb(255, 255, 255);
   border: none;
-  width: 400px;
+  width:100%;
+  max-width: 100%; /* Ensures that the button does not exceed the width of its container */
   height: 40px;
   border-radius: 5px;
   cursor: pointer;
+  box-sizing: border-box; /* Makes sure padding and borders are included in the width */
+  padding: 0; /* Remove any default padding */
+  margin: 0; /* Remove any default margin */
 }
 .error-message-mobile {
   color: rgb(74, 75, 76);
@@ -183,3 +186,10 @@ button {
 .border-red-mobile {
   border: 1px solid rgb(235, 84, 64);
 }
+@media screen and (max-width: 280px) {
+  .edit-listing-container-mobile {
+    width: 100%;
+    
+  }
+   
+ }
