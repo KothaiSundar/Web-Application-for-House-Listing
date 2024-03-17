@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import Houses from "./Houses.vue";//desktop component
-import HousesMobile from './HousesMobile.vue'; //  mobile component
+import Houses from "../components/Houses.vue";//desktop component
+import HousesMobile from '../components/HousesMobile.vue'; //  mobile component
 
 export default {
   computed: {

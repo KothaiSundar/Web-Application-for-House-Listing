@@ -1,9 +1,8 @@
-import Delete from "./components/Delete.vue";
 import { createRouter, createWebHistory } from "vue-router";
-import ResponsiveHouses from "./components/ResponsiveHouses.vue";
-import ResponsiveHouseForm from "./components/ResponsiveHouseForm.vue";
-import ResponsiveHouseDetails from "./components/ResponsiveHouseDetails.vue";
-import About from "./components/About.vue";
+import ResponsiveHouses from "../views/ResponsiveHouses.vue";
+import ResponsiveHouseForm from "../views/ResponsiveHouseForm.vue";
+import ResponsiveHouseDetails from "../views/ResponsiveHouseDetails.vue";
+import About from "../views/About.vue";
 const routes = [
   { path: "/", redirect: "/houses" },
   {
@@ -32,11 +31,6 @@ const routes = [
     name: "About",
     component: About,
     path: "/About",
-  },
-  {
-    path: "/delete",
-    name: "Delete",
-    component: Delete,
   },
 ];
 

@@ -79,7 +79,7 @@
 
 <script>
 import commonHouses from './utils/commonHouses';
-import DeletePage from '../components/Delete.vue';
+import DeletePage from '../components/DeletePopup.vue';
 export default {
   name: 'Houses',
   ...commonHouses,
@@ -88,7 +88,6 @@ export default {
   },
 }
 </script>
-
 
 <style>
 @import './assets/styles/houses.css';

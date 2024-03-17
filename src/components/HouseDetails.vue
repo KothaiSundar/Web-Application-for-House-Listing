@@ -87,13 +87,13 @@
 </template>
 
 <script>
-import DeletePage from '../components/Delete.vue';
+import DeletePopup from '../components/DeletePopup.vue';
 import commonHouseDetails from './utils/commonHouseDetails';
 export default {
   name: 'HouseDetails',
   ...commonHouseDetails,
   components: {
-    'delete-popup': DeletePage
+    'delete-popup': DeletePopup
   },
 };
 </script>
