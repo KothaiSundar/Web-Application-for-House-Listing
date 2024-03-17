@@ -1,4 +1,4 @@
-import { useHouseStore } from "../../services/store";
+import { useHouseStore } from "../../stores/house";
 import housingApiService from "../../services/HousingApiServices";
 export default {
   props: {

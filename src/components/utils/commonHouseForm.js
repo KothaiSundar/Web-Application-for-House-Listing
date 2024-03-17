@@ -1,5 +1,5 @@
 import housingApiServices from "../../services/HousingApiServices";
-import { useHouseStore } from "../../services/store";
+import { useHouseStore } from "../../stores/house";
 
 export default {
   data() {

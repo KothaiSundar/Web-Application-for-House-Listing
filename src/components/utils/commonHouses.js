@@ -1,4 +1,4 @@
-import { useHouseStore } from "../../services/store";
+import { useHouseStore } from "../../stores/house";
 import housingApiService from "../../services/HousingApiServices";
 export default {
   data() {
@@ -132,9 +132,13 @@ export default {
     sortHouses(toSortList) {
       // Use a computed property to return the houses sorted by the selected criteria
       if (this.sortBy === "price") {
-        return toSortList.slice().sort((a, b) => {return this.sortByAsc ? a.price - b.price : b.price - a.price;});
+        return toSortList.slice().sort((a, b) => {
+          return this.sortByAsc ? a.price - b.price : b.price - a.price;
+        });
       } else if (this.sortBy === "size") {
-        return toSortList.slice().sort((a, b) => {return this.sortByAsc ? a.size - b.size : b.size - a.size;});
+        return toSortList.slice().sort((a, b) => {
+          return this.sortByAsc ? a.size - b.size : b.size - a.size;
+        });
       }
       return toSortList; // Return unsorted houses by default
     },
