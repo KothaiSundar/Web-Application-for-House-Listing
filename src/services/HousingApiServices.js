@@ -19,7 +19,12 @@ function createHouseFormData(listing) {
   formData.append("size", listing.size);
   formData.append("streetName", listing.location.street);
   formData.append("houseNumber", listing.location.houseNumber);
-  formData.append("numberAddition", listing.location.houseNumberAddition);
+  formData.append(
+    "numberAddition",
+    listing.location.houseNumberAddition
+      ? listing.location.houseNumberAddition
+      : ""
+  );
   formData.append("zip", listing.location.zip);
   formData.append("city", listing.location.city);
   formData.append("constructionYear", listing.constructionYear);
@@ -29,56 +34,72 @@ function createHouseFormData(listing) {
   return formData;
 }
 
+function logError(description, error) {
+  const header = error?.response?.headers;
+  const params = [`Error: ${description}`];
+  if (header) {
+    params.push(`Header: ${header}`);
+  }
+  console.error(...params, error);
+}
+
+async function handleApiCall(apiCall, errorMsg) {
+  try {
+    const response = await apiCall();
+    return response;
+  } catch (error) {
+    logError(errorMsg, error);
+    throw new Error(errorMsg);
+  }
+}
+
 export default {
   async createHouse(listing) {
+    const errorMsg =
+      "Unable to create house at the moment. Please try after sometime!!";
     const formData = createHouseFormData(listing);
-    const response = await apiClient.post("", formData);
-    return response;
+    return handleApiCall(() => apiClient.post("", formData), errorMsg);
   },
 
   async editHouse(houseId, listing) {
+    const errorMsg = `Unable to edit the house: ${houseId} at the moment. Please try after sometime!!`;
     const formData = createHouseFormData(listing);
-    const response = await apiClient.post(`/${houseId}`, formData);
-    return response;
+    return handleApiCall(
+      () => apiClient.post(`/${houseId}`, formData),
+      errorMsg
+    );
   },
 
   async deleteHouse(houseId) {
-    const response = await apiClient.delete(`/${houseId}`);
-
-    return response;
+    const errorMsg = `Unable to delete the house: ${houseId} at the moment. Please try after sometime!!`;
+    return handleApiCall(() => apiClient.delete(`/${houseId}`), errorMsg);
   },
 
   async uploadHouseImage(houseId, imageFile) {
-    try {
-      const formData = new FormData();
-      formData.append("image", imageFile);
+    const formData = new FormData();
+    formData.append("image", imageFile);
+    const errorMsg = `Unable to upload image for the house: ${houseId} at the moment. Please try after sometime!!`;
 
-      const response = await apiClient.post(`/${houseId}/upload`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      return response;
-    } catch (error) {
-      throw error;
-    }
+    return handleApiCall(
+      () =>
+        apiClient.post(`/${houseId}/upload`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }),
+      errorMsg
+    );
   },
 
   async getHouseById(houseId) {
-    try {
-      const response = await apiClient.get(`/${houseId}`);
-      return response;
-    } catch (error) {
-      throw error;
-    }
+    const errorMsg = `Unable to get house details for: ${houseId} at the moment. Please try after sometime!!`;
+    return handleApiCall(() => apiClient.get(`/${houseId}`), errorMsg);
   },
 
   async getAllHouses() {
-    try {
-      const response = await apiClient.get("");
-      return response;
-    } catch (error) {
-      throw error;
-    }
+    return handleApiCall(
+      () => apiClient.get(""),
+      "Unable to fetch house listing at the moment. Please try after sometime!!"
+    );
   },
 };

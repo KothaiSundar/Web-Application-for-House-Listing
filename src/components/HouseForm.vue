@@ -120,7 +120,7 @@
               <label for="construction-date">Construction date*</label>
               <input type="number" id="construction-date" v-model="houseDetail.constructionYear" required
                 placeholder="e.g. 1900" class="input-placeholder input-field">
-              <p class="error-message">(construction year should be above 1900 year)</p>
+              <p class="empty error-message" v-show="constructionYearError">Construction year should be above 1900.</p>
             </div>
 
             <div class="form-group">

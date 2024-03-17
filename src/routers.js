@@ -12,14 +12,20 @@ const routes = [
     path: "/houses",
   },
   {
-    name: "HouseForm",
+    name: "Create",
     component: ResponsiveHouseForm,
-    path: "/houseForm",
+    path: "/house/create",
+  },
+  {
+    name: "Edit",
+    component: ResponsiveHouseForm,
+    path: "/house/edit",
   },
   {
     name: "HouseDetails",
     component: ResponsiveHouseDetails,
     path: "/houses/:id",
+    props: (route) => ({ id: Number(route.params.id) }),
   },
 
   {

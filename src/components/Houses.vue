@@ -10,7 +10,8 @@
         <div class="sorting">
           <div class="search-barInput">
             <img src="./assets/ic_search@3x.png" alt="search-icon" class="search-icon">
-            <input type="text" placeholder="Search by City" class="search-bar input-field" v-model="searchQuery" />
+            <input type="text" id="searchByCity" placeholder="Search by City" class="search-bar input-field"
+              v-model="searchQuery" />
             <img v-if="searchQuery" src="./assets/ic_clear@3x.png" alt="clear-icon" class="clear-class"
               @click="clearSearch" />
           </div>
@@ -37,7 +38,10 @@
             <img :src="house.image" alt="House image" class="houses-image" />
             <div class="houses-info">
               <div class="houses-details">
-                <h2>{{ `${house.location.street} ${house.location.houseNumber}` }}</h2>
+                <h2>{{ `${house.location.street} ${house.location.houseNumber}${house.location.houseNumberAddition &&
+            house.location.houseNumberAddition !== 'undefined' ? ' ' + house.location.houseNumberAddition : ''}`
+                  }}</h2>
+
                 <p class="listing-info">€ {{ house.price.toLocaleString() }}</p>
                 <p class="houses-address"> {{ `${house.location.zip} ${house.location.city}` }} </p>
                 <p class="houses-icons">
@@ -67,9 +71,10 @@
         </div>
       </div><!--  house-container ends -->
     </section><!--  layout ends -->
+    <delete-popup v-if="showDeleteModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId"
+      @close="showDeleteModal = false"></delete-popup>
   </div> <!--  houses-page ends -->
-  <delete-popup v-if="showDeleteModal" @houseDeleted="fetchHouses" :houseId="selectedHouseId"
-    @close="showDeleteModal = false"></delete-popup>
+
 </template>
 
 <script>

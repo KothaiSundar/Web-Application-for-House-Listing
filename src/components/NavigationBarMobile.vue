@@ -4,7 +4,7 @@
             <div class="nav-links-mobile header-inactive">
                 <div class="house-mobile">
                     <router-link to="/houses" class="nav-item-mobile header-active" exact-active-class="active-link">
-                        <img :src="this.$route.path === '/houses' ? activeHouseImg : inactiveHouseImg" alt="home-icon">
+                        <img :src="isRouteActive('/house') ? activeHouseImg : inactiveHouseImg" alt="home-icon">
                     </router-link>
                 </div>
 
@@ -29,7 +29,12 @@ export default {
             activeInfoImg: require('./assets/ic_mobile_navigarion_info_active@3x.png'),
             inactiveInfoImg: require('./assets/ic_mobile_navigarion_info@3x.png')
         };
-    }
+    },
+    methods: {
+        isRouteActive(basePath) {
+            return this.$route.path.startsWith(basePath);
+        }
+    },
 };
 </script>
 

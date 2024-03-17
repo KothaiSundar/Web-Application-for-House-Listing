@@ -1,7 +1,6 @@
 <template>
   <div class="house-detail-page" :class="{ 'no-scroll': showDeleteModal }">
     <section class="house-details-layout layout">
-
       <nav class="navigation-bar">
         <div class="navigation-content">
           <button @click="goBack" class="back-icon">
@@ -21,7 +20,11 @@
             </div>
             <div class="house-info">
               <div class="house-titlebar">
-                <h1>{{ `${house.location.street} ${house.location.houseNumber}` }}</h1>
+                <h1>{{ `${house.location.street} ${house.location.houseNumber}${house.location.houseNumberAddition &&
+    house.location.houseNumberAddition !== 'undefined' ? ' ' + house.location.houseNumberAddition : ''}`
+                  }}</h1>
+
+
                 <span class="house-actions" v-if="house.madeByMe">
                   <img src="./assets/ic_edit@3x.png" alt="Edit" class="icon edit-icon"
                     @click.stop="editHouse(house.id)" />
@@ -78,8 +81,9 @@
       </div><!-- house-detailed-layout ends -->
 
     </section><!-- house-detais-layout ends -->
+    <delete-popup v-if="showDeleteModal" :houseId="selectedHouseId" @close="showDeleteModal = false"></delete-popup>
+
   </div><!-- house-detais-page ends -->
-  <delete-popup v-if="showDeleteModal" :houseId="selectedHouseId" @close="showDeleteModal = false"></delete-popup>
 </template>
 
 <script>

@@ -22,11 +22,6 @@ export default {
       showNav: false
     };
   },
-  computed: {
-    mobileView() {
-      return window.innerWidth <= 768;
-    }
-  },
   methods: {
     handleView() {
       this.mobileView = window.innerWidth <= 768;

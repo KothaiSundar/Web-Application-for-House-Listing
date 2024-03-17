@@ -10,7 +10,17 @@ export default {
       houseDetail: null, // used to store houseattributes
       descriptionError: "", // handle description error
       imageUploadError: "",
+      constructionYear: null,
     };
+  },
+  computed: {
+    constructionYearError() {
+      // This will be a true or false value depending on the constructionYear input
+      return (
+        this.houseDetail.constructionYear &&
+        this.houseDetail.constructionYear < 1901
+      );
+    },
   },
 
   //called when component is getting created
@@ -19,12 +29,11 @@ export default {
   },
   methods: {
     initialiseState() {
-      console.log("init state");
       const houseStore = useHouseStore();
 
-      if (houseStore.currentListing) {
+      if (houseStore.getCurrentListing) {
         this.isEditMode = true;
-        this.houseDetail = houseStore.currentListing;
+        this.houseDetail = houseStore.getCurrentListing;
       } else {
         this.isEditMode = false;
         //set empty default value.
@@ -48,6 +57,11 @@ export default {
       }
       if (!this.houseDetail.description) {
         this.descriptionError = "Required field missing.";
+        return;
+      }
+      if (this.houseDetail.constructionYear < 1901) {
+        // Handle the error, e.g., by showing an alert or setting an error message in the data
+        alert("Construction year must be above 1900.");
         return;
       }
 
