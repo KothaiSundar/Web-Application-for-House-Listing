@@ -35,6 +35,11 @@
   font-family: "open sans";
   font-size: 12px;
 }
+label {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 12px;
+}
 .icon-info-mobile {
   font-family: "open sans";
   font-size: 12px;

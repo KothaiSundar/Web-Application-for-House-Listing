@@ -29,7 +29,7 @@
                 <p class="error-message-mobile">(In Number)</p>
               </div>
               <div class="sub-details-group-right-mobile">
-                <label for="additional">Addtion (optional)</label>
+                <label for="additional">Addition (optional)</label>
                 <input type="text" id="addtional" v-model="houseDetail.location.houseNumberAddition"
                   placeholder="e.g. A" class="input-placeholder-mobile input-field-mobile">
               </div>
@@ -39,13 +39,13 @@
           <div class="form-group-mobile">
             <label for="postal-code">Postal code*</label>
             <input type="text" id="postal-code" v-model="houseDetail.location.zip" required placeholder="e.g. 1000 AA"
-              class="input-placeholder input-field">
+              class="input-placeholder-mobile input-field-mobile">
           </div>
 
           <div class="form-group-mobile">
             <label for="city">City*</label>
             <input type="text" id="city" v-model="houseDetail.location.city" required placeholder="Amsterdam"
-              class="input-placeholder input-field">
+              class="input-placeholder-mobile input-field-mobile">
           </div>
 
           <div class="form-group-mobile-image">
