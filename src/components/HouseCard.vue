@@ -10,6 +10,11 @@ export default {
     },
     props: {
         house: Object,
+        customClass: {
+      type: String,
+      default: ''
+    }
+        
     },
     emits: ['onAfterDelete'],
     methods: {
@@ -30,11 +35,14 @@ export default {
 </script>
 
 <template>
-    <div class="house-card" @click="goToHouseDetails(house.id)">
+    <div :class="['house-card', customClass]" @click="goToHouseDetails(house.id)">
+        <div class="house-card-details">
+            
+       
         <img :src="house.image" alt="House image" class="houses-image" />
         <div class="houses-info">
             <div class="houses-details">
-                <h2>{{ `${house.location.street} ${house.location.houseNumber}${house.location.houseNumberAddition &&
+                <h2 class="recommended-house-location">{{ `${house.location.street} ${house.location.houseNumber}${house.location.houseNumberAddition &&
         house.location.houseNumberAddition !== 'undefined' ? ' ' + house.location.houseNumberAddition : ''}`
                     }}</h2>
                 <p class="listing-info">€ {{ house.price.toLocaleString() }}</p>
@@ -44,13 +52,14 @@ export default {
             </div><!--  house-details ends -->
             <house-action v-if="house.madeByMe" :house="house" @onAfterDelete="$emit('onAfterDelete')" />
         </div><!--  house-info ends -->
+    </div>
     </div><!--  house-card ends -->
 </template>
 
 
 
 <style>
-.house-card {
+.house-card-details {
     display: flex;
     align-items: flex-start;
     padding: 20px;
@@ -89,4 +98,5 @@ export default {
     font-family: "Open sans";
     color: rgb(195, 195, 195);
 }
+
 </style>

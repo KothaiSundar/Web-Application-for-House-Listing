@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <img class="icon" :src="iconSrc" :alt="iconAlt">
+        <img class="icon" :src="resolvedIconSrc" :alt="iconAlt">
         <span>{{ text }}</span>
-    </div>
 </template>
 
 <script>
@@ -12,6 +10,11 @@ export default {
         iconSrc: String,
         iconAlt: String,
         text: String
+    },
+    computed: {
+        resolvedIconSrc() {
+            return require(`@/assets/images/${this.iconSrc}`);
+        }
     }
 };
 </script>

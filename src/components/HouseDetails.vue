@@ -30,33 +30,16 @@
                 <img class="icon" src="../assets/images/ic_location@3x.png" alt="location">
                 <span class="listing-info">{{ `${house.location.zip} ${house.location.city}` }}</span>
               </p>
+
               <ul class="house-area listing-info">
-                <li>
-                  <img class="icon" src="../assets/images/ic_price@3x.png" alt="price_icon">
-                  <span>{{ house.price.toLocaleString() }}</span>
-                </li>
-                <li>
-                  <img class="icon" src="../assets/images/ic_size@3x.png" alt="size_icon">
-                  <span>{{ house.size }} m²</span>
-                </li>
-                <li>
-                  <img class="icon" src="../assets/images/ic_construction_date@3x.png" alt="construction_icon">
-                  <span>Built in {{ house.constructionYear }}</span>
+                <li v-for="(attribute, index) in propertyInfoList" :key="index">
+                  <info-item :icon-src="attribute.iconSrc" :icon-alt="attribute.iconAlt" :text="attribute.text" />
                 </li>
               </ul>
 
               <ul class="house-attributes">
-                <li>
-                  <img class="icon" src="../assets/images/ic_bed@3x.png" alt="bed_icon">
-                  <span>{{ house.rooms.bedrooms }}</span>
-                </li>
-                <li>
-                  <img class="icon" src="../assets/images/ic_bath@3x.png" alt="bath_icon">
-                  <span>{{ house.rooms.bathrooms }}</span>
-                </li>
-                <li>
-                  <img class="icon" src="../assets/images/ic_garage@3x.png" alt="garage_icon">
-                  <span>{{ house.hasGarage ? 'Yes' : 'No' }}</span>
+                <li v-for="(item, index) in attributeItems" :key="index">
+                  <info-item :icon-src="item.iconSrc" :icon-alt="item.iconAlt" :text="item.text" />
                 </li>
               </ul>
 
@@ -68,9 +51,8 @@
             Loading details...
           </div>
         </div>
-        <div class="house-recommended">
-          <h2>Recommended for you</h2>
-        </div>
+       
+        <recommended-houses class="house-recommended" :house="house" />
 
       </div><!-- house-detailed-layout ends -->
 
@@ -80,16 +62,17 @@
 </template>
 
 <script>
-import DeletePopup from '../components/DeletePopup.vue';
-import EditDeleteActions from './EditDeleteActions.vue';
+import EditDeleteActions from "./EditDeleteActions.vue";
 import housingApiService from "../services/HousingApiServices";
-import InfoItem from './InfoItem.vue';
+import InfoItem from "./InfoItem.vue";
+import RecommendedHouses from "./RecommendedHouses.vue";
 
 export default {
   name: 'HouseDetails',
   components: {
     "house-action": EditDeleteActions,
     "info-item": InfoItem,
+    "recommended-houses": RecommendedHouses,
   },
   props: {
     id: {
@@ -104,10 +87,55 @@ export default {
       error: null, //stoe error message
     };
   },
-
+  computed: {
+    propertyInfoList() {
+      return [
+        {
+          iconSrc: "ic_price@3x.png",
+          iconAlt: "price icon",
+          text: `${this.house.price.toLocaleString()}`
+        },
+        {
+          iconSrc: "ic_size@3x.png",
+          iconAlt: "size icon",
+          text: `${this.house.size} m²`
+        },
+        {
+          iconSrc: "ic_construction_date@3x.png",
+          iconAlt: "construction icon",
+          text: `Built in ${this.house.constructionYear}`
+        }
+      ];
+    },
+    attributeItems() {
+      return [
+        {
+          iconSrc: "ic_bed@3x.png",
+          iconAlt: "bed icon",
+          text: `${this.house.rooms.bedrooms}`
+        },
+        {
+          iconSrc: "ic_bath@3x.png",
+          iconAlt: "bath icon",
+          text: `${this.house.rooms.bathrooms}`
+        },
+        {
+          iconSrc: "ic_garage@3x.png",
+          iconAlt: "garage icon",
+          text: this.house.hasGarage ? 'Yes' : 'No'
+        }
+      ];
+    }
+  },
+  watch: {
+    // Watch for changes in the route
+    '$route.params.id'(newId) {
+      this.fetchHouseDetails(newId);
+    }
+  },
   created() {
     this.houseId = this.id;
-    this.fetchHouseDetails();
+    this.fetchHouseDetails(this.houseId);
   },
 
   methods: {
@@ -117,12 +145,12 @@ export default {
     },
 
     // this method fetch house details through API
-    async fetchHouseDetails() {
+    async fetchHouseDetails(houseId) {
       try {
-        let houseResponse = await housingApiService.getHouseById(this.houseId);
+        let houseResponse = await housingApiService.getHouseById(houseId);
         if (houseResponse.status !== 200) {
           window.alert(
-            `Unable to fetch House details for HouseId: ${this.houseId} `
+            `Unable to fetch House details for HouseId: ${houseId} `
           );
           return;
         }
@@ -223,7 +251,7 @@ export default {
   flex-basis: 40%;
   margin-left: 50px;
   height: 550px;
-}
+ }
 
 .house-location {
   display: flex;
