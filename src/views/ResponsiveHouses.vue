@@ -6,7 +6,8 @@
 // import Houses from "../components/Houses.vue";//desktop component
 import Houses from "../components/HousesGen.vue"
 // import Houses from "../components/HousesGen";
-import HousesMobile from '../components/HousesMobile.vue'; //  mobile component
+import HousesMobile from '../components/HousesMobile.vue'; 
+//  mobile component
 
 export default {
   computed: {

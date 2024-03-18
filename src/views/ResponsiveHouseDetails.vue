@@ -4,7 +4,8 @@
 
 <script>
 import HouseDetails from '../components/HouseDetails.vue'; //desktop component
-import HouseDetailsMobile from '../components/HouseDetailsMobile.vue'; //  mobile component
+import HouseDetailsMobile from '../components/HouseDetailsMobile.vue'; 
+//  mobile component
 
 export default {
     computed: {

@@ -83,7 +83,7 @@
 
 <script>
 import commonHouses from './utils/commonHouses';
-import DeletePage from '../components/DeletePopup.vue';
+import DeletePage from './DeletePopup.vue';
 export default {
   name: 'Houses',
   ...commonHouses,
@@ -96,4 +96,4 @@ export default {
 
 <style>
 @import './assets/styles/housesMobile.css';
-</style>./DeletePopup.vue
+</style>

@@ -1,12 +1,13 @@
 <template>
-    <div class="houses-actions">
-        <img src="./assets/ic_edit@3x.png" alt="Edit" class="icon edit-icon" @click.stop="handleEdit" />
-        <!-- <img src="./assets/ic_delete@3x.png" alt="Delete" class="icon delete-icon" @click.stop="$emit('delete')" /> -->
-        <img src="./assets/ic_delete@3x.png" alt="Delete" class="icon delete-icon"
-            @click.stop="showDeletePopup(house.id)" />
+    <span class="houses-actions">
+        <img src="./assets/ic_edit@3x.png" alt="Edit" class=" edit-icon" @click.stop="handleEdit" />
+
+        <img src="./assets/ic_delete@3x.png" alt="Delete" class="delete-icon" @click.stop="showDeletePopup(house.id)" />
+
         <delete-popup v-if="showDeleteModal" :houseId="selectedHouseId" @houseDeleted="$emit('onAfterDelete')"
             @close="showDeleteModal = false"></delete-popup>
-    </div>
+    </span>
+
 </template>
 
 <script>
@@ -61,9 +62,17 @@ export default {
     flex-direction: row;
 }
 
+.houses-details-page-actions {
+    display: none;
+}
+
 .houses-actions img {
     padding-right: 20px;
-    /* should not give this for mobile. it is not there */
+}
+
+.edit-icon-house-details-mobile,
+.delete-icon-house-details-mobile {
+    display: none;
 }
 
 .edit-icon,
@@ -73,5 +82,40 @@ export default {
     padding: 5px;
     width: 20px;
     height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .edit-icon,
+    .delete-icon {
+
+        padding: 0px;
+        width: 10px;
+        height: 10px;
+
+    }
+
+    .houses-actions img {
+        padding-right: 10px;
+
+    }
+
+}
+
+@media screen and (max-width: 390px) {
+
+    .edit-icon,
+    .delete-icon {
+
+        width: 8px;
+        height: 8px;
+
+    }
+
+    .houses-actions img {
+        padding-right: 8px;
+
+    }
+
 }
 </style>

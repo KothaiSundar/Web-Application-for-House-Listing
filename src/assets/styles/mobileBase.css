@@ -1,8 +1,10 @@
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
 .heading-tag {
   font-family: "Montserrat";
   font-weight: bold;
   font-size: 18px;
-}
+ }
 .headertag-second {
   font-family: "Montserrat";
   font-weight: bold;
@@ -49,4 +51,5 @@
   font-weight: 500;
   font-size: 12px;
   font-style: italic;
+}
 }

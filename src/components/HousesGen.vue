@@ -146,6 +146,8 @@ export default {
     margin-top: 5rem;
     background-color: rgb(246, 246, 246);
     height: 100%;
+    min-height: 100vh;
+
 }
 
 .houses-container {
@@ -201,6 +203,46 @@ export default {
     .no-results img {
         width: 350px;
         height: 100px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .houses-page {
+        margin-top: 0;
+        padding: 0;
+        max-width: 100%;
+        margin-bottom: 5rem;
+    }
+
+    .layout {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .create-new-btnnew img {
+        height: 15px;
+        width: 15px;
+        margin-right: 0rem;
+    }
+
+    .search-icon {
+        height: 15px;
+        width: 15px;
+    }
+
+    .clear-class {
+
+        height: 15px;
+        width: 15px;
+    }
+
+    .sort-buttons {
+        margin-top: 20px;
+
+        height: 30px;
     }
 }
 </style>
