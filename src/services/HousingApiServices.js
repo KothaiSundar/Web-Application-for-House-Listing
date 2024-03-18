@@ -102,4 +102,35 @@ export default {
       "Unable to fetch house listing at the moment. Please try after sometime!!"
     );
   },
+  async getHouseRecommendations(houseId) {
+    //fetches randome 3 houses as recommendataions but can do other options like  pick housese from same city as input houseId etc..
+    try {
+      // Call the existing method to get all houses
+      const allHousesResponse = await this.getAllHouses();
+
+      // Check if the response is valid and has data
+      if (allHousesResponse && allHousesResponse.data) {
+        // Filter out the house with the given houseId
+        const filteredHouses = allHousesResponse.data.filter(
+          (house) => house.id !== houseId
+        );
+
+        // Shuffle the array of filtered houses
+        const shuffledHouses = filteredHouses.sort(() => 0.5 - Math.random());
+
+        // Get the first 3 houses from the shuffled array
+        const recommendedHouses = shuffledHouses.slice(0, 3);
+
+        return recommendedHouses;
+      } else {
+        // Handle the case where no houses are returned or there's an invalid response
+        return [];
+      }
+    } catch (error) {
+      console.error("Error fetching house recommendations:", error);
+      throw new Error(
+        "Unable to fetch house recommendations at the moment. Please try again later."
+      );
+    }
+  },
 };

@@ -51,8 +51,8 @@
             Loading details...
           </div>
         </div>
-       
-        <recommended-houses class="house-recommended" :house="house" />
+
+        <recommended-houses v-if="house" class="house-recommended" :house="house" />
 
       </div><!-- house-detailed-layout ends -->
 
@@ -251,7 +251,7 @@ export default {
   flex-basis: 40%;
   margin-left: 50px;
   height: 550px;
- }
+}
 
 .house-location {
   display: flex;
