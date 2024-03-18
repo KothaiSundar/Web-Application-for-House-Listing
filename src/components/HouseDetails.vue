@@ -113,7 +113,7 @@ export default {
   methods: {
     // if back icon is clicked, directed to houses page
     goBack() {
-      this.$router.push({ name: "Houses" });
+      this.$router.push({ path: "/houses" });
     },
 
     // this method fetch house details through API

@@ -27,4 +27,12 @@ export default {
     font-family: "Open sans";
     gap: 15px;
 }
+
+@media screen and (max-width: 540px) {
+    .houses-icons {
+   padding-top: 10px;
+  
+}
+
+}
 </style>

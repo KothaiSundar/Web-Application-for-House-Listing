@@ -89,4 +89,183 @@ export default {
     font-family: "Open sans";
     color: rgb(195, 195, 195);
 }
+
+@media screen and (max-width: 768px) {
+    .house-card {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    .houses-image {
+        width: 150px;
+        height: 150px;
+        margin-right: 20px;
+    }
+     .houses-details {
+     line-height: 5px;
+        width: 100%;
+    }
+
+    .listing-info,
+    .house-location,
+    .houses-address {
+        font-size: 18px;
+
+    }
+    .icon {
+        width: 20px;
+        height: 20px;
+
+    }
+    .houses-icons {
+        gap: 10px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .house-card {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    .houses-image {
+        width: 140px;
+        height: 140px;
+        margin-right: 15px;
+    }
+     .houses-details {
+        line-height: 5px;
+       
+    }
+
+    .listing-info,
+    .house-location,
+    .houses-address {
+        font-size: 14px;
+
+    }
+    .icon {
+        width: 15px;
+        height: 15px;
+
+    }
+
+    .houses-icons {
+        gap: 10px;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 430px) {
+    .house-card {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    .houses-image {
+        width: 140px;
+        height: 140px;
+        margin-right: 15px;
+    }
+     .houses-details {
+        line-height: 5px;
+       
+    }
+.houses-details{
+   
+    padding-top: 8px;
+}
+    
+
+    .houses-icons {
+        gap:8px;
+       
+    }
+
+}
+@media screen and (max-width: 414px) {
+    
+    .houses-image {
+        width: 130px;
+        height: 130px;
+       
+    }
+    .listing-info,
+    .house-location,
+    .houses-address {
+        font-size: 12px;
+
+    }
+    .houses-icons {
+        gap:7px;
+        font-size: 10px;
+    }
+     
+}
+@media screen and (max-width: 390px)  {
+    .house-card {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    .houses-details{
+   
+   padding-top: 0px;
+}
+    .houses-image {
+        width: 120px;
+        height: 120px;
+        margin-right: 10px;
+    }
+    .houses-icons {
+        gap: 7px;
+       
+    }
+    
+}
+
+@media screen and (max-width: 375px){
+    .house-card {
+        padding: 5px;
+        margin-bottom: 10px;
+        
+    }
+    .houses-image {
+        width: 110px;
+        height: 110px;
+        margin-right: 10px;
+    }
+   
+}
+
+@media screen and (max-width: 285px) {
+    .house-card {
+        padding: 3px;
+        margin-bottom: 8px;
+    }
+    .houses-image {
+        width: 90px;
+        height: 90px;
+        margin-right: 8px;
+    }
+     .houses-details {
+     line-height: 1px;
+        width: 100%;
+    }
+
+    .listing-info,
+    .house-location,
+    .houses-address {
+        font-size: 10px;
+
+    }
+    h2{
+        font-size: 12px;
+    }
+    .icon {
+        width: 12px;
+        height: 12px;
+
+    }
+    .houses-icons {
+        gap: 3px;
+        font-size: 10px;
+    }
+}
 </style>

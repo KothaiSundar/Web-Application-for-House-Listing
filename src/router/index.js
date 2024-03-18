@@ -3,13 +3,14 @@ import ResponsiveHouses from "../views/ResponsiveHouses.vue";
 import ResponsiveHouseForm from "../views/ResponsiveHouseForm.vue";
 import ResponsiveHouseDetails from "../views/ResponsiveHouseDetails.vue";
 import About from "../views/About.vue";
+import HousesGen from "@/components/HousesGen.vue";
 const routes = [
   { path: "/", redirect: "/houses" },
-  {
-    name: "Houses",
-    component: ResponsiveHouses,
-    path: "/houses",
-  },
+  // {
+  //   name: "Houses",
+  //   component: ResponsiveHouses,
+  //   path: "/houses",
+  // },
   {
     name: "Create",
     component: ResponsiveHouseForm,
@@ -31,6 +32,12 @@ const routes = [
     name: "About",
     component: About,
     path: "/About",
+  },
+  {name:"HousesGen",
+  component:HousesGen,
+  path: "/houses"
+
+
   },
 ];
 

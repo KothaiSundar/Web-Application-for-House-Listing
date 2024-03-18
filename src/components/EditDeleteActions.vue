@@ -63,8 +63,7 @@ export default {
 
 .houses-actions img {
     padding-right: 20px;
-    /* should not give this for mobile. it is not there */
-}
+  }
 
 .edit-icon,
 .delete-icon {
@@ -73,5 +72,34 @@ export default {
     padding: 5px;
     width: 20px;
     height: 20px;
+}
+@media screen and (max-width: 768px) {
+    .edit-icon,
+.delete-icon {
+  
+    padding: 0px;
+    width: 10px;
+    height: 10px;
+   
+}
+.houses-actions img {
+    padding-right: 10px;
+  
+}
+
+}
+@media screen and (max-width: 390px) {
+    .edit-icon,
+.delete-icon {
+ 
+    width: 8px;
+    height: 8px;
+   
+}
+.houses-actions img {
+    padding-right: 8px;
+  
+}
+
 }
 </style>

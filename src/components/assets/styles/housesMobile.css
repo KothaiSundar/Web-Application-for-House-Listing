@@ -11,7 +11,7 @@
   width: 100%;
   margin-bottom: 5rem;
 }
-.top-bar-mobile {
+/* .top-bar-mobile {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -94,7 +94,7 @@
 .sort-btn-price-mobile.active,
 .sort-btn-size-mobile.active {
   background-color: rgb(235, 84, 64);
-}
+} */
 .houses-container-mobile {
   display: flex;
   flex-direction: column;
