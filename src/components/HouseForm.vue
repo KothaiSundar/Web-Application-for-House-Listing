@@ -33,7 +33,7 @@
                 <p class="error-message">(In Number)</p>
               </div>
               <div class="sub-details-group-right">
-                <label for="additional">Addtion (optional)</label>
+                <label for="additional">Addition (optional)</label>
                 <input type="text" id="addtional" v-model="houseDetail.location.houseNumberAddition"
                   placeholder="e.g. A" class="input-placeholder input-field">
               </div>

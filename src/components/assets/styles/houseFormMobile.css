@@ -24,9 +24,8 @@
   display: flex;
   height: 2rem;
   width: 100%;
-  align-items: center; 
-  justify-content:center;
-
+  align-items: center;
+  justify-content: center;
 }
 .back-icon-mobile {
   text-align: left;
@@ -35,18 +34,15 @@
   cursor: pointer;
 }
 
-
 .form-title-mobile {
-  text-align: left; 
+  text-align: left;
   width: 400px;
 }
 
-
 .form-mobile {
   max-width: 100%;
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
   margin-top: 10px;
-
 }
 .form-group-mobile {
   padding-bottom: 10px;
@@ -89,7 +85,6 @@
   width: 100%;
   padding: 15px 15px;
   border-radius: 10px;
-
   border: none;
   border-radius: 5px;
 }
@@ -151,14 +146,12 @@ input[type="file"] {
 /* Use margin to overlap the clear button over the image.
    This requires knowing the exact dimensions of your elements. */
 .clear-icon-mobile {
- 
   margin-left: -25px;
   height: 25px;
   width: 25px;
   cursor: pointer; /* Indicates this is clickable */
   z-index: 1; /* Make sure it's above the image */
 }
-
 
 button {
   background-color: transparent;
@@ -168,7 +161,7 @@ button {
   background: rgb(235, 84, 64);
   color: rgb(255, 255, 255);
   border: none;
-  width:100%;
+  width: 100%;
   max-width: 100%; /* Ensures that the button does not exceed the width of its container */
   height: 40px;
   border-radius: 5px;
@@ -189,7 +182,11 @@ button {
 @media screen and (max-width: 280px) {
   .edit-listing-container-mobile {
     width: 100%;
-    
   }
-   
- }
+  .input-field-mobile {
+    font-size: 10px;
+  }
+  .error-message-mobile {
+    font-size: 8px;
+  }
+}
