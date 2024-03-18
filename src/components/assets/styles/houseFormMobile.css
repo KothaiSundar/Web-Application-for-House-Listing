@@ -1,3 +1,5 @@
+@media screen and (max-width: 768px) {
+
 .house-form-page-mobile {
   background-image: url(../img_background@3x.png);
   background-size: cover;
@@ -185,6 +187,8 @@ button {
 }
 .border-red-mobile {
   border: 1px solid rgb(235, 84, 64);
+}
+
 }
 @media screen and (max-width: 280px) {
   .edit-listing-container-mobile {

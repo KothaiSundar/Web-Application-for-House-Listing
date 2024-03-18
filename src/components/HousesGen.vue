@@ -207,38 +207,26 @@ export default {
 
 }
 
-
 @media screen and (max-width: 768px) {
     .houses-page {
-
         margin-top: 0;
         padding: 0;
         max-width: 100%;
         margin-bottom: 5rem;
-
     }
 
     .layout {
-
         max-width: 100%;
         margin: 0 auto;
-
-
     }
-
 }
 
 @media screen and (max-width: 280px) {
-
-
-
-
     .create-new-btnnew img {
         height: 15px;
         width: 15px;
         margin-right: 0rem;
     }
-
 
     .search-icon {
         height: 15px;
@@ -256,9 +244,5 @@ export default {
 
         height: 30px;
     }
-
-
-
-
 }
 </style>

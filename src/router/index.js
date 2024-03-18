@@ -4,6 +4,7 @@ import ResponsiveHouseForm from "../views/ResponsiveHouseForm.vue";
 import ResponsiveHouseDetails from "../views/ResponsiveHouseDetails.vue";
 import About from "../views/About.vue";
 import HousesGen from "@/components/HousesGen.vue";
+import HouseDetails from "@/components/HouseDetails.vue";
 const routes = [
   { path: "/", redirect: "/houses" },
   // {
@@ -21,23 +22,25 @@ const routes = [
     component: ResponsiveHouseForm,
     path: "/house/edit",
   },
-  {
-    name: "HouseDetails",
-    component: ResponsiveHouseDetails,
-    path: "/houses/:id",
-    props: (route) => ({ id: Number(route.params.id) }),
-  },
+  // {
+  //   name: "HouseDetails",
+  //   component: ResponsiveHouseDetails,
+  //   path: "/houses/:id",
+  //   props: (route) => ({ id: Number(route.params.id) }),
+  // },
 
   {
     name: "About",
     component: About,
     path: "/About",
   },
-  {name:"HousesGen",
-  component:HousesGen,
-  path: "/houses"
+  { name: "HousesGen", component: HousesGen, path: "/houses" },
 
-
+  {
+    name: "HouseDetails",
+    component: HouseDetails,
+    path: "/houses/:id",
+    props: (route) => ({ id: Number(route.params.id) }),
   },
 ];
 
