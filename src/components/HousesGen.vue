@@ -1,29 +1,3 @@
-<template>
-    <div class="houses-page">
-        <section class="layout">
-
-            <top-bar :sortBy="sortBy" :searchQuery="searchQuery" :searchMessage="searchMessage"
-                @setSortCriteria="setSortCriteria" @updateSearchQuery="updateSearchQuery"
-                @clearSearch="clearSearch"></top-bar>
-
-            <div class="houses-container">
-                <div v-if="filteredAndSortedHouses.length > 0">
-
-                    <house-card v-for="house in filteredAndSortedHouses" :key="house.id" :house="house"
-                        @onAfterDelete="fetchHouses"></house-card>
-                </div>
-                <div v-else class="no-results">
-                    <div class="no-results-content">
-                        <img src="../assets/images/img_empty_houses@3x.png" alt="No results" class="no-results-image" />
-                        <p class="empty-message">No results found.<br>Please try another keyword.</p>
-                    </div>
-                </div>
-            </div><!--  house-container ends -->
-        </section><!--  layout ends -->
-    </div> <!--  houses-page ends -->
-
-</template>
-
 <script>
 import DeletePage from '../components/DeletePopup.vue';
 import HouseCard from '../components/HouseCard.vue';
@@ -141,6 +115,34 @@ export default {
 }
 </script>
 
+<template>
+    <div class="houses-page">
+        <section class="layout">
+
+            <top-bar :sortBy="sortBy" :searchQuery="searchQuery" :searchMessage="searchMessage"
+                @setSortCriteria="setSortCriteria" @updateSearchQuery="updateSearchQuery"
+                @clearSearch="clearSearch"></top-bar>
+
+            <div class="houses-container">
+                <div v-if="filteredAndSortedHouses.length > 0">
+
+                    <house-card v-for="house in filteredAndSortedHouses" :key="house.id" :house="house"
+                        @onAfterDelete="fetchHouses"></house-card>
+                </div>
+                <div v-else class="no-results">
+                    <div class="no-results-content">
+                        <img src="../assets/images/img_empty_houses@3x.png" alt="No results" class="no-results-image" />
+                        <p class="empty-message">No results found.<br>Please try another keyword.</p>
+                    </div>
+                </div>
+            </div><!--  house-container ends -->
+        </section><!--  layout ends -->
+    </div> <!--  houses-page ends -->
+
+</template>
+
+
+
 <style>
 .houses-page {
     margin-top: 5rem;
@@ -175,7 +177,7 @@ export default {
 }
 
 .no-results-content {
-    position: absolute;
+     position: absolute;
     width: 500px;
     height: 50%;
     top: 50px;
@@ -194,17 +196,38 @@ export default {
     margin-top: 40px;
 }
 
-@media (min-width: 1000px) and (max-height: 750px) {
+@media (min-height: 600px) and (max-height: 750px) {
     .no-results-content {
-        height: 20%;
+        height: 200px;
         top: 60px;
     }
 
     .no-results img {
-        width: 350px;
         height: 100px;
     }
 
+}
+
+@media (min-height: 500px) and (max-height: 600px) {
+    .no-results-content {
+        height: 200px;
+    }
+
+    .no-results img {
+
+        height: 100px;
+    }
+}
+
+@media (min-height: 300px) and (max-height: 500px) {
+    .no-results-content {
+        height: 100px;
+    }
+
+    .no-results img {
+
+        height: 50px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -221,7 +244,37 @@ export default {
     }
 }
 
+@media (min-width:301px) and (max-width: 430px) {
+
+    .no-results-content {
+        width: 250px;
+    }
+
+    .no-results img {
+        width: 200px;
+
+    }
+
+}
+
+@media (min-width:200px) and (max-width: 300px) {
+
+    .no-results-content {
+        width: 150px;
+    }
+
+    .no-results img {
+        width: 100px;
+
+    }
+
+}
+
 @media screen and (max-width: 280px) {
+    .houses-page {
+        min-width: 280px;
+    }
+
     .create-new-btnnew img {
         height: 15px;
         width: 15px;

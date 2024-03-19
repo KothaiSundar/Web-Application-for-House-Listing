@@ -2,7 +2,10 @@
     <div class="top-bar">
         <div class="heading">
             <h1>HousesGen</h1>
-            <button class="create-new-btn desktop-only" @click.stop="createHouse()">+ CREATE NEW</button>
+            <button class="create-new-btn desktop-only" @click.stop="createHouse()">
+                <img src="../assets/images/ic_plus_white@3x.png" alt="plus_icon" class="icon">
+                <div>CREATE NEW</div>
+            </button>
             <button class="create-new-btnnew mobile1-only" @click.stop="createHouse()">
                 <img src="./assets/ic_plus_grey@3x.png" alt="plus-icon">
             </button>
@@ -82,17 +85,16 @@ export default {
 
 <style>
 .top-bar {
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
     width: 100%;
-   
 }
 
 .mobile1-only {
     display: none;
 }
-
 
 .heading,
 .sorting {
@@ -104,6 +106,7 @@ export default {
 }
 
 .create-new-btn {
+    display: flex;
     height: 50px;
     width: 200px;
     border: 5px;
@@ -114,6 +117,11 @@ export default {
     border: none;
     cursor: pointer;
     margin-top: 0;
+
+}
+
+.create-new-btn div {
+    margin-left: 10px;
 }
 
 .search-barInput {
@@ -121,7 +129,6 @@ export default {
     background-color: rgba(232, 232, 232);
     width: 500px;
     border-radius: 10px;
-
     display: flex;
     align-items: center;
     padding-left: 20px;
@@ -181,6 +188,11 @@ button {
 .sort-btn-size.active {
     background-color: rgb(235, 84, 64);
 }
+@media (min-width:769px)and (max-width: 1200px) {
+.search-barInput{
+  width: 40%;
+}
+}
 
 
 /* Media query for mobile screens */
@@ -201,23 +213,23 @@ button {
     }
 
     .top-bar {
-     
+
         display: flex;
         flex-direction: column;
         margin-bottom: 20px;
         width: 100%;
-       
+
     }
 
     .heading {
         display: flex;
-       
+
         padding: 0px;
     }
 
     .heading h1 {
         margin: auto;
-        
+
     }
 
     .create-new-btn img {
@@ -229,7 +241,7 @@ button {
     .sorting {
         width: 100%;
         display: block;
-       
+
         padding: 0px;
     }
 
@@ -242,7 +254,7 @@ button {
         padding-left: 2%;
         display: flex;
         align-items: center;
-       
+
     }
 
     .clear-class {
@@ -261,6 +273,6 @@ button {
         margin-top: 20px;
         height: 40px;
     }
-   
+
 }
 </style>

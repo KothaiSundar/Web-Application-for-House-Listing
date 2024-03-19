@@ -5,6 +5,7 @@ import ResponsiveHouseDetails from "../views/ResponsiveHouseDetails.vue";
 import About from "../views/About.vue";
 import HousesGen from "@/components/HousesGen.vue";
 import HouseDetails from "@/components/HouseDetails.vue";
+import HouseForm from "@/components/HouseForm.vue";
 const routes = [
   { path: "/", redirect: "/houses" },
   // {
@@ -14,12 +15,12 @@ const routes = [
   // },
   {
     name: "Create",
-    component: ResponsiveHouseForm,
+    component:HouseForm,
     path: "/house/create",
   },
   {
     name: "Edit",
-    component: ResponsiveHouseForm,
+    component: HouseForm,
     path: "/house/edit",
   },
   // {

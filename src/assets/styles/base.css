@@ -1,7 +1,6 @@
 .layout {
-  max-width:80%;
+  max-width: 80%;
   margin: 0 auto;
- 
 }
 .no-scroll {
   position: fixed;
@@ -72,6 +71,15 @@ label {
   font-family: "open sans";
   font-size: 16px;
 }
+.houses-icons {
+  font-size: 18px;
+  font-family: "Open sans";
+}
+.houses-address {
+  font-size: 18px;
+  font-family: "Open sans";
+  color: rgb(195, 195, 195);
+}
 .body-text {
   font-family: "Open Sans";
   font-size: 18px;
@@ -80,4 +88,7 @@ label {
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+.mobile-only {
+  display: block;
 }

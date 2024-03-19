@@ -1,12 +1,22 @@
 <template>
-    <span class="houses-actions">
-        <img src="./assets/ic_edit@3x.png" alt="Edit" class=" edit-icon" @click.stop="handleEdit" />
+    <div>
+        <span v-if="!isHouseDetailMobile" class="houses-actions">
+            <img src="./assets/ic_edit@3x.png" alt="Edit" class=" edit-icon" @click.stop="handleEdit" />
 
-        <img src="./assets/ic_delete@3x.png" alt="Delete" class="delete-icon" @click.stop="showDeletePopup(house.id)" />
+            <img src="./assets/ic_delete@3x.png" alt="Delete" class="delete-icon"
+                @click.stop="showDeletePopup(house.id)" />
+        </span>
 
+        <div v-if="isHouseDetailMobile" class="edit-actions-details-mobile">
+            <span class="edit"><img src="./assets/ic_edit_white@3x.png" alt="Edit" @click.stop="handleEdit" /></span>
+            <span class="delete"><img src="./assets/ic_delete_white@3x.png" alt="Delete"
+                    @click.stop="showDeletePopup(house.id)" />
+            </span>
+        </div>
         <delete-popup v-if="showDeleteModal" :houseId="selectedHouseId" @houseDeleted="$emit('onAfterDelete')"
             @close="showDeleteModal = false"></delete-popup>
-    </span>
+    </div>
+
 
 </template>
 
@@ -21,6 +31,10 @@ export default {
     },
     props: {
         house: Object,
+        isHouseDetailMobile: {
+            type: Boolean,
+            default: false
+        },
     },
     emits: ['onAfterDelete'],
     data() {
@@ -62,17 +76,8 @@ export default {
     flex-direction: row;
 }
 
-.houses-details-page-actions {
-    display: none;
-}
-
 .houses-actions img {
     padding-right: 20px;
-}
-
-.edit-icon-house-details-mobile,
-.delete-icon-house-details-mobile {
-    display: none;
 }
 
 .edit-icon,
@@ -84,21 +89,54 @@ export default {
     height: 20px;
 }
 
+.edit-actions-details-mobile {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
 
     .edit-icon,
     .delete-icon {
+        padding: 0;
+        padding-top: 5px;
 
-        padding: 0px;
-        width: 10px;
-        height: 10px;
-
+        width: 20px;
+        height: 20px;
     }
 
     .houses-actions img {
         padding-right: 10px;
+    }
+
+    .edit-actions-details-mobile {
+        position: absolute;
+        width: 70px;
+        right: 5px;
+        display: flex;
+       
+    }
+
+    .edit-actions-details-mobile img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .delete {
+        margin-left: 20px;
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+
+    .edit-icon,
+    .delete-icon {
+
+        width: 15px;
+        height: 15px;
 
     }
+
 
 }
 
@@ -107,8 +145,8 @@ export default {
     .edit-icon,
     .delete-icon {
 
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
 
     }
 

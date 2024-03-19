@@ -1,13 +1,3 @@
-<template>
-    <div v-if="recommendedHouses.length">
-        <h2 class="recommended-heading">Recommended for you</h2>
-        <div>
-            <house-card v-for="house in recommendedHouses" :key="house.id" :house="house"
-                customClass="recommended-houses-card" :enableHouseAction="false" />
-        </div>
-    </div>
-</template>
-
 <script>
 import HouseCard from './HouseCard.vue';
 import housingApiService from "../services/HousingApiServices.js"; // Adjust the path as needed
@@ -53,6 +43,16 @@ export default {
 };
 </script>
 
+<template>
+    <div v-if="recommendedHouses.length">
+        <h2 class="recommended-heading">Recommended for you</h2>
+        <div>
+            <house-card v-for="house in recommendedHouses" :key="house.id" :house="house"
+                customClass="recommended-houses-card" :enableHouseAction="false" />
+        </div>
+    </div>
+</template>
+
 <style>
 .recommended-heading {
     margin-top: 0;
@@ -61,7 +61,8 @@ export default {
 
 .recommended-houses-card .house-card-details {
     margin-bottom: 20px;
-    width: 400px;
+    width: 100%;
+    /* background-color: blue; */
 
 }
 
@@ -78,8 +79,8 @@ export default {
 }
 
 .recommended-houses-card .listing-info,
-.recommended-house-location,
-.houses-address {
+.recommended-houses-card .recommended-house-location,
+.recommended-houses-card .houses-address {
     font-size: 14px;
 }
 
@@ -94,12 +95,45 @@ export default {
     font-size: 14px;
 }
 
-@media screen and (max-width: 1200px) {
+@media (min-width:1000px) and (max-width: 1200px) {
 
-    .recommended-houses-card .houses-details,
-    .house-card-details {
+    /* .recommended-houses-card .houses-details,
+    .recommended-houses-card .house-card-details {
 
         position: sticky;
+    } */
+}
+
+/* @media screen and (max-width: 1200px) {
+
+.recommended-houses-card .houses-details,
+.recommended-houses-card .house-card-details {
+
+    position: sticky;
+}
+} */
+
+
+@media screen and (max-width: 768px) {
+
+    .recommended-heading {
+        margin-top: 0;
+        padding-bottom: 0px;
+        padding-left: 10px;
     }
+      .recommended-houses-card .house-card-details {
+     
+        margin: 0px;
+       
+        width: 95%;
+        /* background-color: chartreuse; */
+    }
+
+    .recommended-houses-card .houses-details {
+        line-height: 1px;
+        width: 100%;
+        /* background-color: darkblue; */
+    }
+
 }
 </style>
