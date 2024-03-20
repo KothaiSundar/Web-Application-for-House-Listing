@@ -1,52 +1,91 @@
-.heading-tag {
-  font-family: "Montserrat";
-  font-weight: bold;
-  font-size: 18px;
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 18px;
+  }
+  .mobile-only {
+    display: block;
+  }
+  h2 {
+    font-size: 14px;
+  }
+  button {
+    font-size: 12px;
+  }
+  .header-active {
+    font-size: 16px;
+  }
+  .header-inactive {
+    font-size: 16px;
+  }
+  .tabs {
+    font-size: 12px;
+  }
+  .body-text {
+    font-size: 12px;
+  }
+  .input-field {
+    font-size: 12px;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .listing-info {
+    font-size: 16px;
+  }
+  .icon-info {
+    font-size: 12px;
+  }
+  .empty-message {
+    font-size: 12px;
+  }
+  .error-message {
+    font-size: 12px;
+  }
+  label {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 540px) {
+    .icon {
+      width: 15px;
+      height: 15px;
+    }
+    .listing-info {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: 414px) {
+   
+    .listing-info {
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 300px) {
+
+    h1,h2{
+      font-size: 10px;
+    }
+    .body-text{
+      font-size: 10px;
+    }
+  }
+  @media screen and (max-width: 285px) {
+    label {
+      font-size: 8px;
+    }
+    h2 {
+      font-size: 8px;
+    }
+    .listing-info {
+      font-size: 10px;
+    }
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
 }
-.headertag-second {
-  font-family: "Montserrat";
-  font-weight: bold;
-  font-size: 14px;
-}
-.button-mobile {
-  font-family: "Montserrat";
-  font-size: 12px;
-}
-.tabs-mobile {
-  font-family: "Montserrat";
-  font-weight: bold;
-  font-size: 12px;
-}
-.body-text-mobile {
-  font-family: "Open Sans";
-  font-size: 12px;
-}
-.input-field-mobile {
-  font-family: "Open Sans";
-  font-size: 12px;
-}
-.icon-mobile {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-.listing-info-mobile {
-  font-weight: 600;
-  font-family: "open sans";
-  font-size: 12px;
-}
-.icon-info-mobile {
-  font-family: "open sans";
-  font-size: 12px;
-}
-.empty-message-mobile {
-  font-family: "Montserrat";
-  font-size: 12px;
-  font-weight: 500;
-}
-.error-message-mobile {
-  font-family: "Montserrat";
-  font-weight: 500;
-  font-size: 12px;
-  font-style: italic;
-}
+

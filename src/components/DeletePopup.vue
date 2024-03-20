@@ -1,21 +1,3 @@
-<template>
-  <section class="delete-page">
-    <div class="delete-page-layout">
-      <div class="delete-content">
-        <h2>Delete listing</h2>
-        <p class="body-text">Are you sure you want to delete this listing? This action cannot be undone.</p>
-        <div class="options">
-          <button class="choose-to-delete" @click.stop="deleteListing()">
-            YES, DELETE
-          </button>
-          <button class="choose-to-delete" @click.stop="$emit('close')">
-            GO BACK
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
 <script>
 import housingApiService from '../services/HousingApiServices'
 export default {
@@ -46,8 +28,28 @@ export default {
 };
 </script>
 
+<template>
+  <section class="delete-page">
+    <div class="delete-page-layout">
+      <div class="delete-content">
+        <h2>Delete listing</h2>
+        <p class="body-text">Are you sure you want to delete this listing? This action cannot be undone.</p>
+        <div class="options">
+          <button class="choose-to-delete" @click.stop="deleteListing()">
+            YES, DELETE
+          </button>
+          <button class="choose-to-delete" @click.stop="$emit('close')">
+            GO BACK
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+
 <style>
-/* Media query for desktop screens */
+/*desktop screens */
 .delete-page {
   margin-top: 80px;
   display: flex;
@@ -84,7 +86,6 @@ export default {
 .delete-content {
   width: 400px;
   height: 300px;
-
   border-radius: 5px;
   text-align: center;
 }
@@ -114,65 +115,45 @@ export default {
 /* Media query for mobile screens */
 @media screen and (max-width: 768px) {
   .delete-page {
-    margin-top: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+    margin-top: 0px;
   }
 
   .delete-page-layout {
-    border: none;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    height: 40%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 1;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    flex-direction: column;
+    margin: 0 auto;
+    width: 60%;
+    height: 30%;
+
   }
 
   .delete-content {
     width: 80%;
     height: 80%;
 
-    border-radius: 5px;
-    text-align: center;
   }
 
   .choose-to-delete {
-    height: 40px;
-    width: 70%;
+    height: 30px;
+    width: 60%;
     margin-top: 5px;
     border-radius: 5px;
     border: none;
-    color: rgb(255, 255, 255);
-    background-color: rgb(74, 75, 76);
     font-family: "Montserrat";
     font-size: 12px;
   }
 
-  .body-text {
-    font-family: "Open Sans";
-    font-size: 12px;
+}
+
+@media screen and (max-width: 430px) {
+  .delete-page-layout {
+    width: 90%;
+    height: 30%;
+
   }
 
-  h2 {
-    font-family: "Montserrat";
-    font-weight: bold;
-    font-size: 14px;
+  .delete-content {
+    width: 90%;
+    height: 80%;
+
   }
 }
 </style>

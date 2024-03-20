@@ -1,3 +1,10 @@
+<script>
+export default {
+  name: 'About',
+  inheritAttrs: false
+};
+</script>
+
 <template>
   <div class="about-page">
     <section class="about-section layout">
@@ -39,14 +46,9 @@
 
 </template>
 
-<script>
-export default {
-  name: 'About',
-  inheritAttrs: false
-};
-</script>
 
-<style>
+
+<style scoped>
 /* desktop view */
 .about-page {
   display: flex;
@@ -67,7 +69,6 @@ export default {
 
 .about-para p {
   line-height: 2;
-
   width: inherit;
   margin-top: 1rem;
 }
@@ -100,11 +101,7 @@ export default {
 /* Media query for mobile screens */
 @media screen and (max-width: 768px) {
   .about-page {
-    display: flex;
-    justify-content: center;
     margin: 0;
-    background-color: rgb(246, 246, 246);
-    height: 100vh;
   }
 
   .mobile-only {
@@ -114,25 +111,23 @@ export default {
   }
 
   .layout {
+    max-width: 90%;
     margin-top: 0;
     padding: 10px;
   }
 
   .about-section {
     padding-top: 2rem;
-    text-align: justify;
+
   }
 
   .about-para p {
     line-height: 1rem;
 
-    width: inherit;
-    margin-top: 1rem;
   }
 
   .about-info {
-    display: flex;
-    align-items: center;
+
     margin-top: 1rem;
     padding: auto;
   }
@@ -142,19 +137,18 @@ export default {
     height: 2rem;
     width: 5rem;
   }
+}
 
-  .about-text {
-    line-height: 0.2;
+@media screen and (max-width: 300px) {
+  .about-page {
+    min-width: 300px;
+
   }
 
-  .about-text a {
-    text-decoration: none;
-  }
-
-  h1 {
-    font-family: "Montserrat";
-    font-weight: bold;
-    font-size: 18px;
+  .about-logo img {
+    margin-right: 2rem;
+    height: 2rem;
+    width: 3rem;
   }
 
 }
