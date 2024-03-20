@@ -23,7 +23,7 @@ export default {
 .houses-icons {
     display: flex;
     align-items: center;
-
+ 
     font-family: "Open sans";
     gap: 15px;
 }

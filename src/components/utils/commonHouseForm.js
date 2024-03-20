@@ -64,7 +64,6 @@ export default {
         alert("Construction year must be above 1900.");
         return;
       }
-
       try {
         let response;
         // if edit mode, setting house details
@@ -78,8 +77,11 @@ export default {
         else {
           response = await housingApiServices.createHouse(this.houseDetail);
         }
-
-        if (response.status === 201 || response.status === 204) {
+        if (
+          response.status === 201 ||
+          response.status === 204 ||
+          response.status === 200
+        ) {
           let houseId;
           if (response && response.data.id) {
             houseId = response.data.id;

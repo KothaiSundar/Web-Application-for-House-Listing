@@ -52,7 +52,6 @@ export default {
         },
 
         updateSearchQuery(newQuery) {
-            console.log('updateSearchQuery house:', newQuery);
 
             this.searchQuery = newQuery;
             if (!newQuery) {
@@ -177,7 +176,7 @@ export default {
 }
 
 .no-results-content {
-     position: absolute;
+    position: absolute;
     width: 500px;
     height: 50%;
     top: 50px;

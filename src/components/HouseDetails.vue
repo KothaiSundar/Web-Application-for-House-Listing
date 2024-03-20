@@ -143,7 +143,7 @@ export default {
                     <delete-popup v-if="showDeleteModal" :houseId="selectedHouseId"
                       @houseDeleted="$emit('onAfterDelete')" @close="showDeleteModal = false"></delete-popup></span>
                 </div> -->
-                <house-action class="edit-actions-mobile" isHouseDetailMobile=true v-if="house.madeByMe"
+                <house-action class="edit-actions-mobile" :isHouseDetailMobile=true v-if="house.madeByMe"
                   :house="house" />
 
               </div> <!-- edit-icons-mobile ends -->

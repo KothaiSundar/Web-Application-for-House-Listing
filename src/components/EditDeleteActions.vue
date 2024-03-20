@@ -55,7 +55,6 @@ export default {
     },
     methods: {
         showDeletePopup(houseId) {
-            console.log('edit');
             if (houseId) {
                 this.selectedHouseId = houseId;
                 this.showDeleteModal = true;
@@ -113,7 +112,7 @@ export default {
         width: 70px;
         right: 5px;
         display: flex;
-       
+
     }
 
     .edit-actions-details-mobile img {

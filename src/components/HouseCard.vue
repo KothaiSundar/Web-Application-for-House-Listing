@@ -94,10 +94,10 @@ export default {
 }
 
 .houses-details {
-    display: flex;
+      display: flex;
     flex-direction: column;
     text-align: left;
-    line-height: 5px;
+    line-height: 7px;
 }
 
 @media (min-width:769px)and (max-width: 2000px) {
