@@ -54,7 +54,7 @@ export default {
                 <div>CREATE NEW</div>
             </button>
             <button class="create-new-btn-mobile mobile-only" @click.stop="createHouse()">
-                <img src="../assets/images/ic_plus_grey@3x.png" alt="plus-icon">
+                <img src="../assets/images/ic_plus_grey@3x.png" alt="plus-icon" class="icon">
             </button>
         </div>
 
@@ -64,7 +64,7 @@ export default {
                 <input type="text" id="searchByCity" placeholder="Search by City" class="search-bar input-field"
                     :value="localSearchQuery" @input="updateSearchQuery($event.target.value)">
 
-                <img v-if="localSearchQuery" src="../assets/images/ic_clear@3x.png" alt="clear-icon" class="clear-class"
+                <img v-if="localSearchQuery" src="../assets/images/ic_clear@3x.png" alt="clear-icon" class="clear-class icon"
                     @click="clearSearch()" />
             </div> <!-- search-bar-input ends -->
 
@@ -158,6 +158,15 @@ export default {
     height: 60px;
 }
 
+.clear-class {
+    cursor: pointer;
+    margin-right: 10px;
+   }
+
+.clear-class[style*="display: none;"] {
+    display: none;
+}
+
 .sort-buttons {
     display: flex;
     align-items: center;
@@ -200,7 +209,7 @@ button {
 
 /* Media query for mobile screens */
 @media screen and (max-width: 768px) {
-    .mobile1-only {
+    .mobile-only {
         display: block;
     }
 
@@ -235,7 +244,7 @@ button {
         margin: auto;
     }
 
-    .create-new-btn img {
+    .create-new-btn-mobile img {
         height: 20px;
         width: 20px;
         margin-right: 1rem;
@@ -257,18 +266,6 @@ button {
         display: flex;
         align-items: center;
     }
-
-    .clear-class {
-        cursor: pointer;
-        margin-right: 10px;
-        height: 20px;
-        width: 20px;
-    }
-
-    .clear-class[style*="display: none;"] {
-        display: none;
-    }
-
     .sort-buttons {
         width: 100%;
         margin-top: 20px;

@@ -98,11 +98,11 @@ export default {
     line-height: 7px;
 }
 
-@media (min-width:769px)and (max-width: 2000px) {
+/* @media (min-width:769px)and (max-width: 2000px) {
     .house-card-details {
         position: sticky;
     }
-}
+} */
 
 @media screen and (max-width: 768px) {
     .house-card {
