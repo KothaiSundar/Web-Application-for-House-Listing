@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 
 export const useHouseStore = defineStore("house", {
-  // Include state as before
   state: () => ({
     currentListing: null,
   }),

@@ -39,6 +39,6 @@ export default {
 </script>
 
 <style scoped>
-@import './components/assets/styles/styles.css';
-@import './components/assets/styles/mobile.css';
+@import './assets/styles/base.css';
+@import './assets/styles/mobileBase.css';
 </style>
