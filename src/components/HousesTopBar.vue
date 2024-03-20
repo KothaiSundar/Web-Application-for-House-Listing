@@ -1,41 +1,3 @@
-<template>
-    <div class="top-bar">
-        <div class="heading">
-            <h1>HousesGen</h1>
-            <button class="create-new-btn desktop-only" @click.stop="createHouse()">
-                <img src="../assets/images/ic_plus_white@3x.png" alt="plus_icon" class="icon">
-                <div>CREATE NEW</div>
-            </button>
-            <button class="create-new-btnnew mobile1-only" @click.stop="createHouse()">
-                <img src="./assets/ic_plus_grey@3x.png" alt="plus-icon">
-            </button>
-        </div>
-
-        <div class="sorting">
-            <div class="search-barInput">
-                <img src="../assets/images/ic_search@3x.png" alt="search-icon" class="search-icon">
-                <input type="text" id="searchByCity" placeholder="Search by City" class="search-bar input-field"
-                    :value="localSearchQuery" @input="updateSearchQuery($event.target.value)">
-
-                <img v-if="localSearchQuery" src="../assets/images/ic_clear@3x.png" alt="clear-icon" class="clear-class"
-                    @click="clearSearch()" />
-            </div> <!-- search-bar-input ends -->
-
-            <div class="sort-buttons">
-                <button class="sort-btn-price" :class="{ active: sortBy === 'price' }" @click="setSort('price')">
-                    Price
-                </button>
-                <button class="sort-btn-size" :class="{ active: sortBy === 'size' }" @click="setSort('size')">
-                    Size
-                </button>
-            </div><!-- sort buttons ends -->
-        </div><!-- sorting ends -->
-        <div class="search-result" v-if="searchMessage">
-            <p class="listing-info">{{ searchMessage }}</p>
-        </div>
-
-    </div>
-</template>
 <script>
 import { useHouseStore } from "../stores/house";
 
@@ -83,6 +45,46 @@ export default {
 
 </script>
 
+<template>
+    <div class="top-bar">
+        <div class="heading">
+            <h1>Houses</h1>
+            <button class="create-new-btn desktop-only" @click.stop="createHouse()">
+                <img src="../assets/images/ic_plus_white@3x.png" alt="plus_icon" class="icon">
+                <div>CREATE NEW</div>
+            </button>
+            <button class="create-new-btn-mobile mobile-only" @click.stop="createHouse()">
+                <img src="../assets/images/ic_plus_grey@3x.png" alt="plus-icon">
+            </button>
+        </div>
+
+        <div class="sorting">
+            <div class="search-barInput">
+                <img src="../assets/images/ic_search@3x.png" alt="search-icon" class="search-icon">
+                <input type="text" id="searchByCity" placeholder="Search by City" class="search-bar input-field"
+                    :value="localSearchQuery" @input="updateSearchQuery($event.target.value)">
+
+                <img v-if="localSearchQuery" src="../assets/images/ic_clear@3x.png" alt="clear-icon" class="clear-class"
+                    @click="clearSearch()" />
+            </div> <!-- search-bar-input ends -->
+
+            <div class="sort-buttons">
+                <button class="sort-btn-price" :class="{ active: sortBy === 'price' }" @click="setSort('price')">
+                    Price
+                </button>
+                <button class="sort-btn-size" :class="{ active: sortBy === 'size' }" @click="setSort('size')">
+                    Size
+                </button>
+            </div><!-- sort buttons ends -->
+        </div><!-- sorting ends -->
+        <div class="search-result" v-if="searchMessage">
+            <p class="listing-info">{{ searchMessage }}</p>
+        </div>
+
+    </div>
+</template>
+
+
 <style>
 .top-bar {
     padding-top: 30px;
@@ -92,7 +94,7 @@ export default {
     width: 100%;
 }
 
-.mobile1-only {
+.mobile-only {
     display: none;
 }
 
@@ -188,10 +190,11 @@ button {
 .sort-btn-size.active {
     background-color: rgb(235, 84, 64);
 }
+
 @media (min-width:769px)and (max-width: 1200px) {
-.search-barInput{
-  width: 40%;
-}
+    .search-barInput {
+        width: 40%;
+    }
 }
 
 
@@ -205,11 +208,14 @@ button {
         display: none;
     }
 
-    .create-new-btnnew img {
+    .create-new-btn-mobile {
+        border: none;
+        background: transparent;
+    }
+
+    .create-new-btn-mobile img {
         height: 20px;
         width: 20px;
-        /* margin-right: 1rem; */
-
     }
 
     .top-bar {
@@ -218,18 +224,15 @@ button {
         flex-direction: column;
         margin-bottom: 20px;
         width: 100%;
-
     }
 
     .heading {
         display: flex;
-
         padding: 0px;
     }
 
     .heading h1 {
         margin: auto;
-
     }
 
     .create-new-btn img {
@@ -241,7 +244,6 @@ button {
     .sorting {
         width: 100%;
         display: block;
-
         padding: 0px;
     }
 
@@ -254,7 +256,6 @@ button {
         padding-left: 2%;
         display: flex;
         align-items: center;
-
     }
 
     .clear-class {

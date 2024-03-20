@@ -78,7 +78,7 @@ export default {
     width: 100%;
 }
 
-.recommended-houses-card .listing-info,
+
 .recommended-houses-card .recommended-house-location,
 .recommended-houses-card .houses-address {
     font-size: 14px;

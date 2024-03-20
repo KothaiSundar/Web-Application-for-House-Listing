@@ -1,21 +1,3 @@
-<template>
-  <section class="delete-page">
-    <div class="delete-page-layout">
-      <div class="delete-content">
-        <h2>Delete listing</h2>
-        <p class="body-text">Are you sure you want to delete this listing? This action cannot be undone.</p>
-        <div class="options">
-          <button class="choose-to-delete" @click.stop="deleteListing()">
-            YES, DELETE
-          </button>
-          <button class="choose-to-delete" @click.stop="$emit('close')">
-            GO BACK
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
 <script>
 import housingApiService from '../services/HousingApiServices'
 export default {
@@ -45,6 +27,26 @@ export default {
   }
 };
 </script>
+
+<template>
+  <section class="delete-page">
+    <div class="delete-page-layout">
+      <div class="delete-content">
+        <h2>Delete listing</h2>
+        <p class="body-text">Are you sure you want to delete this listing? This action cannot be undone.</p>
+        <div class="options">
+          <button class="choose-to-delete" @click.stop="deleteListing()">
+            YES, DELETE
+          </button>
+          <button class="choose-to-delete" @click.stop="$emit('close')">
+            GO BACK
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
 
 <style>
 /*desktop screens */

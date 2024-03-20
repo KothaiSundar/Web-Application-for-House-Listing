@@ -1,8 +1,8 @@
 <script>
-import EditDeleteActions from "./EditDeleteActions.vue";
+import EditDeleteActions from "@/components/EditDeleteActions.vue";
 import housingApiService from "../services/HousingApiServices";
-import InfoItem from "./InfoItem.vue";
-import RecommendedHouses from "./RecommendedHouses.vue";
+import InfoItem from "@/components/InfoItem.vue";
+import RecommendedHouses from "@/components/RecommendedHouses.vue";
 
 export default {
   name: 'HouseDetails',
@@ -135,14 +135,7 @@ export default {
                 <button @click="goBack" class="back-icon-mobile">
                   <img src="../assets/images/ic_back_grey@3x.png" alt="back" class="back-icon-image">
                 </button>
-                <!-- <div class="edit-actions-mobile">
-                  <span class="edit"><img src="./assets/ic_edit_white@3x.png" alt="Edit"
-                      @click.stop="handleEdit" /></span>
-                  <span class="delete"><img src="./assets/ic_delete_white@3x.png" alt="Delete"
-                      @click.stop="showDeletePopup(house.id)" />
-                    <delete-popup v-if="showDeleteModal" :houseId="selectedHouseId"
-                      @houseDeleted="$emit('onAfterDelete')" @close="showDeleteModal = false"></delete-popup></span>
-                </div> -->
+
                 <house-action class="edit-actions-mobile" :isHouseDetailMobile=true v-if="house.madeByMe"
                   :house="house" />
 
@@ -167,7 +160,7 @@ export default {
                 </li>
               </ul>
 
-              <ul class="house-attributes">
+              <ul class="house-attributes listing-info">
                 <li v-for="(item, index) in attributeItems" :key="index">
                   <info-item :icon-src="item.iconSrc" :icon-alt="item.iconAlt" :text="item.text" />
                 </li>
@@ -181,7 +174,6 @@ export default {
             Loading details...
           </div>
         </div> <!-- house-details ends -->
-
 
         <recommended-houses v-if="house" class="house-recommended" :house="house" />
 
@@ -199,12 +191,12 @@ export default {
   background-color: rgb(246, 246, 246);
   height: 100%;
   min-height: 100vh;
+  width: 100%;
+  min-width: 100vw;
 }
-
 
 .house-details-layout {
   text-align: left;
-
 }
 
 .house-detailed-layout {
@@ -254,7 +246,6 @@ export default {
   min-height: 40vh;
   margin-bottom: 50px;
   display: flex;
-
 }
 
 .details-layout {
@@ -281,7 +272,8 @@ export default {
 .house-recommended {
   flex-basis: 30%;
   margin-left: 50px;
-  height: 550px;
+  min-height: 550px;
+  padding-bottom: 6rem;
 }
 
 .house-location {
@@ -326,16 +318,23 @@ export default {
 
 }
 
-@media screen and (max-width: 1200px) {
-  .house-detail-page {
-    width: 100%;
-    min-width: 90vw;
-  }
-
+@media (min-width: 768px) and (max-width: 950px) {
   .house-titlebar h1 {
-    width: 500px;
+    font-size: 16px;
+    width: 200px;
+
   }
 
+  .house-area li,
+  .house-attributes li {
+    list-style: none;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-right: 10px;
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -343,7 +342,6 @@ export default {
     display: none;
     width: 70%;
     min-width: 50vw;
-   
   }
 
   .house-detail-page {
@@ -415,11 +413,12 @@ export default {
     height: 50px;
     top: 25px;
     width: 100%;
-
   }
 
   .back-icon-mobile {
-    width: 50%;
+    width: 0px;
+    background-color: transparent;
+    border: none;
   }
 
   .back-icon-mobile img {
@@ -443,7 +442,8 @@ export default {
   .house-recommended {
     padding-left: 0px;
     height: 0px;
-    min-height: 28rem;
+    min-height: 30rem;
+
     padding: 0 auto;
     margin-left: 0px;
     flex-basis: none;
@@ -478,5 +478,39 @@ export default {
     text-align: justify;
   }
 
+}
+
+@media screen and (max-width: 400px) {
+
+  .house-area {
+    width: 300px;
+  }
+
+  .house-area li,
+  .house-attributes li {
+    gap: 8px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width:300px)and (max-width: 349px) {
+
+  .house-area {
+    width: 250px;
+  }
+
+  @media screen and (max-width: 299px) {
+
+
+    .house-area {
+      width: 0px;
+    }
+
+    .house-area li,
+    .house-attributes li {
+      gap: 3px;
+      padding-right: 5px;
+    }
+  }
 }
 </style>

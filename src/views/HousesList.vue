@@ -2,7 +2,7 @@
 import DeletePage from '../components/DeletePopup.vue';
 import HouseCard from '../components/HouseCard.vue';
 import housingApiService from "../services/HousingApiServices";
-import HousesTopBar from './HousesTopBar.vue';
+import HousesTopBar from '@/components/HousesTopBar.vue';
 
 export default {
     name: 'Houses',
@@ -142,7 +142,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 .houses-page {
     margin-top: 5rem;
     background-color: rgb(246, 246, 246);
@@ -213,7 +213,6 @@ export default {
     }
 
     .no-results img {
-
         height: 100px;
     }
 }
@@ -224,7 +223,6 @@ export default {
     }
 
     .no-results img {
-
         height: 50px;
     }
 }
@@ -251,7 +249,6 @@ export default {
 
     .no-results img {
         width: 200px;
-
     }
 
 }
@@ -264,7 +261,6 @@ export default {
 
     .no-results img {
         width: 100px;
-
     }
 
 }
@@ -286,14 +282,12 @@ export default {
     }
 
     .clear-class {
-
         height: 15px;
         width: 15px;
     }
 
     .sort-buttons {
         margin-top: 20px;
-
         height: 30px;
     }
 }

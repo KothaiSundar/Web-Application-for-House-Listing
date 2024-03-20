@@ -1,25 +1,3 @@
-<template>
-    <div>
-        <span v-if="!isHouseDetailMobile" class="houses-actions">
-            <img src="./assets/ic_edit@3x.png" alt="Edit" class=" edit-icon" @click.stop="handleEdit" />
-
-            <img src="./assets/ic_delete@3x.png" alt="Delete" class="delete-icon"
-                @click.stop="showDeletePopup(house.id)" />
-        </span>
-
-        <div v-if="isHouseDetailMobile" class="edit-actions-details-mobile">
-            <span class="edit"><img src="./assets/ic_edit_white@3x.png" alt="Edit" @click.stop="handleEdit" /></span>
-            <span class="delete"><img src="./assets/ic_delete_white@3x.png" alt="Delete"
-                    @click.stop="showDeletePopup(house.id)" />
-            </span>
-        </div>
-        <delete-popup v-if="showDeleteModal" :houseId="selectedHouseId" @houseDeleted="$emit('onAfterDelete')"
-            @close="showDeleteModal = false"></delete-popup>
-    </div>
-
-
-</template>
-
 <script>
 import DeletePage from '../components/DeletePopup.vue';
 import { useHouseStore } from "../stores/house";
@@ -68,6 +46,27 @@ export default {
     }
 };
 </script>
+
+<template>
+    <div>
+        <span v-if="!isHouseDetailMobile" class="houses-actions">
+            <img src="../assets/images/ic_edit@3x.png" alt="Edit" class=" edit-icon" @click.stop="handleEdit" />
+
+            <img src="../assets/images/ic_delete@3x.png" alt="Delete" class="delete-icon"
+                @click.stop="showDeletePopup(house.id)" />
+        </span>
+
+        <div v-if="isHouseDetailMobile" class="edit-actions-details-mobile">
+            <span class="edit"><img src="../assets/images/ic_edit_white@3x.png" alt="Edit"
+                    @click.stop="handleEdit" /></span>
+            <span class="delete"><img src="../assets/images/ic_delete_white@3x.png" alt="Delete"
+                    @click.stop="showDeletePopup(house.id)" />
+            </span>
+        </div>
+        <delete-popup v-if="showDeleteModal" :houseId="selectedHouseId" @houseDeleted="$emit('onAfterDelete')"
+            @close="showDeleteModal = false"></delete-popup>
+    </div>
+</template>
 
 <style>
 .houses-actions {

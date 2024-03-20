@@ -1,3 +1,10 @@
+<script>
+export default {
+  name: 'About',
+  inheritAttrs: false
+};
+</script>
+
 <template>
   <div class="about-page">
     <section class="about-section layout">
@@ -39,12 +46,7 @@
 
 </template>
 
-<script>
-export default {
-  name: 'About',
-  inheritAttrs: false
-};
-</script>
+
 
 <style scoped>
 /* desktop view */
@@ -109,23 +111,23 @@ export default {
   }
 
   .layout {
-    max-width:90%;
+    max-width: 90%;
     margin-top: 0;
     padding: 10px;
   }
 
   .about-section {
     padding-top: 2rem;
-   
+
   }
 
   .about-para p {
     line-height: 1rem;
-   
+
   }
 
   .about-info {
-  
+
     margin-top: 1rem;
     padding: auto;
   }
@@ -136,17 +138,18 @@ export default {
     width: 5rem;
   }
 }
+
 @media screen and (max-width: 300px) {
-  .about-page{
-    min-width:300px;
- 
+  .about-page {
+    min-width: 300px;
+
   }
- 
-.about-logo img {
+
+  .about-logo img {
     margin-right: 2rem;
     height: 2rem;
     width: 3rem;
   }
-  
-  }
+
+}
 </style>

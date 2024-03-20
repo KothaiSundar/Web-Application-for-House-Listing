@@ -1,21 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
-import ResponsiveHouses from "../views/ResponsiveHouses.vue";
-import ResponsiveHouseForm from "../views/ResponsiveHouseForm.vue";
-import ResponsiveHouseDetails from "../views/ResponsiveHouseDetails.vue";
-import About from "../views/About.vue";
-import HousesGen from "@/components/HousesGen.vue";
-import HouseDetails from "@/components/HouseDetails.vue";
-import HouseForm from "@/components/HouseForm.vue";
+import About from "@/views/About.vue";
+import HousesList from "@/views/HousesList.vue";
+import HouseDetails from "@/views/HouseDetails.vue";
+import HouseForm from "@/views/HouseForm.vue";
 const routes = [
   { path: "/", redirect: "/houses" },
-  // {
-  //   name: "Houses",
-  //   component: ResponsiveHouses,
-  //   path: "/houses",
-  // },
+
   {
     name: "Create",
-    component:HouseForm,
+    component: HouseForm,
     path: "/house/create",
   },
   {
@@ -23,19 +16,14 @@ const routes = [
     component: HouseForm,
     path: "/house/edit",
   },
-  // {
-  //   name: "HouseDetails",
-  //   component: ResponsiveHouseDetails,
-  //   path: "/houses/:id",
-  //   props: (route) => ({ id: Number(route.params.id) }),
-  // },
-
   {
     name: "About",
     component: About,
     path: "/About",
   },
-  { name: "HousesGen", component: HousesGen, path: "/houses" },
+  { name: "HousesList", 
+  component: HousesList,
+  path: "/houses" },
 
   {
     name: "HouseDetails",

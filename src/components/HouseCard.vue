@@ -70,11 +70,9 @@ export default {
     display: flex;
     align-items: flex-start;
     padding: 20px;
-
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);
-
     border-radius: 10px;
 }
 
@@ -94,7 +92,7 @@ export default {
 }
 
 .houses-details {
-      display: flex;
+    display: flex;
     flex-direction: column;
     text-align: left;
     line-height: 7px;
@@ -126,8 +124,6 @@ export default {
     .houses-details {
         line-height: 5px;
         width: 100%;
-
-
     }
 
     .house-location,
@@ -184,7 +180,6 @@ export default {
 
     .houses-details {
         line-height: 5px;
-
     }
 
     .house-card-details {
@@ -202,18 +197,15 @@ export default {
     .houses-image {
         width: 120px;
         height: 120px;
-
     }
 
     .houses-address {
         width: 150px;
-
     }
 
     .house-location,
     .houses-address {
         font-size: 14px;
-
     }
 
     .houses-icons {
@@ -228,6 +220,7 @@ export default {
         padding: 5px;
         margin-bottom: 5px;
     }
+
     .houses-details {
         line-height: 1px;
     }
@@ -248,6 +241,7 @@ export default {
         padding: 5px;
         margin-bottom: 5px;
     }
+
     .houses-image {
         width: 110px;
         height: 110px;
